@@ -3,367 +3,277 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Campus Certifications Cyber</title>
+<title>Georges Cabo · Audit IT et sécurité de l'information</title>
+<meta name="description" content="Georges Cabo : audit des systèmes d'information et sécurité de l'information. CV, cours de certification (ISO 27001, Security+, CISA, CISM, CISSP) et outils.">
+<script>
+/* Anciennes adresses du type georgilearning.academy/#iso27001-li : renvoi vers la rubrique Learning. */
+(function(){var h=location.hash.slice(1);if(h&&!/^(accueil|cv|learning|outils|contact)$/.test(h)){location.replace('learning/#'+h);}})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* Mise en page : barre latérale fixe (plan du cours) + colonne de lecture ~68 caractères ; un fil vert-bleu "SMSI" sert d'accent. */
 :root{
   --bg:#f5f7f8; --surface:#ffffff; --ink:#17232b; --muted:#56656f; --line:#d9e1e5;
-  --accent:#0d6e6e; --accent-soft:#e1f0ef; --ok:#1f7a3a; --ok-soft:#e3f3e7; --bad:#b3261e; --bad-soft:#fbe7e5; --warn:#8a5a00; --warn-soft:#fff3d6;
-  --display:"Fraunces", Georgia, "Times New Roman", serif;
-  --body:"IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --accent:#0d6e6e; --accent-soft:#e1f0ef; --warn:#8a5a00; --warn-soft:#fff3d6;
+  --display:"Fraunces", Georgia, serif; --body:"IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif; --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0f1619; --surface:#162126; --ink:#e4ecef; --muted:#9aabb3; --line:#2a3a41;
-    --accent:#4fc1bd; --accent-soft:#173634; --ok:#6fd08c; --ok-soft:#163323; --bad:#ff8a80; --bad-soft:#3a1c1a; --warn:#f2c46b; --warn-soft:#3a2f14;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0f1619; --surface:#162126; --ink:#e4ecef; --muted:#9aabb3; --line:#2a3a41;
-  --accent:#4fc1bd; --accent-soft:#173634; --ok:#6fd08c; --ok-soft:#163323; --bad:#ff8a80; --bad-soft:#3a1c1a; --warn:#f2c46b; --warn-soft:#3a2f14;
-  color-scheme: dark;
+  :root{--bg:#0f1619; --surface:#162126; --ink:#e4ecef; --muted:#9aabb3; --line:#2a3a41; --accent:#4fc1bd; --accent-soft:#173634; --warn:#f2c46b; --warn-soft:#3a2f14; color-scheme: dark;}
 }
 *{box-sizing:border-box}
-html,body{margin:0;height:100%}
+html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
 a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.layout{display:grid;grid-template-columns:290px 1fr;min-height:100%}
-nav.side{background:var(--surface);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;overflow-y:auto}
-.brand{font-family:var(--display);font-size:1.25rem;line-height:1.2;margin:0 0 4px}
-.brand-sub{font-size:.8rem;color:var(--muted);margin:0 0 20px}
-.navgroup{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 8px 6px}
-nav.side a{display:flex;gap:10px;align-items:baseline;padding:7px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:.92rem}
-nav.side a .n{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:22px}
-nav.side a:hover{background:var(--accent-soft)}
-nav.side a.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
-nav.side a .done{margin-left:auto;color:var(--ok);font-size:.8rem}
-main{padding:40px 24px 80px;display:flex;justify-content:center}
-.page{width:100%;max-width:760px}
-.eyebrow{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.04em;margin:0 0 6px}
-h1{font-family:var(--display);font-size:2.2rem;line-height:1.15;margin:0 0 12px;text-wrap:balance}
-h2{font-family:var(--display);font-size:1.45rem;line-height:1.25;margin:36px 0 10px;text-wrap:balance}
-h3{font-size:1.05rem;margin:24px 0 6px}
-p,li{max-width:68ch}
-.lead{font-size:1.08rem;color:var(--muted)}
-.clause{font-family:var(--mono);font-size:.82rem;background:var(--accent-soft);color:var(--accent);padding:1px 6px;border-radius:4px;white-space:nowrap}
-.box{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--surface);border-radius:8px;padding:14px 18px;margin:18px 0}
-.box.tip{border-left-color:var(--warn);background:var(--warn-soft)}
-.box.key{border-left-color:var(--ok)}
-.box h4{margin:0 0 6px;font-size:.95rem}
-.box p:last-child,.box ul:last-child{margin-bottom:0}
-.tablewrap{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
-table{border-collapse:collapse;width:100%;font-size:.9rem}
-th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:var(--accent-soft);font-weight:600}
-tr:last-child td{border-bottom:none}
-td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-.new{font-size:.7rem;font-weight:600;color:var(--ok);background:var(--ok-soft);padding:1px 6px;border-radius:10px;margin-left:6px;white-space:nowrap}
-.pager{display:flex;justify-content:space-between;gap:12px;margin-top:48px;border-top:1px solid var(--line);padding-top:20px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-weight:500;font-size:.95rem;padding:9px 16px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);cursor:pointer;text-decoration:none}
-.btn.ghost{background:transparent;color:var(--accent)}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px}
-a.card:hover{border-color:var(--accent)}
-.card .t{font-weight:600}
-.card .d{font-size:.85rem;color:var(--muted)}
-.stat{font-family:var(--display);font-size:2rem;color:var(--accent);line-height:1}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
-.chip{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+header.top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar{max-width:1040px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--ink);text-decoration:none;margin-right:auto}
+nav.main{display:flex;gap:4px;flex-wrap:wrap}
+nav.main a{padding:6px 12px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:.93rem}
+nav.main a:hover{background:var(--accent-soft)}
+nav.main a.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.lang{display:flex;gap:6px}
+.chip{font:inherit;font-size:.82rem;padding:4px 11px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-.q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:0 0 16px}
-.q .meta{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.q .stem{font-weight:500;margin:0 0 12px}
-.opt{display:block;width:100%;text-align:left;font:inherit;padding:10px 14px;margin:6px 0;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);cursor:pointer}
-.opt:hover:not(:disabled){border-color:var(--accent)}
-.opt .l{font-family:var(--mono);font-weight:500;margin-right:8px;color:var(--muted)}
-.opt.chosen{border-color:var(--accent);background:var(--accent-soft)}
-.opt.right{border-color:var(--ok);background:var(--ok-soft)}
-.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
-.opt:disabled{cursor:default}
-.expl{margin-top:12px;padding:12px 14px;border-radius:8px;font-size:.93rem;background:var(--accent-soft)}
-.expl strong{display:block;margin-bottom:2px}
-.scorebar{display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:0 0 16px;position:sticky;top:8px;z-index:2}
-.scorebar .s{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.pill{font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:12px}
-.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.bad{background:var(--bad-soft);color:var(--bad)}
-.result{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin:0 0 20px}
-.menu-btn{display:none}
+main{max-width:1040px;margin:0 auto;padding:40px 20px 80px}
+.eyebrow{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.04em;margin:0 0 6px}
+h1{font-family:var(--display);font-size:2.5rem;line-height:1.12;margin:0 0 14px;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.5rem;line-height:1.25;margin:40px 0 12px;text-wrap:balance}
+h3{font-size:1.05rem;margin:0 0 4px}
+p,li{max-width:68ch}
+.lead{font-size:1.12rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:18px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:6px;color:var(--ink);text-decoration:none}
+a.card:hover{border-color:var(--accent)}
+.card .d{font-size:.9rem;color:var(--muted)}
+.tag{align-self:flex-start;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
+.tag.soon{background:var(--warn-soft);color:var(--warn)}
+.btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-weight:500;font-size:.95rem;padding:10px 18px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--accent)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.note{border:1px solid var(--line);border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:8px;padding:12px 16px;margin:18px 0;font-size:.93rem}
+.cv{display:grid;grid-template-columns:240px 1fr;gap:28px}
+.cv aside{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;align-self:start}
+.cv aside h3{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+.cv aside h3:first-child{margin-top:0}
+.cv aside ul{margin:0;padding-left:18px;font-size:.92rem}
+.job{border-left:2px solid var(--line);padding:0 0 18px 16px;margin-left:4px}
+.job .when{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.ph{background:var(--warn-soft);border-radius:3px;padding:0 4px}
+form.calc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;align-items:end}
+label{display:flex;flex-direction:column;gap:4px;font-size:.88rem;font-weight:500}
+input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.out{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.05rem}
+.out strong{font-family:var(--display);font-size:1.6rem;color:var(--accent)}
 details{background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:0 14px}
 details summary{cursor:pointer;padding:10px 0;font-weight:600}
-@media (max-width:860px){
-  .layout{grid-template-columns:1fr}
-  nav.side{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:none}
-  nav.side.open{display:block}
-  .menu-btn{display:inline-flex;margin:12px 16px 0}
-  main{padding:20px 16px 60px}
-  h1{font-size:1.7rem}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer .bar{padding:18px 20px}
+@media (max-width:760px){ .cv{grid-template-columns:1fr} h1{font-size:1.9rem} main{padding:24px 16px 60px} }
+@media print{ header.top,footer,.actions,.note{display:none} body{background:#fff;color:#000} }
 </style>
 </head>
 <body>
-<button class="btn ghost menu-btn" id="menuBtn" type="button" aria-expanded="false">Plan du cours</button>
-<div class="layout">
-<nav class="side" id="side" aria-label="Plan du cours"></nav>
-<main><div class="page" id="page"></div></main>
-</div>
-<script>window.CERTS=[];window.CATALOG=[];</script>
-<script src="certs/catalogue.js"></script>
-<script src="certs/iso27001-li.js"></script>
-<script src="certs/iso27001-li-qcm.js"></script>
-<script src="certs/secplus.js"></script>
-<script src="certs/secplus-qcm.js"></script>
-<script src="certs/cisa.js"></script>
-<script src="certs/cisa-qcm.js"></script>
-<script src="certs/cism.js"></script>
-<script src="certs/cism-qcm.js"></script>
-<script src="certs/cissp.js"></script>
-<script src="certs/cissp-qcm.js"></script>
+<header class="top"><div class="bar">
+  <a class="logo" href="#accueil">Georges Cabo</a>
+  <nav class="main" id="nav" aria-label="Menu"></nav>
+  <div class="lang" role="group" aria-label="Langue / Language">
+    <button type="button" class="chip" data-lang="fr">FR</button>
+    <button type="button" class="chip" data-lang="en">EN</button>
+  </div>
+</div></header>
+<main id="page"></main>
+<footer><div class="bar" id="foot"></div></footer>
 <script>
-(function(){
-const $page = document.getElementById('page');
-const $side = document.getElementById('side');
 const store = {
   get(k, d){ try{ const v = localStorage.getItem('campus:' + k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
   set(k, v){ try{ localStorage.setItem('campus:' + k, JSON.stringify(v)); }catch(e){} }
 };
+let LANG = store.get('lang', null) || ((navigator.language || 'fr').toLowerCase().startsWith('fr') ? 'fr' : 'en');
+
+/* ===== Contenu bilingue. Pour mettre à jour le CV : modifier CV.fr et CV.en ci-dessous. ===== */
+const T = {
+  fr:{ nav:{accueil:"Accueil",cv:"CV",learning:"Learning",outils:"Outils",contact:"Contact"},
+    title:"Georges Cabo · Audit IT et sécurité de l'information",
+    eyebrow:"AUDIT IT · SÉCURITÉ DE L'INFORMATION · GOUVERNANCE",
+    h1:"Rendre la sécurité de l'information mesurable, auditable et utile au métier.",
+    lead:"Auditeur des systèmes d'information, je travaille sur la gouvernance IT, les contrôles généraux informatiques et les systèmes de management de la sécurité (ISO/IEC 27001). Ce site réunit mon CV, mes cours de certification et des outils pratiques.",
+    seeCv:"Voir mon CV", goLearning:"Accéder aux cours",
+    modules:"Sur ce site",
+    m:[
+      ["cv","CV","Parcours, compétences et certifications, en français et en anglais.",""],
+      ["learning","Learning","Cours et QCM corrigés : ISO 27001 Lead Implementer, Security+, CISA, CISM, CISSP. Interface en français et en anglais ; le cours ISO 27001 est déjà traduit, les autres suivent.",""],
+      ["outils","Outils","Calculatrice de risque (ALE) et glossaire bilingue de l'audit et de la sécurité.",""],
+      ["contact","Contact","Me joindre pour une mission d'audit, un accompagnement ISO 27001 ou une formation.",""],
+      [null,"Portfolio d'audit","Cas d'audit anonymisés : contexte, démarche, constats et recommandations.","soon"],
+      [null,"Boîte à outils","Modèles téléchargeables : DdA, matrice de risques, check-list ITGC.","soon"],
+      [null,"Blog et veille","Notes sur les normes, la réglementation et l'actualité cyber.","soon"]
+    ],
+    soon:"Bientôt", open:"Ouvrir",
+    cvTitle:"Curriculum vitæ", print:"Imprimer / PDF",
+    cvNote:"Les éléments surlignés sont provisoires : envoie ton CV actuel pour que je les remplace par tes vraies informations.",
+    toolsTitle:"Outils",
+    aleTitle:"Calculatrice de perte annuelle attendue (ALE)",
+    aleLead:"SLE = valeur de l'actif × facteur d'exposition ; ALE = SLE × ARO (fréquence annuelle). Utile pour comparer le coût d'une mesure à la perte qu'elle évite.",
+    av:"Valeur de l'actif", ef:"Facteur d'exposition (%)", aro:"Occurrences par an (ARO)", cost:"Coût annuel de la mesure (facultatif)", cur:"FCFA",
+    sle:"SLE", ale:"ALE", worth:"La mesure coûte moins que la perte annuelle attendue : elle se justifie financièrement.", notWorth:"La mesure coûte plus que la perte annuelle attendue : à justifier autrement (exigence légale, image…).",
+    gloTitle:"Glossaire bilingue",
+    contactTitle:"Contact",
+    contactLead:"Pour une mission d'audit, un accompagnement à la mise en œuvre d'un SMSI ou une session de formation.",
+    contactNote:"Coordonnées à compléter : indique-moi l'adresse électronique et le profil LinkedIn que tu veux afficher publiquement.",
+    foot:"© 2026 Georges Cabo · georgilearning.academy" },
+  en:{ nav:{accueil:"Home",cv:"Resume",learning:"Learning",outils:"Tools",contact:"Contact"},
+    title:"Georges Cabo · IT audit and information security",
+    eyebrow:"IT AUDIT · INFORMATION SECURITY · GOVERNANCE",
+    h1:"Making information security measurable, auditable and useful to the business.",
+    lead:"As an information systems auditor, I work on IT governance, IT general controls and information security management systems (ISO/IEC 27001). This site brings together my resume, my certification courses and practical tools.",
+    seeCv:"View my resume", goLearning:"Go to the courses",
+    modules:"On this site",
+    m:[
+      ["cv","Resume","Background, skills and certifications, in English and French.",""],
+      ["learning","Learning","Courses and practice questions: ISO 27001 Lead Implementer, Security+, CISA, CISM, CISSP. Interface in English and French; the ISO 27001 course is already translated, others are coming.",""],
+      ["outils","Tools","Risk calculator (ALE) and bilingual audit and security glossary.",""],
+      ["contact","Contact","Reach me for an audit engagement, ISO 27001 support or training.",""],
+      [null,"Audit portfolio","Anonymized audit cases: context, approach, findings and recommendations.","soon"],
+      [null,"Toolkit","Downloadable templates: SoA, risk matrix, ITGC checklist.","soon"],
+      [null,"Blog and news","Notes on standards, regulation and cyber news.","soon"]
+    ],
+    soon:"Coming soon", open:"Open",
+    cvTitle:"Resume", print:"Print / PDF",
+    cvNote:"Highlighted items are placeholders until the current resume is provided.",
+    toolsTitle:"Tools",
+    aleTitle:"Annualized loss expectancy (ALE) calculator",
+    aleLead:"SLE = asset value × exposure factor; ALE = SLE × ARO (annual rate of occurrence). Useful to compare the cost of a control with the loss it prevents.",
+    av:"Asset value", ef:"Exposure factor (%)", aro:"Occurrences per year (ARO)", cost:"Annual cost of the control (optional)", cur:"XOF",
+    sle:"SLE", ale:"ALE", worth:"The control costs less than the expected annual loss: it is financially justified.", notWorth:"The control costs more than the expected annual loss: justify it otherwise (legal requirement, reputation…).",
+    gloTitle:"Bilingual glossary",
+    contactTitle:"Contact",
+    contactLead:"For an audit engagement, support implementing an ISMS or a training session.",
+    contactNote:"Contact details to be added.",
+    foot:"© 2026 Georges Cabo · georgilearning.academy" }
+};
+
+const CV = {
+  fr:{ name:"Georges Cabo", role:"Auditeur des systèmes d'information", place:"<span class=\"ph\">Ville, pays</span>",
+    summary:"<span class=\"ph\">Résumé de profil à compléter : années d'expérience, secteurs (banque, télécoms, secteur public…), types de missions.</span>",
+    side:[
+      ["Compétences",["Audit des contrôles généraux informatiques (ITGC)","Gestion des changements et des accès","ISO/IEC 27001 et 27002:2022","Appréciation et traitement des risques","Rédaction de rapports d'audit"]],
+      ["Certifications",["ISO/IEC 27001 Lead Implementer (PECB) : en préparation","<span class=\"ph\">Autres certifications à compléter</span>"]],
+      ["Langues",["Français : langue maternelle","Anglais : <span class=\"ph\">niveau à préciser</span>"]]
+    ],
+    expTitle:"Expérience",
+    jobs:[
+      ["<span class=\"ph\">Période</span>","<span class=\"ph\">Poste · Employeur</span>",["<span class=\"ph\">Réalisation principale</span>","<span class=\"ph\">Réalisation principale</span>"]],
+      ["<span class=\"ph\">Période</span>","<span class=\"ph\">Poste · Employeur</span>",["<span class=\"ph\">Réalisation principale</span>"]]
+    ],
+    eduTitle:"Formation",
+    edu:[["<span class=\"ph\">Année</span>","<span class=\"ph\">Diplôme · Établissement</span>"]] },
+  en:{ name:"Georges Cabo", role:"Information systems auditor", place:"<span class=\"ph\">City, country</span>",
+    summary:"<span class=\"ph\">Profile summary to be completed: years of experience, sectors (banking, telecoms, public sector…), types of engagements.</span>",
+    side:[
+      ["Skills",["IT general controls (ITGC) audit","Change and access management","ISO/IEC 27001 and 27002:2022","Risk assessment and treatment","Audit report writing"]],
+      ["Certifications",["ISO/IEC 27001 Lead Implementer (PECB): in preparation","<span class=\"ph\">Other certifications to be added</span>"]],
+      ["Languages",["French: native","English: <span class=\"ph\">level to be specified</span>"]]
+    ],
+    expTitle:"Experience",
+    jobs:[
+      ["<span class=\"ph\">Period</span>","<span class=\"ph\">Position · Employer</span>",["<span class=\"ph\">Key achievement</span>","<span class=\"ph\">Key achievement</span>"]],
+      ["<span class=\"ph\">Period</span>","<span class=\"ph\">Position · Employer</span>",["<span class=\"ph\">Key achievement</span>"]]
+    ],
+    eduTitle:"Education",
+    edu:[["<span class=\"ph\">Year</span>","<span class=\"ph\">Degree · Institution</span>"]] }
+};
+
+const GLOSSARY = [
+  ["SMSI","ISMS","Système de management de la sécurité de l'information.","Information security management system."],
+  ["DdA (Déclaration d'applicabilité)","SoA (Statement of Applicability)","Liste des mesures retenues ou exclues, avec justification.","List of controls included or excluded, with justification."],
+  ["Propriétaire du risque","Risk owner","Personne ayant l'autorité pour gérer un risque.","Person with the authority to manage a risk."],
+  ["Risque résiduel","Residual risk","Risque qui subsiste après traitement.","Risk remaining after treatment."],
+  ["Non-conformité","Nonconformity","Non-satisfaction d'une exigence.","Non-fulfilment of a requirement."],
+  ["Action corrective","Corrective action","Action qui élimine la cause d'une non-conformité.","Action to eliminate the cause of a nonconformity."],
+  ["Contrôles généraux informatiques","IT general controls (ITGC)","Contrôles sur les accès, les changements, l'exploitation et le développement.","Controls over access, change, operations and development."],
+  ["Séparation des tâches","Segregation of duties","Répartir les tâches incompatibles entre plusieurs personnes.","Splitting conflicting duties among several people."],
+  ["Constat d'audit","Audit finding","Résultat de l'évaluation des preuves par rapport aux critères.","Result of evaluating evidence against audit criteria."],
+  ["Revue de direction","Management review","Examen périodique du SMSI par la direction (clause 9.3).","Periodic review of the ISMS by top management (clause 9.3)."],
+  ["Plan de continuité d'activité","Business continuity plan","Procédures pour maintenir les activités critiques pendant une perturbation.","Procedures to keep critical activities running during a disruption."],
+  ["Moindre privilège","Least privilege","N'accorder que les droits strictement nécessaires.","Grant only the rights strictly needed."]
+];
+
+const SECTIONS = ['accueil','cv','learning','outils','contact'];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const L = i => 'ABCDEFGH'[i];
-let timer = null;
-/* Mélange l'ordre des réponses à chaque chargement pour éviter de retenir une lettre. */
-CERTS.forEach(c => c.questions.forEach(q => {
-  const idx = q.o.map((_, i) => i).sort(() => Math.random() - .5);
-  q.o = idx.map(i => q.o[i]); q.a = idx.indexOf(q.a);
-}));
+const fmt = n => isFinite(n) ? Math.round(n).toLocaleString(LANG === 'fr' ? 'fr-FR' : 'en-US') : '–';
 
-function certById(id){ return CERTS.find(c => c.id === id); }
-function parseHash(){
-  const h = decodeURIComponent(location.hash.replace(/^#/, ''));
-  if(!h || h === 'accueil') return {view:'home'};
-  const cert = CERTS.slice().sort((a,b) => b.id.length - a.id.length).find(c => h === c.id || h.startsWith(c.id + '-'));
-  if(!cert) return {view:'home'};
-  const rest = h === cert.id ? '' : h.slice(cert.id.length + 1);
-  if(!rest) return {view:'cert', cert};
-  if(rest === 'format') return {view:'format', cert};
-  if(rest === 'examen-blanc') return {view:'exam', cert};
-  if(rest === 'quiz') return {view:'quiz', cert, filter:'all'};
-  if(rest.startsWith('quiz-')) return {view:'quiz', cert, filter:rest.slice(5)};
-  const mod = cert.modules.find(m => m.id === rest);
-  if(mod) return {view:'module', cert, mod};
-  const pg = (cert.pages || []).find(p => p.id === rest);
-  if(pg) return {view:'page', cert, pg};
-  return {view:'cert', cert};
-}
-
-function renderSide(r){
-  let h = '<p class="brand">Campus Certifications Cyber</p><p class="brand-sub">Cours et entraînement en français</p>';
-  h += '<a href="#accueil"' + (r.view === 'home' ? ' class="active"' : '') + '><span class="n">⌂</span>Toutes les certifications</a>';
-  if(r.cert){
-    const c = r.cert, seen = store.get(c.id + ':seen', {});
-    const a = (hash, label, n, active, done) => '<a href="#' + hash + '"' + (active ? ' class="active" aria-current="page"' : '') + '><span class="n">' + n + '</span><span>' + label + '</span>' + (done ? '<span class="done" aria-label="lu">✓</span>' : '') + '</a>';
-    h += '<p class="navgroup">' + esc(c.title) + '</p>';
-    h += a(c.id, 'Présentation', '·', r.view === 'cert');
-    if(c.exam) h += a(c.id + '-format', "Format de l'examen", '·', r.view === 'format');
-    h += '<p class="navgroup">Cours</p>';
-    c.modules.forEach((m, i) => { h += a(c.id + '-' + m.id, esc(m.title), i + 1, r.mod && r.mod.id === m.id, seen[m.id]); });
-    if(c.pages && c.pages.length){ h += '<p class="navgroup">Ressources</p>'; c.pages.forEach(p => { h += a(c.id + '-' + p.id, esc(p.title), '·', r.pg && r.pg.id === p.id); }); }
-    h += '<p class="navgroup">Entraînement</p>';
-    h += a(c.id + '-quiz', 'Questions corrigées', '?', r.view === 'quiz');
-    h += a(c.id + '-examen-blanc', 'Examen blanc chronométré', '⏱', r.view === 'exam');
-  }
-  $side.innerHTML = h;
-}
-
-function home(){
-  let h = '<p class="eyebrow">Campus</p><h1>Préparer ses certifications en sécurité</h1>';
-  h += '<p class="lead">Un cours structuré, des questions corrigées et un examen blanc pour chaque certification. Votre progression reste enregistrée dans ce navigateur.</p>';
-  h += '<div class="grid">';
-  CATALOG.forEach(k => {
-    const c = certById(k.id);
-    if(c){
-      const best = store.get(c.id + ':best', null);
-      h += '<a class="card" href="#' + c.id + '"><span class="pill ok" style="align-self:flex-start">Disponible</span><span class="t">' + esc(k.title) + '</span><span class="d">' + esc(k.org) + ' · ' + esc(k.domain) + '</span><span class="d">' + c.modules.length + ' modules · ' + c.questions.length + ' questions' + (best !== null ? ' · meilleur examen blanc ' + best + ' %' : '') + '</span></a>';
-    } else {
-      h += '<div class="card" aria-disabled="true"><span class="pill" style="align-self:flex-start;background:var(--line);color:var(--muted)">En préparation</span><span class="t">' + esc(k.title) + '</span><span class="d">' + esc(k.org) + ' · ' + esc(k.domain) + '</span><span class="d">Format : ' + esc(k.kind) + '</span></div>';
-    }
+function pHome(t){
+  let h = '<p class="eyebrow">' + t.eyebrow + '</p><h1>' + t.h1 + '</h1><p class="lead">' + t.lead + '</p>';
+  h += '<div class="actions"><a class="btn" href="#cv">' + t.seeCv + '</a><a class="btn ghost" href="learning/">' + t.goLearning + '</a></div>';
+  h += '<h2>' + t.modules + '</h2><div class="grid">';
+  t.m.forEach(([id, name, d, soon]) => {
+    const href = id === 'learning' ? 'learning/' : '#' + id;
+    h += soon ? '<div class="card"><span class="tag soon">' + t.soon + '</span><h3>' + name + '</h3><span class="d">' + d + '</span></div>'
+              : '<a class="card" href="' + href + '"><span class="tag">' + t.open + '</span><h3>' + name + '</h3><span class="d">' + d + '</span></a>';
   });
-  h += '</div>';
-  h += '<div class="box"><h4>Comment travailler</h4><p>Lisez un module, faites ses questions juste après, puis passez à la suite. Gardez les examens blancs pour la fin : ils servent à mesurer votre niveau dans les conditions réelles.</p></div>';
-  return h;
+  return h + '</div>';
 }
-
-function certPage(c){
-  const seen = store.get(c.id + ':seen', {}), best = store.get(c.id + ':best', null);
-  const nSeen = c.modules.filter(m => seen[m.id]).length;
-  let h = '<p class="eyebrow">' + esc(c.org) + '</p><h1>' + esc(c.title) + '</h1><p class="lead">' + esc(c.intro) + '</p>';
-  h += '<div class="grid"><div class="card"><span class="stat">' + nSeen + '/' + c.modules.length + '</span><span class="t">modules lus</span></div>';
-  h += '<div class="card"><span class="stat">' + c.questions.length + '</span><span class="t">questions corrigées</span></div>';
-  h += '<div class="card"><span class="stat">' + (best === null ? '–' : best + ' %') + '</span><span class="t">meilleur examen blanc</span><span class="d">Seuil de réussite : ' + c.passMark + ' %</span></div></div>';
-  h += '<h2>Programme</h2><div class="tablewrap"><table><thead><tr><th>#</th><th>Module</th><th>Jour</th><th>Questions</th></tr></thead><tbody>';
-  c.modules.forEach((m, i) => {
-    const nq = c.questions.filter(q => q.m === m.id).length;
-    h += '<tr><td class="num">' + (i + 1) + '</td><td><a href="#' + c.id + '-' + m.id + '">' + esc(m.title) + '</a>' + (seen[m.id] ? ' <span class="pill ok">lu</span>' : '') + '</td><td>' + esc(m.day || '') + '</td><td class="num"><a href="#' + c.id + '-quiz-' + m.id + '">' + nq + '</a></td></tr>';
+function pCv(t){
+  const c = CV[LANG];
+  let h = '<p class="eyebrow">' + t.cvTitle.toUpperCase() + '</p><h1>' + c.name + '</h1><p class="lead">' + c.role + ' · ' + c.place + '</p>';
+  h += '<div class="note">' + t.cvNote + '</div>';
+  h += '<div class="actions"><button class="btn ghost" type="button" onclick="window.print()">' + t.print + '</button></div>';
+  h += '<div class="cv"><aside>' + c.side.map(([k, items]) => '<h3>' + k + '</h3><ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul>').join('') + '</aside><div>';
+  h += '<p>' + c.summary + '</p><h2>' + c.expTitle + '</h2>';
+  c.jobs.forEach(([when, what, items]) => { h += '<div class="job"><div class="when">' + when + '</div><h3>' + what + '</h3><ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul></div>'; });
+  h += '<h2>' + c.eduTitle + '</h2>';
+  c.edu.forEach(([when, what]) => { h += '<div class="job"><div class="when">' + when + '</div><h3>' + what + '</h3></div>'; });
+  return h + '</div></div>';
+}
+function pTools(t){
+  let h = '<p class="eyebrow">' + t.toolsTitle.toUpperCase() + '</p><h1>' + t.toolsTitle + '</h1>';
+  h += '<h2>' + t.aleTitle + '</h2><p>' + t.aleLead + '</p>';
+  h += '<form class="calc" id="ale" onsubmit="return false">'
+     + '<label>' + t.av + ' (' + t.cur + ')<input type="number" min="0" id="av" value="40000000"></label>'
+     + '<label>' + t.ef + '<input type="number" min="0" max="100" id="ef" value="25"></label>'
+     + '<label>' + t.aro + '<input type="number" min="0" step="0.01" id="aro" value="0.1"></label>'
+     + '<label>' + t.cost + '<input type="number" min="0" id="cost" value=""></label>'
+     + '<div class="out" id="aleOut" aria-live="polite"></div></form>';
+  h += '<h2>' + t.gloTitle + '</h2>';
+  GLOSSARY.forEach(([fr, en, dfr, den]) => {
+    const [a, b, d] = LANG === 'fr' ? [fr, en, dfr] : [en, fr, den];
+    h += '<details><summary>' + a + ' <span style="color:var(--muted);font-weight:400">· ' + b + '</span></summary><p>' + d + '</p></details>';
   });
-  h += '</tbody></table></div>';
-  h += '<div class="pager"><a class="btn" href="#' + c.id + '-' + c.modules[0].id + '">Commencer le module 1</a><a class="btn ghost" href="#' + c.id + '-examen-blanc">Passer un examen blanc</a></div>';
   return h;
 }
-
-function modulePage(c, m){
-  const seen = store.get(c.id + ':seen', {}); seen[m.id] = 1; store.set(c.id + ':seen', seen);
-  const i = c.modules.indexOf(m), prev = c.modules[i - 1], next = c.modules[i + 1];
-  const nq = c.questions.filter(q => q.m === m.id).length;
-  let h = '<p class="eyebrow">Module ' + (i + 1) + (m.day ? ' · ' + esc(m.day) : '') + '</p><h1>' + esc(m.title) + '</h1>' + m.html;
-  if(nq) h += '<div class="box key"><h4>Vérifiez vos acquis</h4><p><a class="btn" href="#' + c.id + '-quiz-' + m.id + '">Faire les ' + nq + ' questions de ce module</a></p></div>';
-  h += '<div class="pager">' + (prev ? '<a class="btn ghost" href="#' + c.id + '-' + prev.id + '">← ' + esc(prev.title) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#' + c.id + '-' + next.id + '">' + esc(next.title) + ' →</a>' : '<a class="btn" href="#' + c.id + '-examen-blanc">Passer à l\'examen blanc →</a>') + '</div>';
-  return h;
+function calcAle(){
+  const t = T[LANG], v = id => parseFloat(document.getElementById(id).value);
+  const sle = v('av') * v('ef') / 100, ale = sle * v('aro'), cost = v('cost');
+  let h = t.sle + ' = ' + fmt(sle) + ' ' + t.cur + '<br>' + t.ale + ' = <strong>' + fmt(ale) + '</strong> ' + t.cur + ' / an';
+  if(LANG === 'en') h = h.replace(' / an', ' / year');
+  if(isFinite(cost) && isFinite(ale)) h += '<br><span style="font-family:var(--body);font-size:.9rem">' + (cost <= ale ? t.worth : t.notWorth) + '</span>';
+  document.getElementById('aleOut').innerHTML = h;
 }
-
-/* ---------- Quiz d'entraînement (correction immédiate) ---------- */
-function quizPage(c, filter){
-  const modIndex = {}; c.modules.forEach((m, i) => modIndex[m.id] = i + 1);
-  let state = { filter, onlyWrong:false, order:null, answers:{} };
-  const wrongs = () => store.get(c.id + ':wrong', {});
-  function list(){
-    let qs = c.questions.map((q, idx) => Object.assign({idx}, q));
-    if(state.filter !== 'all') qs = qs.filter(q => q.m === state.filter);
-    if(state.onlyWrong){ const w = wrongs(); qs = qs.filter(q => w[q.idx]); }
-    if(state.order) qs.sort((a, b) => state.order[a.idx] - state.order[b.idx]);
-    return qs;
-  }
-  function draw(){
-    const qs = list();
-    const answered = qs.filter(q => state.answers[q.idx] !== undefined);
-    const good = answered.filter(q => state.answers[q.idx] === q.a).length;
-    let h = '<p class="eyebrow">' + esc(c.title) + '</p><h1>Questions corrigées</h1><p class="lead">Choisissez une réponse : la correction et l\'explication s\'affichent tout de suite.</p>';
-    h += '<div class="filters" role="group" aria-label="Filtrer par module"><button type="button" class="chip" data-f="all" aria-pressed="' + (state.filter === 'all') + '">Tous (' + c.questions.length + ')</button>';
-    c.modules.forEach((m, i) => { const n = c.questions.filter(q => q.m === m.id).length; if(n) h += '<button type="button" class="chip" data-f="' + m.id + '" aria-pressed="' + (state.filter === m.id) + '" title="' + esc(m.title) + '">M' + (i + 1) + ' (' + n + ')</button>'; });
-    h += '</div>';
-    h += '<div class="scorebar"><span class="s">' + good + ' / ' + answered.length + ' justes · ' + (qs.length - answered.length) + ' restantes</span>';
-    h += '<button type="button" class="btn ghost" id="qShuffle">Mélanger</button><button type="button" class="btn ghost" id="qReset">Recommencer</button>';
-    h += '<button type="button" class="btn ghost" id="qWrong" aria-pressed="' + state.onlyWrong + '">' + (state.onlyWrong ? 'Toutes les questions' : 'Revoir mes erreurs (' + Object.keys(wrongs()).length + ')') + '</button></div>';
-    if(state.filter !== 'all'){ const m = c.modules.find(x => x.id === state.filter); if(m) h += '<p>Module ' + modIndex[m.id] + ' : <a href="#' + c.id + '-' + m.id + '">' + esc(m.title) + '</a></p>'; }
-    if(!qs.length) h += '<div class="box">' + (state.onlyWrong ? 'Aucune erreur enregistrée pour ce filtre. Bravo.' : 'Aucune question pour ce filtre.') + '</div>';
-    qs.forEach((q, n) => {
-      const ans = state.answers[q.idx];
-      h += '<div class="q" id="q' + q.idx + '"><div class="meta"><span>Question ' + (n + 1) + '</span><span>Module ' + modIndex[q.m] + '</span></div><p class="stem">' + esc(q.q) + '</p>';
-      q.o.forEach((o, j) => {
-        let cls = 'opt';
-        if(ans !== undefined){ if(j === q.a) cls += ' right'; else if(j === ans) cls += ' wrong'; }
-        h += '<button type="button" class="' + cls + '" data-q="' + q.idx + '" data-o="' + j + '"' + (ans !== undefined ? ' disabled' : '') + '><span class="l">' + L(j) + '</span>' + esc(o) + '</button>';
-      });
-      if(ans !== undefined) h += '<div class="expl"><strong>' + (ans === q.a ? '<span class="pill ok">Bonne réponse</span>' : '<span class="pill bad">Réponse attendue : ' + L(q.a) + '</span>') + '</strong>' + esc(q.e) + '</div>';
-      h += '</div>';
-    });
-    $page.innerHTML = h;
-  }
-  $page.onclick = ev => {
-    const b = ev.target.closest('button'); if(!b) return;
-    if(b.dataset.f){ state.filter = b.dataset.f; state.answers = {}; draw(); return; }
-    if(b.id === 'qShuffle'){ state.order = {}; c.questions.forEach((q, i) => state.order[i] = Math.random()); state.answers = {}; draw(); return; }
-    if(b.id === 'qReset'){ state.answers = {}; state.order = null; draw(); return; }
-    if(b.id === 'qWrong'){ state.onlyWrong = !state.onlyWrong; state.answers = {}; draw(); return; }
-    if(b.dataset.q !== undefined){
-      const qi = +b.dataset.q, oi = +b.dataset.o, q = c.questions[qi];
-      state.answers[qi] = oi;
-      const w = wrongs(); if(oi === q.a) delete w[qi]; else w[qi] = 1; store.set(c.id + ':wrong', w);
-      const y = window.scrollY; draw(); window.scrollTo(0, y);
-    }
-  };
-  draw();
-}
-
-/* ---------- Examen blanc chronométré ---------- */
-function examPage(c){
-  const total = Math.min(c.examQuestions, c.questions.length);
-  const minutes = Math.round(c.examMinutes * total / c.examQuestions);
-  let h = '<p class="eyebrow">' + esc(c.title) + '</p><h1>Examen blanc chronométré</h1>';
-  h += '<p class="lead">' + total + ' questions tirées au hasard, ' + minutes + ' minutes, sans correction pendant l\'épreuve. Seuil de réussite : ' + c.passMark + ' %.</p>';
-  h += '<p>Mettez-vous dans les conditions de l\'examen : la norme à côté de vous, pas d\'autre aide. À la fin, vous verrez votre score par module et la correction de chaque question.</p>';
-  h += '<div class="pager"><button type="button" class="btn" id="exStart">Commencer l\'examen</button><a class="btn ghost" href="#' + c.id + '-quiz">Plutôt s\'entraîner avec correction</a></div>';
-  $page.innerHTML = h;
-  document.getElementById('exStart').onclick = () => runExam(c, total, minutes);
-}
-function runExam(c, total, minutes){
-  const pick = c.questions.map((q, i) => i).sort(() => Math.random() - .5).slice(0, total);
-  const ans = {}; let left = minutes * 60, done = false;
-  const modIndex = {}; c.modules.forEach((m, i) => modIndex[m.id] = i + 1);
-  function fmt(s){ const m = Math.floor(s / 60), r = s % 60; return m + ':' + String(r).padStart(2, '0'); }
-  function draw(){
-    let h = '<p class="eyebrow">Examen blanc en cours</p><h1>' + esc(c.title) + '</h1>';
-    h += '<div class="scorebar"><span class="s" id="exClock">⏱ ' + fmt(left) + '</span><span class="s" id="exCount">' + Object.keys(ans).length + ' / ' + total + ' répondues</span><button type="button" class="btn" id="exEnd">Terminer et corriger</button></div>';
-    pick.forEach((qi, n) => {
-      const q = c.questions[qi];
-      h += '<div class="q"><div class="meta"><span>Question ' + (n + 1) + ' / ' + total + '</span></div><p class="stem">' + esc(q.q) + '</p>';
-      q.o.forEach((o, j) => { h += '<button type="button" class="opt' + (ans[qi] === j ? ' chosen' : '') + '" data-q="' + qi + '" data-o="' + j + '" aria-pressed="' + (ans[qi] === j) + '"><span class="l">' + L(j) + '</span>' + esc(o) + '</button>'; });
-      h += '</div>';
-    });
-    h += '<div class="pager"><span></span><button type="button" class="btn" id="exEnd2">Terminer et corriger</button></div>';
-    $page.innerHTML = h;
-  }
-  function finish(){
-    if(done) return; done = true; clearInterval(timer); timer = null;
-    const good = pick.filter(qi => ans[qi] === c.questions[qi].a).length;
-    const pct = Math.round(100 * good / total), pass = pct >= c.passMark;
-    const best = store.get(c.id + ':best', null); if(best === null || pct > best) store.set(c.id + ':best', pct);
-    const w = store.get(c.id + ':wrong', {}); pick.forEach(qi => { if(ans[qi] !== c.questions[qi].a) w[qi] = 1; else delete w[qi]; }); store.set(c.id + ':wrong', w);
-    const per = {}; pick.forEach(qi => { const m = c.questions[qi].m; per[m] = per[m] || [0, 0]; per[m][1]++; if(ans[qi] === c.questions[qi].a) per[m][0]++; });
-    let h = '<p class="eyebrow">Résultat de l\'examen blanc</p><h1>' + pct + ' % <span class="pill ' + (pass ? 'ok">Réussi' : 'bad">Pas encore') + '</span></h1>';
-    h += '<div class="result"><p><b>' + good + ' bonnes réponses sur ' + total + '</b>. Temps utilisé : ' + fmt(minutes * 60 - left) + '. Seuil : ' + c.passMark + ' %.</p>';
-    h += '<div class="tablewrap"><table><thead><tr><th>Module</th><th>Score</th><th>À revoir</th></tr></thead><tbody>';
-    c.modules.forEach((m, i) => { const p = per[m.id]; if(!p) return; const r = Math.round(100 * p[0] / p[1]); h += '<tr><td>' + (i + 1) + '. ' + esc(m.title) + '</td><td class="num">' + p[0] + '/' + p[1] + ' (' + r + ' %)</td><td>' + (r < c.passMark ? '<a href="#' + c.id + '-' + m.id + '">Relire le module</a>' : '<span class="pill ok">OK</span>') + '</td></tr>'; });
-    h += '</tbody></table></div><div class="pager"><button type="button" class="btn" id="exAgain">Nouvel examen blanc</button><a class="btn ghost" href="#' + c.id + '-quiz">Revoir mes erreurs</a></div></div>';
-    h += '<h2>Correction détaillée</h2>';
-    pick.forEach((qi, n) => {
-      const q = c.questions[qi], a = ans[qi];
-      h += '<div class="q"><div class="meta"><span>Question ' + (n + 1) + '</span><span>Module ' + modIndex[q.m] + '</span></div><p class="stem">' + esc(q.q) + '</p>';
-      q.o.forEach((o, j) => { let cls = 'opt'; if(j === q.a) cls += ' right'; else if(j === a) cls += ' wrong'; h += '<button type="button" class="' + cls + '" disabled><span class="l">' + L(j) + '</span>' + esc(o) + '</button>'; });
-      h += '<div class="expl"><strong>' + (a === q.a ? '<span class="pill ok">Bonne réponse</span>' : '<span class="pill bad">' + (a === undefined ? 'Sans réponse' : 'Votre réponse : ' + L(a)) + ' · attendue : ' + L(q.a) + '</span>') + '</strong>' + esc(q.e) + '</div></div>';
-    });
-    $page.innerHTML = h; window.scrollTo(0, 0);
-    document.getElementById('exAgain').onclick = () => runExam(c, total, minutes);
-  }
-  $page.onclick = ev => {
-    const b = ev.target.closest('button'); if(!b || done) return;
-    if(b.id === 'exEnd' || b.id === 'exEnd2'){ finish(); return; }
-    if(b.dataset.q !== undefined){
-      const qi = +b.dataset.q; ans[qi] = +b.dataset.o;
-      b.parentNode.querySelectorAll('.opt').forEach(x => { const on = x === b; x.classList.toggle('chosen', on); x.setAttribute('aria-pressed', on); });
-      const ct = document.getElementById('exCount'); if(ct) ct.textContent = Object.keys(ans).length + ' / ' + total + ' répondues';
-    }
-  };
-  draw(); window.scrollTo(0, 0);
-  timer = setInterval(() => { left--; const el = document.getElementById('exClock'); if(el) el.textContent = '⏱ ' + fmt(left); if(left <= 0) finish(); }, 1000);
+function pContact(t){
+  return '<p class="eyebrow">' + t.contactTitle.toUpperCase() + '</p><h1>' + t.contactTitle + '</h1><p class="lead">' + t.contactLead + '</p>'
+       + '<div class="note">' + t.contactNote + '</div>';
 }
 
 function route(){
-  if(timer){ clearInterval(timer); timer = null; }
-  $page.onclick = null;
-  const r = parseHash();
-  renderSide(r);
-  if(r.view === 'home') $page.innerHTML = home();
-  else if(r.view === 'cert') $page.innerHTML = certPage(r.cert);
-  else if(r.view === 'format') $page.innerHTML = '<p class="eyebrow">' + esc(r.cert.title) + '</p><h1>Format de l\'examen et stratégie</h1>' + r.cert.exam;
-  else if(r.view === 'module') $page.innerHTML = modulePage(r.cert, r.mod);
-  else if(r.view === 'page') $page.innerHTML = '<p class="eyebrow">' + esc(r.cert.title) + '</p><h1>' + esc(r.pg.title) + '</h1>' + r.pg.html;
-  else if(r.view === 'quiz') quizPage(r.cert, r.filter);
-  else if(r.view === 'exam') examPage(r.cert);
-  if(r.view !== 'quiz' || !location.hash.includes('quiz-')) window.scrollTo(0, 0);
-  document.getElementById('side').classList.remove('open');
-  document.getElementById('menuBtn').setAttribute('aria-expanded', 'false');
-  if(r.view === 'module') renderSide(r);
+  const t = T[LANG];
+  let s = location.hash.slice(1) || 'accueil';
+  if(s === 'learning'){ location.href = 'learning/'; return; }
+  if(!SECTIONS.includes(s)){ location.replace('learning/#' + s); return; }
+  document.documentElement.lang = LANG;
+  document.title = t.title;
+  document.getElementById('nav').innerHTML = SECTIONS.map(k => '<a href="' + (k === 'learning' ? 'learning/' : '#' + k) + '"' + (k === s ? ' class="active" aria-current="page"' : '') + '>' + t.nav[k] + '</a>').join('');
+  document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === LANG));
+  const page = document.getElementById('page');
+  page.innerHTML = s === 'cv' ? pCv(t) : s === 'outils' ? pTools(t) : s === 'contact' ? pContact(t) : pHome(t);
+  document.getElementById('foot').textContent = t.foot;
+  if(s === 'outils'){ document.getElementById('ale').addEventListener('input', calcAle); calcAle(); }
+  window.scrollTo(0, 0);
 }
-document.getElementById('menuBtn').onclick = function(){ const o = $side.classList.toggle('open'); this.setAttribute('aria-expanded', o); };
+document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => { LANG = b.dataset.lang; store.set('lang', LANG); route(); }));
 window.addEventListener('hashchange', route);
 route();
-})();
 </script>
 </body>
 </html>
