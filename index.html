@@ -289,7 +289,7 @@ function pCv(t){
   const c = CV[LANG];
   let h = '<p class="eyebrow">' + t.cvTitle.toUpperCase() + '</p><div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:8px"><img src="assets/photo.jpg" alt="' + c.name + '" width="120" height="105" style="border-radius:10px;object-fit:cover;border:1px solid var(--line)"><div><h1 style="margin-bottom:4px">' + c.name + '</h1><p class="lead" style="margin:0">' + c.role + ' · ' + c.place + '</p></div></div>';
   if(t.cvNote) h += '<div class="note">' + t.cvNote + '</div>';
-  h += '<div class="actions"><button class="btn ghost" type="button" onclick="window.print()">' + t.print + '</button></div>';
+  h += '<div class="actions"><a class="btn" href="assets/cv/' + (LANG === 'en' ? 'Georges-Alain-Cabo-CV-EN.pdf' : 'Georges-Alain-Cabo-CV-FR.pdf') + '" download>' + (LANG === 'en' ? 'Download CV (PDF)' : 'Télécharger le CV (PDF)') + '</a><button class="btn ghost" type="button" onclick="window.print()">' + t.print + '</button></div>';
   h += '<div class="cv"><aside>' + c.side.map(([k, items]) => '<h3>' + k + '</h3><ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul>').join('') + '</aside><div>';
   h += '<p>' + c.summary + '</p><h2>' + c.expTitle + '</h2>';
   c.jobs.forEach(([when, what, items]) => { h += '<div class="job"><div class="when">' + when + '</div><h3>' + what + '</h3><ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul></div>'; });
