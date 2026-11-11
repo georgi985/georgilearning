@@ -1,0 +1,25 @@
+/* Oil and gas: why the other answers are wrong, in English (order of petrole-qcm.en.js). */
+WHY("petrole", [
+["Upstream covers exploration and production.","Midstream covers transport and storage.","Exploration is part of upstream."],
+["100 litres underestimates the barrel.","200 litres overestimates the barrel.","1,000 litres is one cubic metre."],
+["The CFA franc is pegged to the euro, not to oil.","Local salaries are in CFA francs.","The exposure is real as soon as prices are in dollars."],
+["In a PSC, the company does not become the owner of all production.","Subcontractors are paid for their services.","The bank lends money; it does not own the oil."],
+["Tax is paid separately, on profits.","The national company receives its share as a partner.","State salaries have nothing to do with it."],
+["The State has no interest in inflating costs.","VAT is not the subject of this audit.","It is not linked to the stock exchange."],
+["The State is not necessarily the operating partner.","The operator is often an international company.","The operator keeps the joint venture's accounts."],
+["Pump prices fall under price regulation.","Reserves are not the main subject of the EITI.","Salaries are not published by the EITI."],
+["Capitalizing a dry well corresponds to the full cost method.","The decommissioning provision concerns site restoration, not the drilling cost.","A real expense cannot be ignored."],
+["30 is 10% of the value, unrelated to volumes.","60 confuses reserves and the charge.","10 confuses production and the charge."],
+["Fewer reserves for the same value give a higher charge per barrel.","The charge changes with reserves.","The charge only becomes zero if the field is fully depreciated."],
+["Waiting until the end understates liabilities throughout production.","The obligation exists: it must be provided for.","The obligation exists even without an accident."],
+["The correction is not only for tax: it measures the real quantity.","It does not reduce inventory; it measures it correctly.","Litres are still used; they are corrected."],
+["Product is missing: the difference is negative.","5,000 L is the book stock, not the difference.","Actual differs from book."],
+["Supplier invoices measure purchases.","The number of cars does not give volumes.","Gauging is used for inventory, not directly for sales."],
+["They are in fact often paid late.","They are legal.","They exist when the State compensates prices."],
+["ISO 9001 concerns quality.","IFRS 6 is an accounting standard.","ISO 14001 concerns the environment."],
+["The pump price is regulated.","Public transport is not concerned.","Share prices are not transfer prices."],
+["Connecting OT to the internet exposes the facilities.","Deleting backups prevents recovery.","Disabling logs prevents detection."],
+["The number of stations verifies no volume.","The colour of the trucks is irrelevant.","Share prices are not an inventory test."],
+["Viewing changes nothing.","Printing changes nothing.","One's own password is normal access."],
+["Splitting is not good practice.","Prices are not falling: invoices are being split.","VAT is not the issue."]
+], true);

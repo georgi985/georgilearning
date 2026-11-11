@@ -1,0 +1,25 @@
+/* Oil and gas: English version of the questions. Same order and option order as petrole-qcm.js. */
+CERTS.find(c => c.id === "petrole").enQuestions = [
+{q:"Refining belongs to which segment?",o:["Upstream","Downstream","Midstream","Exploration"],e:"Downstream covers refining, distribution and sales."},
+{q:"About how many litres does a barrel of oil contain?",o:["100","159","200","1,000"],e:"A barrel is about 159 litres."},
+{q:"Why is an oil company in WAEMU exposed to the exchange rate?",o:["Because the CFA franc is pegged to oil","Because oil is sold in dollars","Because salaries are in dollars","It is not"],e:"International prices in dollars, accounts in CFA francs."},
+{q:"In a production sharing contract, who owns the oil?",o:["The company, from extraction","The State, which shares production according to the contract","The subcontractors","The bank that provides financing"],e:"The State remains the owner; the company receives cost oil and a share of profit oil."},
+{q:"Cost oil is used to:",o:["Pay tax","Reimburse the company for its recoverable costs","Fund the national company","Pay State employees"],e:"It is capped by the contract."},
+{q:"Why does the State have recoverable costs audited?",o:["To help the company","Because inflated costs reduce its share of production","To calculate VAT","Because of a stock exchange obligation"],e:"Each accepted cost increases cost oil and reduces profit oil."},
+{q:"In a joint venture, the operator:",o:["Is the State","Runs the operations and recharges the costs to the partners","Is always the national company","Has no accounting role"],e:"The partners can audit its accounts."},
+{q:"What does the EITI publish?",o:["Pump prices","Payments by extractive companies to the State and revenue declared by the State","Each field's reserves","Salaries in the sector"],e:"It reconciles the two for transparency."},
+{q:"Under the successful efforts method, a dry well is:",o:["Capitalized","Expensed","Provided for decommissioning only","Ignored"],e:"Only costs leading to commercially viable discoveries are capitalized."},
+{q:"Facilities 300; reserves at the start of the year 60 million barrels; production 10 million. Units-of-production depreciation charge?",o:["30","50","60","10"],e:"300 × 10 ÷ 60 = 50."},
+{q:"If reserves are revised downwards, the charge per barrel:",o:["Decreases","Increases","Stays the same","Becomes zero"],e:"The same value is spread over fewer barrels."},
+{q:"The decommissioning provision is recognized:",o:["At the end of production","From installation, then discounted","Never","Only in case of an accident"],e:"The obligation arises as soon as the facilities are built."},
+{q:"Why are volumes converted to volume at 15 °C?",o:["For tax reasons only","Because liquids expand with heat","To reduce inventory","Because the law forbids litres"],e:"This way, real quantities of product are compared."},
+{q:"Opening stock 10,000 L, delivery 15,000 L, sales 20,000 L, closing gauging 4,500 L. Difference?",o:["+500 L","−500 L","−5,000 L","0 L"],e:"Book stock 5,000 L; actual 4,500 L: 500 L missing."},
+{q:"A station's sales are calculated from:",o:["Supplier invoices","Pump meter readings at the start and end of the period","The number of cars","Gauging alone"],e:"They are then reconciled with cash received and inventory."},
+{q:"Why are a distributor's receivables from the State an audit point?",o:["They are always paid in cash","They can be large and slow to collect","They are prohibited","They do not exist"],e:"Compensation for regulated prices raises recoverability questions."},
+{q:"Which standard governs the security of industrial systems?",o:["ISO 9001","IEC 62443","IFRS 6","ISO 14001"],e:"The IEC 62443 series covers cybersecurity of industrial automation systems."},
+{q:"Transfer pricing risk concerns:",o:["The pump price","Services invoiced between companies of the same group at abnormal prices","The price of public transport","Share prices"],e:"It can inflate recoverable costs and shift profits."},
+{q:"Which measure is essential to protect OT systems?",o:["Connect them directly to the internet","Segment the industrial network from the office network and control remote access","Delete backups","Disable logging"],e:"Segmentation limits the spread of an attack."},
+{q:"In oil, what is the heart of auditing inventory and sales?",o:["Reconciling volumes at each step of the chain","The number of stations","The colour of the trucks","Share prices"],e:"Volume is the sector's currency."},
+{q:"Which access is the most sensitive in a volume measurement application?",o:["Viewing reports","Changing volumes and temperature correction tables","Printing","Changing one's own password"],e:"It makes it possible to hide losses or theft."},
+{q:"Service invoices split just below the approval threshold signal:",o:["Good management","A possible circumvention of delegations of authority","A fall in prices","A VAT problem"],e:"Splitting avoids a higher-level approval."}
+];
