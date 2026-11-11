@@ -1,0 +1,27 @@
+/* Insurance: why the other answers are wrong, in English (order of assurance-qcm.en.js). */
+WHY("assurance", [
+["It is the opposite: policyholders pay the premium before the claim occurs.","Insurers obviously have customers: the policyholders.","The accounts follow normal rules; it is the price / cost order that is reversed."],
+["CIMA regulation requires specialization: life and non-life in different companies.","Reinsurance does not change this rule.","Mutual insurers are also subject to the specialization principle."],
+["The general agent represents a single company, not the client.","The reinsurer deals with insurers, not with clients.","The CIMA is a regulator, not an intermediary."],
+["The premium is the price of insurance, paid by the insured.","The limit is the maximum paid by the insurer, not the insured's share.","The commission pays the intermediary."],
+["240,000 is the written premium; only half relates to Y.","60,000 would correspond to 3 months of cover.","180,000 would correspond to 9 months of cover."],
+["The reform did not abolish reinsurance, which is still essential.","Life insurance remains allowed, in specialized companies.","Motor insurance remains paid and compulsory."],
+["It is the opposite: above 100%, the business loses 8%.","A combined ratio above 100% shows inadequate pricing.","The combined ratio does not measure solvency."],
+["It is the opposite: claims are compared with premiums.","Expenses compared with premiums give the expense ratio.","Investments and provisions belong to the coverage of commitments."],
+["It also needs claims not yet reported (IBNR) and future costs.","Unearned premiums belong to the unearned premium reserve.","Commissions payable are a debt to intermediaries."],
+["Over-reserving would produce surpluses, not deficits.","Repeated deficits on the contrary show insufficient estimates.","A rise in premiums has no link with the run-off of old claims."],
+["Non-life mainly uses the unearned premium and outstanding claims reserves.","Reinsurance has its own accounts, without a mathematical reserve of its own.","Intermediaries do not carry insurance commitments."],
+["The actuary explains their method, but an interview is not a test on 100% of policies.","The management report does not contain policy details.","Reinsurers confirm their accounts, not the unearned premium reserve of each policy."],
+["Triangles group thousands of claims, not one policyholder.","A triangle is built by year, not by reinsurer.","A triangle is built by year, not by intermediary."],
+["The actuary's fees are not the issue.","No law forbids this check: it is essential.","VAT has nothing to do with technical provisions."],
+["100 M would be paid if the risk were ceded 100%.","70 M is the share kept by the insurer.","Under a quota share, the reinsurer takes part in every claim."],
+["In proportional reinsurance, sharing is on a fixed percentage; here it is above a threshold.","It is common and allowed.","It is mainly used in non-life."],
+["That would be desirable, but it is not the coverage rule.","Investment in shares is capped, not required.","Reinsurers can be foreign, under conditions."],
+["Receivables from policyholders do not increase claims.","They have no direct effect on the unearned premium reserve.","They are not prohibited, but governed by article 13."],
+["Reinsurance shares the cost of claims but does not check premium payment.","The deductible reduces the payment; it does not check payment of the premium.","The broker is an intermediary, not a system control."],
+["It is an anomaly, not good practice.","An IBNR is a claim incurred but not yet reported, during the period of cover.","Reinsurance has nothing to do with the contract dates."],
+["Marketing and sales do not touch settlements.","Accounting and payroll concern other processes.","Separating two branches does not protect against a handler doing everything alone."],
+["Premiums and claims are two different flows.","The unearned premium reserve is part of premiums, calculated at closing.","Commissions are an expense linked to premiums, not their amount."],
+["A seasonal decline does not take the form of mass cancellations just after closing.","Policy cancellations reduce future claims; they do not create them.","VAT is not the issue: many insurance transactions are not subject to it."],
+["These are work areas for a trading company.","These third parties exist, but are not the core of the insurer's business.","Equity results from profit; these are not populations of data."]
+], true);
