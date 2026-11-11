@@ -95,6 +95,7 @@ a.card:hover{border-color:var(--accent)}
 .pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.bad{background:var(--bad-soft);color:var(--bad)}
 .result{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin:0 0 20px}
 .menu-btn{display:none}
+.why{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line)}.why .whyT{font-weight:600;margin:0 0 4px}.why ul{margin:0;padding-left:18px}.why li{margin:3px 0}.why li.mine{color:var(--bad)}
 details{background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:0 14px}
 details summary{cursor:pointer;padding:10px 0;font-weight:600}
 @media (max-width:860px){
@@ -114,7 +115,10 @@ details summary{cursor:pointer;padding:10px 0;font-weight:600}
 <nav class="side" id="side" aria-label="Plan du cours"></nav>
 <main><div class="page" id="page"></div></main>
 </div>
-<script>window.CERTS=[];window.CATALOG=[];window.CATEGORIES=[];</script>
+<script>window.CERTS=[];window.CATALOG=[];window.CATEGORIES=[];
+/* WHY(id, liste) : pour chaque question (dans l'ordre), explications des mauvaises réponses dans l'ordre des options, sans la bonne. en=true pour la version anglaise. */
+window.WHY=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c) return; const qs = en ? c.enQuestions : c.questions; if(!qs) return;
+  list.forEach((w, i) => { const q = c.questions[i], t = qs[i]; if(!q || !t || !w) return; const full = w.slice(); full.splice(q.a, 0, ''); if(full.length !== q.o.length) console.error('WHY', id, i); t.w = full; }); };</script>
 <script src="certs/catalogue.js"></script>
 <script src="certs/iso27001-li.js"></script>
 <script src="certs/iso27001-li-qcm.js"></script>
@@ -139,14 +143,19 @@ details summary{cursor:pointer;padding:10px 0;font-weight:600}
 <script src="certs/compta.js"></script>
 <script src="certs/compta-2.js"></script>
 <script src="certs/compta-qcm.js"></script>
+<script src="certs/compta-why.js"></script>
 <script src="certs/banque.js"></script>
 <script src="certs/banque-qcm.js"></script>
+<script src="certs/banque-why.js"></script>
 <script src="certs/monnaie-electronique.js"></script>
 <script src="certs/monnaie-electronique-qcm.js"></script>
+<script src="certs/monnaie-electronique-why.js"></script>
 <script src="certs/assurance.js"></script>
 <script src="certs/assurance-qcm.js"></script>
+<script src="certs/assurance-why.js"></script>
 <script src="certs/telecoms.js"></script>
 <script src="certs/telecoms-qcm.js"></script>
+<script src="certs/telecoms-why.js"></script>
 <script>
 (function(){
 const $page = document.getElementById('page');
@@ -168,7 +177,7 @@ const UI = {
     check:"Vérifiez vos acquis",doQ:n=>"Faire les "+n+" questions de ce module",toExam:"Passer à l'examen blanc →",
     quizLead:"Choisissez une réponse : la correction et l'explication s'affichent tout de suite.",filterAll:"Tous",right:"justes",left:"restantes",shuffle:"Mélanger",reset:"Recommencer",showAll:"Toutes les questions",reviewWrong:n=>"Revoir mes erreurs ("+n+")",noWrong:"Aucune erreur enregistrée pour ce filtre. Bravo.",noQ:"Aucune question pour ce filtre.",question:"Question",good:"Bonne réponse",expected:"Réponse attendue",
     examLead:(n,m,p)=>n+" questions tirées au hasard, "+m+" minutes, sans correction pendant l'épreuve. Seuil de réussite : "+p+" %.",examText:"Mettez-vous dans les conditions de l'examen. À la fin, vous verrez votre score par module et la correction de chaque question.",examStart:"Commencer l'examen",examPractice:"Plutôt s'entraîner avec correction",examRunning:"Examen blanc en cours",answered:"répondues",finish:"Terminer et corriger",
-    result:"Résultat de l'examen blanc",passed:"Réussi",notYet:"Pas encore",goodOf:(g,t)=>g+" bonnes réponses sur "+t,timeUsed:"Temps utilisé",threshold:"Seuil",thScore:"Score",thReview:"À revoir",reread:"Relire le module",again:"Nouvel examen blanc",reviewMine:"Revoir mes erreurs",detail:"Correction détaillée",noAnswer:"Sans réponse",yours:"Votre réponse",exp:"attendue",formatTitle:"Format de l'examen et stratégie",
+    result:"Résultat de l'examen blanc",passed:"Réussi",notYet:"Pas encore",goodOf:(g,t)=>g+" bonnes réponses sur "+t,timeUsed:"Temps utilisé",threshold:"Seuil",thScore:"Score",thReview:"À revoir",reread:"Relire le module",again:"Nouvel examen blanc",reviewMine:"Revoir mes erreurs",detail:"Correction détaillée",noAnswer:"Sans réponse",yours:"Votre réponse",exp:"attendue",formatTitle:"Format de l'examen et stratégie",whyTitle:"Pourquoi les autres réponses sont fausses",
     notTranslated:"Ce contenu n'existe pas encore dans cette langue : il est affiché en français.",menu:"Plan du cours",langLabel:"Langue"},
   en:{hub:"← Site home",brand:"Georgi Learning",brandSub:"Courses, certifications and industries",all:"All courses",overview:"Overview",format:"Exam format",course:"Course",resources:"Resources",practice:"Practice",quiz:"Practice questions",exam:"Timed mock exam",read:"read",
     homeEyebrow:"Campus",homeTitle:"Learn audit, cybersecurity and industries",homeLead:"Step-by-step courses, practice questions with explanations and a mock exam for each topic, grouped by section. Your progress is saved in this browser.",available:"Available",soon:"Coming soon",formatLbl:"Format",best:"best mock exam",howTitle:"How to study",howText:"Read a module, do its questions right after, then move on. Keep the mock exams for the end: they measure your level in real exam conditions.",
@@ -176,7 +185,7 @@ const UI = {
     check:"Check your knowledge",doQ:n=>"Answer the "+n+" questions for this module",toExam:"Go to the mock exam →",
     quizLead:"Pick an answer: the correction and explanation appear immediately.",filterAll:"All",right:"correct",left:"remaining",shuffle:"Shuffle",reset:"Start over",showAll:"All questions",reviewWrong:n=>"Review my mistakes ("+n+")",noWrong:"No mistakes recorded for this filter. Well done.",noQ:"No questions for this filter.",question:"Question",good:"Correct",expected:"Expected answer",
     examLead:(n,m,p)=>n+" random questions, "+m+" minutes, no feedback during the exam. Pass mark: "+p+"%.",examText:"Put yourself in real exam conditions. At the end you will see your score per module and the explanation for every question.",examStart:"Start the exam",examPractice:"Practise with feedback instead",examRunning:"Mock exam in progress",answered:"answered",finish:"Finish and mark",
-    result:"Mock exam result",passed:"Passed",notYet:"Not yet",goodOf:(g,t)=>g+" correct answers out of "+t,timeUsed:"Time used",threshold:"Pass mark",thScore:"Score",thReview:"Review",reread:"Re-read the module",again:"New mock exam",reviewMine:"Review my mistakes",detail:"Detailed corrections",noAnswer:"No answer",yours:"Your answer",exp:"expected",formatTitle:"Exam format and strategy",
+    result:"Mock exam result",passed:"Passed",notYet:"Not yet",goodOf:(g,t)=>g+" correct answers out of "+t,timeUsed:"Time used",threshold:"Pass mark",thScore:"Score",thReview:"Review",reread:"Re-read the module",again:"New mock exam",reviewMine:"Review my mistakes",detail:"Detailed corrections",noAnswer:"No answer",yours:"Your answer",exp:"expected",formatTitle:"Exam format and strategy",whyTitle:"Why the other answers are wrong",
     notTranslated:"This content is not yet available in English: it is shown in French for now.",menu:"Course menu",langLabel:"Language"}
 };
 const t = k => UI[LANG][k];
@@ -198,7 +207,15 @@ CERTS.forEach(c => c.questions.forEach(q => { q.p = q.o.map((_, i) => i).sort(()
 function Q(c, q, idx){
   const e = LANG === 'en' && c.enQuestions && c.enQuestions[idx];
   const src = e || q;
-  return { m:q.m, q:src.q, e:src.e, o:q.p.map(i => src.o[i]), a:q.p.indexOf(q.a) };
+  const w = e ? e.w : q.w;
+  return { m:q.m, q:src.q, e:src.e, o:q.p.map(i => src.o[i]), a:q.p.indexOf(q.a), w: w ? q.p.map(i => w[i] || '') : null };
+}
+/* Explication de chaque mauvaise réponse (champ w, aligné sur les options). */
+function why(q, chosen){
+  if(!q.w || !q.w.some(x => x)) return '';
+  let h = '<div class="why"><p class="whyT">' + t('whyTitle') + '</p><ul>';
+  q.o.forEach((o, j) => { if(j === q.a || !q.w[j]) return; h += '<li' + (j === chosen ? ' class="mine"' : '') + '><b>' + LET(j) + '. ' + esc(o) + '</b> : ' + esc(q.w[j]) + '</li>'; });
+  return h + '</ul></div>';
 }
 
 function certById(id){ return CERTS.find(c => c.id === id); }
@@ -329,7 +346,7 @@ function quizPage(raw, filter){
         if(ans !== undefined){ if(j === q.a) cls += ' right'; else if(j === ans) cls += ' wrong'; }
         h += '<button type="button" class="' + cls + '" data-q="' + idx + '" data-o="' + j + '"' + (ans !== undefined ? ' disabled' : '') + '><span class="l">' + LET(j) + '</span>' + esc(o) + '</button>';
       });
-      if(ans !== undefined) h += '<div class="expl"><strong>' + (ans === q.a ? '<span class="pill ok">' + t('good') + '</span>' : '<span class="pill bad">' + t('expected') + ' : ' + LET(q.a) + '</span>') + '</strong>' + esc(q.e) + '</div>';
+      if(ans !== undefined) h += '<div class="expl"><strong>' + (ans === q.a ? '<span class="pill ok">' + t('good') + '</span>' : '<span class="pill bad">' + t('expected') + ' : ' + LET(q.a) + '</span>') + '</strong>' + esc(q.e) + why(q, ans) + '</div>';
       h += '</div>';
     });
     $page.innerHTML = h;
@@ -394,7 +411,7 @@ function runExam(raw, total, minutes){
       const q = Q(raw, c.questions[qi], qi), a = ans[qi];
       h += '<div class="q"><div class="meta"><span>' + t('question') + ' ' + (n + 1) + '</span><span>Module ' + modIndex[q.m] + '</span></div><p class="stem">' + esc(q.q) + '</p>';
       q.o.forEach((o, j) => { let cls = 'opt'; if(j === q.a) cls += ' right'; else if(j === a) cls += ' wrong'; h += '<button type="button" class="' + cls + '" disabled><span class="l">' + LET(j) + '</span>' + esc(o) + '</button>'; });
-      h += '<div class="expl"><strong>' + (a === q.a ? '<span class="pill ok">' + t('good') + '</span>' : '<span class="pill bad">' + (a === undefined ? t('noAnswer') : t('yours') + ' : ' + LET(a)) + ' · ' + t('exp') + ' : ' + LET(q.a) + '</span>') + '</strong>' + esc(q.e) + '</div></div>';
+      h += '<div class="expl"><strong>' + (a === q.a ? '<span class="pill ok">' + t('good') + '</span>' : '<span class="pill bad">' + (a === undefined ? t('noAnswer') : t('yours') + ' : ' + LET(a)) + ' · ' + t('exp') + ' : ' + LET(q.a) + '</span>') + '</strong>' + esc(q.e) + why(q, a) + '</div></div>';
     });
     $page.innerHTML = h; window.scrollTo(0, 0);
     document.getElementById('exAgain').onclick = () => runExam(raw, total, minutes);

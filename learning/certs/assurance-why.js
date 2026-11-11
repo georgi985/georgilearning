@@ -1,0 +1,27 @@
+/* Assurance : pourquoi les autres réponses sont fausses (ordre de assurance-qcm.js). */
+WHY("assurance", [
+["C'est l'inverse : les assurés paient la prime avant que le sinistre ne survienne.","Les assureurs ont évidemment des clients : les assurés.","La comptabilité suit des règles normales ; c'est l'ordre prix / coût qui est inversé."],
+["La réglementation CIMA impose la spécialisation : vie et IARD dans des sociétés différentes.","La réassurance ne change rien à cette règle.","Les mutuelles sont aussi soumises au principe de spécialisation."],
+["L'agent général représente une seule compagnie, pas le client.","Le réassureur traite avec les assureurs, pas avec les clients.","La CIMA est un régulateur, pas un intermédiaire."],
+["La prime est le prix de l'assurance, payé par l'assuré.","Le plafond est le maximum payé par l'assureur, pas la part de l'assuré.","La commission rémunère l'intermédiaire."],
+["240 000 est la prime émise ; seule la moitié correspond à N.","60 000 correspondrait à 3 mois de couverture.","180 000 correspondrait à 9 mois de couverture."],
+["La réforme n'a pas supprimé la réassurance, toujours indispensable.","L'assurance vie reste autorisée, dans des sociétés spécialisées.","L'assurance automobile reste payante et obligatoire."],
+["C'est l'inverse : au-dessus de 100 %, l'activité perd 8 %.","Un ratio combiné supérieur à 100 % montre un tarif insuffisant.","Le ratio combiné ne mesure pas la solvabilité."],
+["C'est l'inverse : on rapporte les sinistres aux primes.","Les frais rapportés aux primes donnent le taux de frais.","Les placements et provisions relèvent de la couverture des engagements."],
+["Il faut aussi les sinistres non encore déclarés (IBNR) et les frais futurs.","Les primes non acquises relèvent de la PPNA.","Les commissions à payer sont une dette envers les intermédiaires."],
+["Un surprovisionnement produirait des bonis, pas des malis.","Des malis répétés montrent au contraire une estimation insuffisante.","Une hausse des primes n'a pas de lien avec la liquidation des sinistres anciens."],
+["L'IARD utilise surtout la PPNA et la PSAP.","La réassurance a ses propres comptes, sans provision mathématique propre.","Les intermédiaires ne portent pas d'engagements d'assurance."],
+["L'actuaire explique sa méthode, mais une interview n'est pas un test sur 100 % des polices.","Le rapport de gestion ne contient pas le détail des polices.","Les réassureurs confirment leurs comptes, pas la PPNA de chaque police."],
+["Les triangles regroupent des milliers de sinistres, pas un assuré.","Un triangle se construit par année, pas par réassureur.","Un triangle se construit par année, pas par intermédiaire."],
+["Les honoraires de l'actuaire ne sont pas en cause.","Aucune loi n'interdit cette vérification : elle est indispensable.","La TVA n'a aucun rapport avec les provisions techniques."],
+["100 M serait payé si le risque était cédé à 100 %.","70 M est la part conservée par l'assureur.","En quote-part, le réassureur participe à chaque sinistre."],
+["Dans une proportionnelle, le partage se fait sur un pourcentage fixe ; ici il se fait au-delà d'un seuil.","Elle est courante et autorisée.","Elle est surtout utilisée en IARD."],
+["Ce serait souhaitable, mais ce n'est pas la règle de couverture.","Le placement en actions est plafonné, pas imposé.","Les réassureurs peuvent être étrangers, sous conditions."],
+["Les créances sur assurés n'augmentent pas les sinistres.","Elles n'ont pas d'effet direct sur la PPNA.","Elles ne sont pas interdites, mais encadrées par l'article 13."],
+["La réassurance partage le coût des sinistres mais ne contrôle pas le paiement des primes.","La franchise réduit l'indemnité, elle ne vérifie pas le paiement.","Le courtier est un intermédiaire, pas un contrôle système."],
+["C'est une anomalie, pas une bonne pratique.","Un IBNR est un sinistre survenu mais pas encore déclaré, pendant la garantie.","La réassurance n'a aucun rapport avec les dates du contrat."],
+["Le marketing et la vente ne touchent pas aux règlements.","Comptabilité et paie concernent d'autres processus.","Séparer deux agences ne protège pas contre un gestionnaire qui fait tout seul."],
+["Primes et sinistres sont deux flux différents.","La PPNA est une partie des primes, calculée à la clôture.","Les commissions sont une charge liée aux primes, pas leur montant."],
+["Une baisse saisonnière ne prend pas la forme d'annulations massives juste après la clôture.","Les annulations de polices réduisent les sinistres futurs, elles n'en créent pas.","La TVA n'est pas en cause : beaucoup d'opérations d'assurance n'y sont pas soumises."],
+["Ce sont des zones de travail d'une entreprise commerciale.","Ces tiers existent, mais ne sont pas le cœur du métier d'assureur.","Les capitaux propres découlent du résultat ; ce ne sont pas des populations de données."]
+]);

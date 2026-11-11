@@ -1,0 +1,25 @@
+/* Télécoms : pourquoi les autres réponses sont fausses (ordre de telecoms-qcm.js). */
+WHY("telecoms", [
+["Le nombre d'antennes est un indicateur de réseau, pas de revenu.","Le taux de panne relève de la qualité de service.","Les minutes gratuites ne donnent aucun revenu."],
+["Les nouveaux clients mesurent l'acquisition (les « gross adds »), pas le churn.","Les investissements se mesurent par le capex.","Les appels internationaux sont une composante du trafic."],
+["La BCEAO régule la monnaie et les banques.","La CIMA régule les assurances.","La CENTIF traite le renseignement anti-blanchiment."],
+["La facture mensuelle correspond au postpayé.","Le revenu existe : il est constaté au fur et à mesure de la consommation.","Le client paie avant de consommer, pas après chaque appel."],
+["Un contrat de roaming lie deux opérateurs ; il ne décrit pas un appel.","Une antenne est un équipement, pas un enregistrement.","Un rapport financier agrège des données ; le CDR est la donnée de base."],
+["La facturation intervient après la taxation.","La vente des recharges passe par la distribution.","La relation avec le régulateur relève de la direction réglementaire."],
+["La vente est le rôle du marketing et du commercial.","Les antennes sont protégées par une assurance de dommages, pas par la revenue assurance.","L'impôt relève de la direction fiscale."],
+["Les antennes existent indépendamment du paramétrage tarifaire.","Le capital social n'est pas touché par un tarif.","La paie n'a aucun lien avec la taxation des appels."],
+["Le service n'est pas encore rendu : le revenu ne peut pas être constaté.","L'encaissement d'une recharge n'est pas une dépense.","Une recharge n'est pas un bien durable."],
+["La redevance de fréquence est payée au régulateur, pas à un autre opérateur.","Le roaming concerne un abonné sur un réseau étranger.","La commission de distribution rémunère les vendeurs de recharges."],
+["Ils ne sont pas gratuits : ce sont des flux importants entre opérateurs.","Ils sont autorisés et encadrés par le régulateur.","Ils sont réglés après coup, pas d'avance."],
+["IFRS 16 traite des contrats de location.","IFRS 9 traite des instruments financiers.","IAS 2 traite des stocks."],
+["C'est l'inverse : la charge disparaît du résultat, qui augmente.","L'effet est réel sur le résultat de l'année.","L'actif augmente puisqu'une charge devient une immobilisation."],
+["Ce n'est pas un ratio.","Ce n'est pas un indicateur commercial.","Ce n'est pas un type de carte SIM."],
+["La TVA n'est pas concernée par le classement des immobilisations.","L'interconnexion est un flux de revenus et de charges.","Le roaming est un flux de revenus et de charges."],
+["Le vol de téléphones est un délit différent.","La falsification de recharges est une autre fraude.","Le piratage de la facturation est une attaque informatique distincte."],
+["Une SIM box n'a presque pas d'appels entrants.","Une SIM box fait des appels voix, pas de la donnée.","Une carte sans activité n'apporte rien au fraudeur."],
+["La longueur du code n'est pas le problème.","La gratuité n'affaiblit pas la sécurité.","Le SMS n'est pas chiffré de bout en bout ; c'est justement sa faiblesse."],
+["L'intranet n'est pas relié à la création de valeur pour les clients.","La messagerie est importante mais ne permet pas de créer du crédit.","Le site public ne donne aucun pouvoir sur les comptes clients."],
+["Le service client donne des informations, pas une preuve de taxation.","Compter les antennes ne teste pas la valorisation des appels.","Les contrats ne prouvent pas que le système applique les bons tarifs."],
+["Le rapport n'est pas un outil marketing.","Le rapport ne sert pas à négocier les prix.","Une licence télécom n'a pas de rapport avec ce rapport d'assurance."],
+["La gestion des accès dit qui peut agir, pas comment une offre est validée.","La paie n'est pas concernée.","Les sauvegardes protègent les données, elles ne valident pas les offres."]
+]);
