@@ -98,6 +98,7 @@ a.card:hover{border-color:var(--accent)}
 abbr.sig{text-decoration:underline dotted var(--accent);text-underline-offset:3px;cursor:help;font-weight:inherit}abbr.sig:hover,abbr.sig:focus{background:var(--accent-soft);outline:none;border-radius:3px}
 #sigpop{position:absolute;z-index:60;max-width:380px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.18);font-size:.92rem;line-height:1.45}
 #sigpop .k,.sigcard .k{font-weight:700;color:var(--accent);font-size:1.05rem}#sigpop .f,.sigcard .f{font-style:italic;margin:2px 0 6px}#sigpop p,.sigcard p{margin:4px 0}#sigpop .lbl,.sigcard .lbl{font-weight:600}#sigpop a{font-size:.85rem}
+.sigexp{color:var(--muted);font-style:italic}.sigbox{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 6px 6px 0;padding:8px 12px;margin:6px 0 12px;font-size:.93rem;line-height:1.5}.sigbox .f{font-style:italic}.sigbox .x{display:block;margin-top:4px}li>.sigbox{margin:6px 0}
 .siglist{margin-top:32px;padding-top:8px;border-top:2px solid var(--accent-soft)}.sigcard{border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0;background:var(--surface)}
 .sigsearch{width:100%;max-width:420px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;margin:8px 0 4px;background:var(--surface);color:var(--ink)}
 .pas{margin-top:36px;padding-top:8px;border-top:2px solid var(--accent-soft)}.pas>h2{color:var(--accent)}dl.voc{margin:8px 0 16px}dl.voc dt{font-weight:600;margin-top:10px}dl.voc dd{margin:2px 0 0 0}
@@ -488,6 +489,24 @@ function sigWrap(root){
     while((m = re.exec(txt))){ frag.appendChild(document.createTextNode(txt.slice(last, m.index))); const a = document.createElement('abbr'); a.className = 'sig'; a.tabIndex = 0; a.dataset.k = m[1]; a.title = SIGLES[m[1]].f; a.textContent = m[1]; frag.appendChild(a); last = m.index + m[1].length; }
     frag.appendChild(document.createTextNode(txt.slice(last))); n.parentNode.replaceChild(frag, n); });
 }
+/* Explication intégrée : à la première apparition d'un sigle dans la page, forme développée entre parenthèses
+   et encadré d'explication juste après le paragraphe, l'élément de liste ou le tableau qui le contient. */
+function sigInline(){
+  const seen = new Set(), after = new Map();
+  $page.querySelectorAll('abbr.sig').forEach(a => {
+    const e = SIGLES[a.dataset.k]; if(!e || seen.has(e)) return; seen.add(e);
+    const inHead = a.closest('h2,h3,h4,summary,th');
+    const prev = a.previousSibling, before = prev && prev.nodeType === 3 ? prev.nodeValue : '';
+    const already = /\(\s*$/.test(before);
+    if(!inHead && !already){ const sp = document.createElement('span'); sp.className = 'sigexp nosig'; sp.textContent = ' (' + e.f.replace(/\s*\(([^()]*)\)\s*$/, ', $1') + ')'; a.after(sp); }
+    const blk = a.closest('summary') || a.closest('.tablewrap') || a.closest('li,dd,dt,p,h2,h3,h4,.box,blockquote') || a.parentElement;
+    const box = document.createElement('div'); box.className = 'sigbox nosig';
+    box.innerHTML = '<b>' + esc(a.dataset.k) + '</b> <span class="f">(' + esc(e.f.replace(/\s*\(([^()]*)\)\s*$/, ', $1')) + ')</span> : ' + esc(e.d) + ' <span class="x"><b>' + SL().x + ' :</b> ' + esc(e.x) + '</span>';
+    const prevBox = after.get(blk);
+    if(prevBox) prevBox.after(box); else if(/^(LI|DD|DT)$/.test(blk.tagName)) blk.appendChild(box); else blk.after(box);
+    after.set(blk, box);
+  });
+}
 function sigCard(e, tag){ const L = SL(); return '<' + (tag || 'div') + ' class="sigcard"><div class="k">' + esc(e.s) + '</div><div class="f">' + esc(e.f) + '</div><p><span class="lbl">' + L.d + ' : </span>' + esc(e.d) + '</p><p><span class="lbl">' + L.x + ' : </span>' + esc(e.x) + '</p></' + (tag || 'div') + '>'; }
 function sigList(view){
   const seen = []; $page.querySelectorAll('abbr.sig').forEach(a => { const e = SIGLES[a.dataset.k]; if(e && !seen.includes(e)) seen.push(e); });
@@ -536,7 +555,7 @@ function route(){
   else if(r.view === 'exam') examPage(r.cert);
   else if(r.view === 'sigles') siglesPage(r.q);
   sigClose();
-  if(r.view !== 'sigles'){ sigWrap($page); if(r.view === 'module' || r.view === 'page' || r.view === 'format') sigList(r.view); }
+  if(r.view !== 'sigles'){ sigWrap($page); if(r.view === 'module' || r.view === 'page' || r.view === 'format') sigInline(); }
   renderSide(r);
   if(r.view !== 'quiz' || !location.hash.includes('quiz-')) window.scrollTo(0, 0);
   $side.classList.remove('open');
