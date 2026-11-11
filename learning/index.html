@@ -131,14 +131,16 @@ window.SIG=function(cat, list){ let c = SIGCATS.find(x => x.title === cat); if(!
 window.WHY=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c) return; const qs = en ? c.enQuestions : c.questions; if(!qs) return;
   list.forEach((w, i) => { const q = c.questions[i], t = qs[i]; if(!q || !t || !w) return; const full = w.slice(); full.splice(q.a, 0, ''); if(full.length !== q.o.length) console.error('WHY', id, i); t.w = full; }); };
 /* PAS(id, liste) : complète chaque module (dans l'ordre) par un parcours débutant : vocabulaire, exemple, méthode, exercices, pièges. */
-window.PAS=function(id, list){ const c = CERTS.find(x => x.id === id); if(!c) return;
-  list.forEach((b, i) => { const m = c.modules[i]; if(!m || !b) return; let h = '<section class="pas"><h2>Pas à pas pour débutant</h2>';
-    if(b.voc) h += '<h3>Les mots à connaître</h3><dl class="voc">' + b.voc.map(v => '<dt>' + v[0] + '</dt><dd>' + v[1] + '</dd>').join('') + '</dl>';
-    if(b.ex) h += '<h3>Un exemple concret</h3>' + b.ex;
-    if(b.steps) h += '<h3>La méthode, étape par étape</h3><ol>' + b.steps.map(s => '<li>' + s + '</li>').join('') + '</ol>';
-    if(b.exo) h += '<h3>Entraîne-toi</h3>' + b.exo.map(x => '<details><summary>Exercice corrigé : ' + x[0] + '</summary>' + x[1] + '</details>').join('');
-    if(b.piege) h += '<div class="box tip"><h4>Pièges à l\'examen</h4><ul>' + b.piege.map(p => '<li>' + p + '</li>').join('') + '</ul></div>';
-    m.pas = h + '</section>'; }); };</script>
+window.PAS=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c) return;
+  const L = en ? ['Step by step for beginners','Key terms','A concrete example','The method, step by step','Practice','Worked exercise: ','Exam traps']
+               : ['Pas à pas pour débutant','Les mots à connaître','Un exemple concret','La méthode, étape par étape','Entraîne-toi','Exercice corrigé : ','Pièges à l\'examen'];
+  list.forEach((b, i) => { const m = c.modules[i]; if(!m || !b) return; let h = '<section class="pas"><h2>' + L[0] + '</h2>';
+    if(b.voc) h += '<h3>' + L[1] + '</h3><dl class="voc">' + b.voc.map(v => '<dt>' + v[0] + '</dt><dd>' + v[1] + '</dd>').join('') + '</dl>';
+    if(b.ex) h += '<h3>' + L[2] + '</h3>' + b.ex;
+    if(b.steps) h += '<h3>' + L[3] + '</h3><ol>' + b.steps.map(s => '<li>' + s + '</li>').join('') + '</ol>';
+    if(b.exo) h += '<h3>' + L[4] + '</h3>' + b.exo.map(x => '<details><summary>' + L[5] + x[0] + '</summary>' + x[1] + '</details>').join('');
+    if(b.piege) h += '<div class="box tip"><h4>' + L[6] + '</h4><ul>' + b.piege.map(p => '<li>' + p + '</li>').join('') + '</ul></div>';
+    if(en) m.pasEn = h + '</section>'; else m.pas = h + '</section>'; }); };</script>
 <script src="certs/catalogue.js"></script>
 <script src="certs/sigles-cyber.js"></script>
 <script src="certs/sigles-audit.js"></script>
@@ -197,6 +199,7 @@ window.PAS=function(id, list){ const c = CERTS.find(x => x.id === id); if(!c) re
 <script src="certs/finance-qcm.js"></script>
 <script src="certs/finance-why.js"></script>
 <script src="certs/secteurs-itac.js"></script>
+<script src="certs/secteurs-itac.en.js"></script>
 <script>
 (function(){
 const $page = document.getElementById('page');
@@ -238,8 +241,8 @@ function V(c){
     id:c.id, org:c.org, passMark:c.passMark, examMinutes:c.examMinutes, examQuestions:c.examQuestions,
     title:(en && en.title) || c.title, intro:(en && en.intro) || c.intro, exam:(en && en.exam) || c.exam,
     translated: LANG === 'fr' || !!en,
-    modules:c.modules.map((m, i) => { const e = en && en.modules && en.modules[i]; return {id:m.id, day:(e && e.day) || m.day, title:(e && e.title) || m.title, html:((e && e.html) || m.html) + (m.pas || ''), tr:!!e || LANG === 'fr'}; }),
-    pages:(c.pages || []).map((p, i) => { const e = en && en.pages && en.pages[i]; return {id:p.id, title:(e && e.title) || p.title, html:(e && e.html) || p.html}; }),
+    modules:c.modules.map((m, i) => { const e = en && en.modules && en.modules[i]; return {id:m.id, day:(e && e.day) || m.day, title:(e && e.title) || m.title, html:((e && e.html) || m.html) + ((LANG === 'en' && m.pasEn) || m.pas || ''), tr:!!e || LANG === 'fr'}; }),
+    pages:(c.pages || []).map((p, i) => { const e = en && en.pages && en.pages[i]; return {id:p.id, title:(e && e.title) || (LANG === 'en' && p.titleEn) || p.title, html:(e && e.html) || (LANG === 'en' && p.htmlEn) || p.html}; }),
     questions:c.questions
   };
 }
