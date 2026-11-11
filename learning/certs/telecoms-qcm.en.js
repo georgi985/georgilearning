@@ -1,0 +1,25 @@
+/* Telecommunications: English version of the questions. Same order and option order as telecoms-qcm.js. */
+CERTS.find(c => c.id === "telecoms").enQuestions = [
+{q:"What does ARPU measure?",o:["The number of antennas","The average revenue per user","The failure rate","The number of free minutes"],e:"Average Revenue Per User."},
+{q:"Churn corresponds to:",o:["The number of new customers","The rate of customers lost","Investments","International calls"],e:"High churn forces the operator to spend more on acquisition."},
+{q:"In Senegal, who grants licences and frequencies?",o:["The BCEAO","The ARTP","The CIMA","The CENTIF"],e:"The telecommunications and postal regulatory authority."},
+{q:"In prepaid:",o:["The customer receives a monthly invoice","The customer tops up first then consumes, with real-time decrementing","There is no revenue","The customer pays after each call"],e:"The real-time charging platform decrements the balance."},
+{q:"A CDR is:",o:["A roaming contract","A detailed record of each call, SMS or session","A type of antenna","A financial report"],e:"Call Detail Record, the basis of the whole revenue chain."},
+{q:"What is the role of mediation?",o:["Invoicing the customer","Collecting, cleaning, deduplicating and distributing CDRs","Selling top-ups","Negotiating with the regulator"],e:"It prepares CDRs for rating and billing."},
+{q:"The mission of revenue assurance is:",o:["To sell more bundles","To detect and correct revenue losses along the chain","To insure the antennas","To calculate tax"],e:"It reconciles volumes between the links."},
+{q:"A misconfigured tariff plan in rating creates a risk on:",o:["The existence of the antennas","The accuracy of revenue","Share capital","Payroll"],e:"Events are valued incorrectly."},
+{q:"A prepaid top-up sold but not consumed is recorded:",o:["As immediate revenue","As deferred revenue (liability)","As an expense","As a fixed asset"],e:"Revenue is recognized as it is consumed."},
+{q:"When a customer of A calls a customer of B, A pays B:",o:["A frequency fee","A call termination charge","Roaming","A distribution commission"],e:"This is interconnection."},
+{q:"Why do interconnection and roaming require estimates at closing?",o:["Because they are free","Because the amounts depend on volumes declared by partners, settled late","Because they are prohibited","Because they are paid in advance"],e:"Accrued revenue and accrued expenses are estimated, then reconciled."},
+{q:"Which IFRS standard deals with allocating the price of a phone + subscription offer?",o:["IFRS 16","IFRS 15","IFRS 9","IAS 2"],e:"IFRS 15 deals with revenue from contracts with customers."},
+{q:"Capitalizing network maintenance expenditure has the effect of:",o:["Reducing profit","Inflating the year's profit","Being neutral","Reducing assets"],e:"The expense becomes an asset depreciated over several years."},
+{q:"An IRU is:",o:["A liquidity ratio","An indefeasible right of use over fibre or cable capacity","A churn indicator","A type of SIM"],e:"It is bought or sold over long periods."},
+{q:"Projects remaining \"in progress\" for years raise a problem of:",o:["VAT","Delayed depreciation and possible overstatement","Interconnection","Roaming"],e:"An asset in service must be depreciated."},
+{q:"SIM box fraud consists of:",o:["Stealing phones","Diverting international calls to terminate them as local calls","Selling forged top-ups","Hacking billing"],e:"The operator loses the international rate."},
+{q:"Which SIM card profile is typical of a SIM box?",o:["Many incoming calls","Only outgoing calls to many numbers, with no incoming calls or SMS","Data-only usage","No activity"],e:"It is a machine profile, not a human one."},
+{q:"Why are SMS validation codes a weak authentication factor?",o:["They are too long","The SMS can be intercepted (signalling weaknesses, SIM swap)","They are free","They are encrypted"],e:"Signalling protocols and SIM swap make diversion possible."},
+{q:"Which internal access is the most sensitive?",o:["Access to the intranet","The right to credit accounts on the top-up platform","Email","The public website"],e:"It makes it possible to create value without payment."},
+{q:"A test call consists of:",o:["Asking customer service","Making real calls and checking how they are rated","Counting antennas","Reading contracts"],e:"It checks accuracy end to end."},
+{q:"Why ask a managed service provider for an ISAE 3402 / SOC 1 report?",o:["For its advertising","To obtain assurance over the provider's controls that affect the financial statements","To reduce its prices","To obtain a licence"],e:"Outsourced controls must also be covered."},
+{q:"Frequent creation of new offers must be controlled as part of:",o:["Access management","Change management (approval, testing, post-implementation check)","Payroll","Backups"],e:"A misconfigured offer directly affects revenue."}
+];

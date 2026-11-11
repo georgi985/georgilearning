@@ -1,0 +1,25 @@
+/* Telecoms: why the other answers are wrong, in English (order of telecoms-qcm.en.js). */
+WHY("telecoms", [
+["The number of antennas is a network indicator, not a revenue one.","The failure rate belongs to quality of service.","Free minutes bring no revenue."],
+["New customers measure acquisition (\"gross adds\"), not churn.","Investments are measured by capex.","International calls are one component of traffic."],
+["The BCEAO regulates currency and banks.","The CIMA regulates insurance.","The CENTIF handles anti-money laundering intelligence."],
+["A monthly invoice corresponds to postpaid.","There is revenue: it is recognized as consumption occurs.","The customer pays before consuming, not after each call."],
+["A roaming contract binds two operators; it does not describe a call.","An antenna is equipment, not a record.","A financial report aggregates data; the CDR is the basic data."],
+["Billing comes after rating.","Top-ups are sold through distribution.","The relationship with the regulator belongs to the regulatory department."],
+["Selling is the role of marketing and sales.","Antennas are covered by property insurance, not by revenue assurance.","Tax belongs to the tax department."],
+["The antennas exist regardless of tariff configuration.","Share capital is not affected by a tariff.","Payroll has no link with call rating."],
+["The service has not yet been delivered: revenue cannot be recognized.","Cash received for a top-up is not an expense.","A top-up is not a durable asset."],
+["The frequency fee is paid to the regulator, not to another operator.","Roaming concerns a subscriber on a foreign network.","The distribution commission pays the top-up sellers."],
+["They are not free: they are large flows between operators.","They are authorized and overseen by the regulator.","They are settled afterwards, not in advance."],
+["IFRS 16 deals with leases.","IFRS 9 deals with financial instruments.","IAS 2 deals with inventories."],
+["It is the opposite: the expense disappears from profit, which increases.","The effect on the year's profit is real.","Assets increase since an expense becomes a fixed asset."],
+["It is not a ratio.","It is not a commercial indicator.","It is not a type of SIM card."],
+["VAT is not concerned by the classification of fixed assets.","Interconnection is a flow of revenue and expenses.","Roaming is a flow of revenue and expenses."],
+["Phone theft is a different offence.","Forging top-ups is another fraud.","Hacking billing is a separate cyber attack."],
+["A SIM box has almost no incoming calls.","A SIM box makes voice calls, not data.","An inactive card brings nothing to the fraudster."],
+["The length of the code is not the problem.","Being free does not weaken security.","SMS is not end-to-end encrypted; that is precisely its weakness."],
+["The intranet is not linked to creating value for customers.","Email is important but does not allow credit to be created.","The public website gives no power over customer accounts."],
+["Customer service gives information, not proof of rating.","Counting antennas does not test how calls are valued.","Contracts do not prove the system applies the right rates."],
+["The report is not a marketing tool.","The report is not used to negotiate prices.","A telecom licence has nothing to do with this assurance report."],
+["Access management says who can act, not how an offer is validated.","Payroll is not concerned.","Backups protect data; they do not validate offers."]
+], true);

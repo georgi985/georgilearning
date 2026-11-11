@@ -202,6 +202,9 @@ window.PAS=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c
 <script src="certs/telecoms.js"></script>
 <script src="certs/telecoms-qcm.js"></script>
 <script src="certs/telecoms-why.js"></script>
+<script src="certs/telecoms.en.js"></script>
+<script src="certs/telecoms-qcm.en.js"></script>
+<script src="certs/telecoms-why.en.js"></script>
 <script src="certs/petrole.js"></script>
 <script src="certs/petrole-qcm.js"></script>
 <script src="certs/petrole-why.js"></script>
@@ -248,7 +251,7 @@ const t = k => UI[LANG][k];
 function V(c){
   const en = LANG === 'en' && c.en ? c.en : null;
   return {
-    id:c.id, org:c.org, passMark:c.passMark, examMinutes:c.examMinutes, examQuestions:c.examQuestions,
+    id:c.id, org:(en && en.org) || c.org, passMark:c.passMark, examMinutes:c.examMinutes, examQuestions:c.examQuestions,
     title:(en && en.title) || c.title, intro:(en && en.intro) || c.intro, exam:(en && en.exam) || c.exam,
     translated: LANG === 'fr' || !!en,
     modules:c.modules.map((m, i) => { const e = en && en.modules && en.modules[i]; return {id:m.id, day:(e && e.day) || m.day, title:(e && e.title) || m.title, html:((e && e.html) || m.html) + ((LANG === 'en' && m.pasEn) || m.pas || ''), tr:!!e || LANG === 'fr'}; }),
@@ -329,12 +332,12 @@ function home(){
   h += '<div class="grid">';
   items.forEach(k => {
     const raw = certById(k.id), ke = (LANG === 'en' && k.en) || {};
-    const title = ke.title || k.title, domain = ke.domain || k.domain, kind = ke.kind || k.kind;
+    const title = ke.title || k.title, domain = ke.domain || k.domain, kind = ke.kind || k.kind, org = ke.org || k.org;
     if(raw){
       const best = store.get(raw.id + ':best', null);
-      h += '<a class="card" href="#' + raw.id + '"><span class="pill ok" style="align-self:flex-start">' + t('available') + '</span><span class="t">' + esc(title) + '</span><span class="d">' + esc(k.org) + ' · ' + esc(domain) + '</span><span class="d">' + raw.modules.length + ' modules · ' + raw.questions.length + ' questions' + (best !== null ? ' · ' + t('best') + ' ' + best + ' %' : '') + '</span></a>';
+      h += '<a class="card" href="#' + raw.id + '"><span class="pill ok" style="align-self:flex-start">' + t('available') + '</span><span class="t">' + esc(title) + '</span><span class="d">' + esc(org) + ' · ' + esc(domain) + '</span><span class="d">' + raw.modules.length + ' modules · ' + raw.questions.length + ' questions' + (best !== null ? ' · ' + t('best') + ' ' + best + ' %' : '') + '</span></a>';
     } else {
-      h += '<div class="card" aria-disabled="true"><span class="pill" style="align-self:flex-start;background:var(--line);color:var(--muted)">' + t('soon') + '</span><span class="t">' + esc(title) + '</span><span class="d">' + esc(k.org) + ' · ' + esc(domain) + '</span><span class="d">' + t('formatLbl') + ' : ' + esc(kind) + '</span></div>';
+      h += '<div class="card" aria-disabled="true"><span class="pill" style="align-self:flex-start;background:var(--line);color:var(--muted)">' + t('soon') + '</span><span class="t">' + esc(title) + '</span><span class="d">' + esc(org) + ' · ' + esc(domain) + '</span><span class="d">' + t('formatLbl') + ' : ' + esc(kind) + '</span></div>';
     }
   });
   h += '</div>';

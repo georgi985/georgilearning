@@ -7,6 +7,8 @@ const T = (head, rows) => '<div class="tablewrap"><table><thead><tr>' + head.map
 const E = (title, rows) => (title ? '<p><b>' + title + '</b></p>' : '') + '<div class="tablewrap"><table><thead><tr><th>Compte</th><th>Libellé</th><th class="num">Débit</th><th class="num">Crédit</th></tr></thead><tbody>' + rows.map(r => '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td class="num">' + (r[2] || '') + '</td><td class="num">' + (r[3] || '') + '</td></tr>').join('') + '</tbody></table></div>';
 const X = (q, a) => '<details><summary>Exercice : ' + q + '</summary>' + a + '</details>';
 window.__GL = {T, E, X};
+/* Same helpers with English labels, for the .en.js files. */
+window.__GLEN = {T, E:(title, rows) => (title ? "<p><b>" + title + "</b></p>" : "") + "<div class=\"tablewrap\"><table><thead><tr><th>Account</th><th>Description</th><th class=\"num\">Debit</th><th class=\"num\">Credit</th></tr></thead><tbody>" + rows.map(r => "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td class=\"num\">" + (r[2] || "") + "</td><td class=\"num\">" + (r[3] || "") + "</td></tr>").join("") + "</tbody></table></div>", X:(q, a) => "<details><summary>Exercise: " + q + "</summary>" + a + "</details>"};
 
 const modules = [
 { id:"m1", day:"Bases", title:"À quoi sert la comptabilité ? Le cadre OHADA", html:`
