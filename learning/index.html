@@ -114,7 +114,7 @@ details summary{cursor:pointer;padding:10px 0;font-weight:600}
 <nav class="side" id="side" aria-label="Plan du cours"></nav>
 <main><div class="page" id="page"></div></main>
 </div>
-<script>window.CERTS=[];window.CATALOG=[];</script>
+<script>window.CERTS=[];window.CATALOG=[];window.CATEGORIES=[];</script>
 <script src="certs/catalogue.js"></script>
 <script src="certs/iso27001-li.js"></script>
 <script src="certs/iso27001-li-qcm.js"></script>
@@ -136,6 +136,9 @@ details summary{cursor:pointer;padding:10px 0;font-weight:600}
 <script src="certs/cissp-qcm.js"></script>
 <script src="certs/cissp.en.js"></script>
 <script src="certs/cissp-qcm.en.js"></script>
+<script src="certs/compta.js"></script>
+<script src="certs/compta-2.js"></script>
+<script src="certs/compta-qcm.js"></script>
 <script>
 (function(){
 const $page = document.getElementById('page');
@@ -151,16 +154,16 @@ let timer = null;
 /* ---------- Langue ---------- */
 let LANG = store.get('lang', null) || ((navigator.language || 'fr').toLowerCase().startsWith('fr') ? 'fr' : 'en');
 const UI = {
-  fr:{hub:"← Accueil du site",brand:"Georgi Learning",brandSub:"Cours et entraînement aux certifications",all:"Toutes les certifications",overview:"Présentation",format:"Format de l'examen",course:"Cours",resources:"Ressources",practice:"Entraînement",quiz:"Questions corrigées",exam:"Examen blanc chronométré",read:"lu",
-    homeEyebrow:"Campus",homeTitle:"Préparer ses certifications en sécurité",homeLead:"Un cours structuré, des questions corrigées et un examen blanc pour chaque certification. Votre progression reste enregistrée dans ce navigateur.",available:"Disponible",soon:"En préparation",formatLbl:"Format",best:"meilleur examen blanc",howTitle:"Comment travailler",howText:"Lisez un module, faites ses questions juste après, puis passez à la suite. Gardez les examens blancs pour la fin : ils servent à mesurer votre niveau dans les conditions réelles.",
+  fr:{hub:"← Accueil du site",brand:"Georgi Learning",brandSub:"Cours, certifications et secteurs d'activité",all:"Tous les cours",overview:"Présentation",format:"Format de l'examen",course:"Cours",resources:"Ressources",practice:"Entraînement",quiz:"Questions corrigées",exam:"Examen blanc chronométré",read:"lu",
+    homeEyebrow:"Campus",homeTitle:"Apprendre l'audit, la cybersécurité et les secteurs d'activité",homeLead:"Des cours pas à pas, des questions corrigées et un examen blanc pour chaque sujet, regroupés par rubrique. Votre progression reste enregistrée dans ce navigateur.",available:"Disponible",soon:"En préparation",formatLbl:"Format",best:"meilleur examen blanc",howTitle:"Comment travailler",howText:"Lisez un module, faites ses questions juste après, puis passez à la suite. Gardez les examens blancs pour la fin : ils servent à mesurer votre niveau dans les conditions réelles.",
     modulesRead:"modules lus",questions:"questions corrigées",bestExam:"meilleur examen blanc",passMark:"Seuil de réussite",program:"Programme",thModule:"Module",thDay:"Partie",thQ:"Questions",start1:"Commencer le module 1",takeExam:"Passer un examen blanc",
     check:"Vérifiez vos acquis",doQ:n=>"Faire les "+n+" questions de ce module",toExam:"Passer à l'examen blanc →",
     quizLead:"Choisissez une réponse : la correction et l'explication s'affichent tout de suite.",filterAll:"Tous",right:"justes",left:"restantes",shuffle:"Mélanger",reset:"Recommencer",showAll:"Toutes les questions",reviewWrong:n=>"Revoir mes erreurs ("+n+")",noWrong:"Aucune erreur enregistrée pour ce filtre. Bravo.",noQ:"Aucune question pour ce filtre.",question:"Question",good:"Bonne réponse",expected:"Réponse attendue",
     examLead:(n,m,p)=>n+" questions tirées au hasard, "+m+" minutes, sans correction pendant l'épreuve. Seuil de réussite : "+p+" %.",examText:"Mettez-vous dans les conditions de l'examen. À la fin, vous verrez votre score par module et la correction de chaque question.",examStart:"Commencer l'examen",examPractice:"Plutôt s'entraîner avec correction",examRunning:"Examen blanc en cours",answered:"répondues",finish:"Terminer et corriger",
     result:"Résultat de l'examen blanc",passed:"Réussi",notYet:"Pas encore",goodOf:(g,t)=>g+" bonnes réponses sur "+t,timeUsed:"Temps utilisé",threshold:"Seuil",thScore:"Score",thReview:"À revoir",reread:"Relire le module",again:"Nouvel examen blanc",reviewMine:"Revoir mes erreurs",detail:"Correction détaillée",noAnswer:"Sans réponse",yours:"Votre réponse",exp:"attendue",formatTitle:"Format de l'examen et stratégie",
     notTranslated:"Ce contenu n'existe pas encore dans cette langue : il est affiché en français.",menu:"Plan du cours",langLabel:"Langue"},
-  en:{hub:"← Site home",brand:"Georgi Learning",brandSub:"Certification courses and practice",all:"All certifications",overview:"Overview",format:"Exam format",course:"Course",resources:"Resources",practice:"Practice",quiz:"Practice questions",exam:"Timed mock exam",read:"read",
-    homeEyebrow:"Campus",homeTitle:"Prepare your security certifications",homeLead:"A structured course, practice questions with explanations and a mock exam for each certification. Your progress is saved in this browser.",available:"Available",soon:"Coming soon",formatLbl:"Format",best:"best mock exam",howTitle:"How to study",howText:"Read a module, do its questions right after, then move on. Keep the mock exams for the end: they measure your level in real exam conditions.",
+  en:{hub:"← Site home",brand:"Georgi Learning",brandSub:"Courses, certifications and industries",all:"All courses",overview:"Overview",format:"Exam format",course:"Course",resources:"Resources",practice:"Practice",quiz:"Practice questions",exam:"Timed mock exam",read:"read",
+    homeEyebrow:"Campus",homeTitle:"Learn audit, cybersecurity and industries",homeLead:"Step-by-step courses, practice questions with explanations and a mock exam for each topic, grouped by section. Your progress is saved in this browser.",available:"Available",soon:"Coming soon",formatLbl:"Format",best:"best mock exam",howTitle:"How to study",howText:"Read a module, do its questions right after, then move on. Keep the mock exams for the end: they measure your level in real exam conditions.",
     modulesRead:"modules read",questions:"practice questions",bestExam:"best mock exam",passMark:"Pass mark",program:"Syllabus",thModule:"Module",thDay:"Part",thQ:"Questions",start1:"Start module 1",takeExam:"Take a mock exam",
     check:"Check your knowledge",doQ:n=>"Answer the "+n+" questions for this module",toExam:"Go to the mock exam →",
     quizLead:"Pick an answer: the correction and explanation appear immediately.",filterAll:"All",right:"correct",left:"remaining",shuffle:"Shuffle",reset:"Start over",showAll:"All questions",reviewWrong:n=>"Review my mistakes ("+n+")",noWrong:"No mistakes recorded for this filter. Well done.",noQ:"No questions for this filter.",question:"Question",good:"Correct",expected:"Expected answer",
@@ -235,8 +238,15 @@ $side.addEventListener('click', ev => {
 });
 
 function home(){
-  let h = '<p class="eyebrow">' + t('homeEyebrow') + '</p><h1>' + t('homeTitle') + '</h1><p class="lead">' + t('homeLead') + '</p><div class="grid">';
-  CATALOG.forEach(k => {
+  let h = '<p class="eyebrow">' + t('homeEyebrow') + '</p><h1>' + t('homeTitle') + '</h1><p class="lead">' + t('homeLead') + '</p>';
+  const cats = CATEGORIES.length ? CATEGORIES : [{id:null, title:''}];
+  cats.forEach(cat => {
+  const items = CATALOG.filter(k => !cat.id || k.cat === cat.id);
+  if(!items.length) return;
+  const ce = (LANG === 'en' && cat.en) || {};
+  if(cat.id) h += '<h2 id="rubrique-' + cat.id + '">' + esc(ce.title || cat.title) + '</h2><p>' + esc(ce.lead || cat.lead) + '</p>';
+  h += '<div class="grid">';
+  items.forEach(k => {
     const raw = certById(k.id), ke = (LANG === 'en' && k.en) || {};
     const title = ke.title || k.title, domain = ke.domain || k.domain, kind = ke.kind || k.kind;
     if(raw){
@@ -246,7 +256,9 @@ function home(){
       h += '<div class="card" aria-disabled="true"><span class="pill" style="align-self:flex-start;background:var(--line);color:var(--muted)">' + t('soon') + '</span><span class="t">' + esc(title) + '</span><span class="d">' + esc(k.org) + ' · ' + esc(domain) + '</span><span class="d">' + t('formatLbl') + ' : ' + esc(kind) + '</span></div>';
     }
   });
-  return h + '</div><div class="box"><h4>' + t('howTitle') + '</h4><p>' + t('howText') + '</p></div>';
+  h += '</div>';
+  });
+  return h + '<div class="box"><h4>' + t('howTitle') + '</h4><p>' + t('howText') + '</p></div>';
 }
 
 function certPage(raw){
