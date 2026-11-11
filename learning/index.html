@@ -95,6 +95,11 @@ a.card:hover{border-color:var(--accent)}
 .pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.bad{background:var(--bad-soft);color:var(--bad)}
 .result{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin:0 0 20px}
 .menu-btn{display:none}
+abbr.sig{text-decoration:underline dotted var(--accent);text-underline-offset:3px;cursor:help;font-weight:inherit}abbr.sig:hover,abbr.sig:focus{background:var(--accent-soft);outline:none;border-radius:3px}
+#sigpop{position:absolute;z-index:60;max-width:380px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.18);font-size:.92rem;line-height:1.45}
+#sigpop .k,.sigcard .k{font-weight:700;color:var(--accent);font-size:1.05rem}#sigpop .f,.sigcard .f{font-style:italic;margin:2px 0 6px}#sigpop p,.sigcard p{margin:4px 0}#sigpop .lbl,.sigcard .lbl{font-weight:600}#sigpop a{font-size:.85rem}
+.siglist{margin-top:32px;padding-top:8px;border-top:2px solid var(--accent-soft)}.sigcard{border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0;background:var(--surface)}
+.sigsearch{width:100%;max-width:420px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;margin:8px 0 4px;background:var(--surface);color:var(--ink)}
 .pas{margin-top:36px;padding-top:8px;border-top:2px solid var(--accent-soft)}.pas>h2{color:var(--accent)}dl.voc{margin:8px 0 16px}dl.voc dt{font-weight:600;margin-top:10px}dl.voc dd{margin:2px 0 0 0}
 .why{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line)}.why .whyT{font-weight:600;margin:0 0 4px}.why ul{margin:0;padding-left:18px}.why li{margin:3px 0}.why li.mine{color:var(--bad)}
 details{background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:0 14px}
@@ -117,6 +122,10 @@ details summary{cursor:pointer;padding:10px 0;font-weight:600}
 <main><div class="page" id="page"></div></main>
 </div>
 <script>window.CERTS=[];window.CATALOG=[];window.CATEGORIES=[];
+/* SIG(rubrique, liste) : dictionnaire des sigles [sigle, forme développée, définition, exemple]. « A / B » crée deux entrées liées ; 5e élément facultatif : autres graphies. */
+window.SIGLES={};window.SIGCATS=[];
+window.SIG=function(cat, list){ let c = SIGCATS.find(x => x.title === cat); if(!c){ c = {title:cat, items:[]}; SIGCATS.push(c); }
+  list.forEach(r => { const e = {s:r[0], f:r[1], d:r[2], x:r[3], cat:cat}; c.items.push(e); r[0].split(' / ').concat(r[4] || []).forEach(k => { SIGLES[k.trim()] = e; }); }); };
 /* WHY(id, liste) : pour chaque question (dans l'ordre), explications des mauvaises réponses dans l'ordre des options, sans la bonne. en=true pour la version anglaise. */
 window.WHY=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c) return; const qs = en ? c.enQuestions : c.questions; if(!qs) return;
   list.forEach((w, i) => { const q = c.questions[i], t = qs[i]; if(!q || !t || !w) return; const full = w.slice(); full.splice(q.a, 0, ''); if(full.length !== q.o.length) console.error('WHY', id, i); t.w = full; }); };
@@ -130,6 +139,10 @@ window.PAS=function(id, list){ const c = CERTS.find(x => x.id === id); if(!c) re
     if(b.piege) h += '<div class="box tip"><h4>Pièges à l\'examen</h4><ul>' + b.piege.map(p => '<li>' + p + '</li>').join('') + '</ul></div>';
     m.pas = h + '</section>'; }); };</script>
 <script src="certs/catalogue.js"></script>
+<script src="certs/sigles-cyber.js"></script>
+<script src="certs/sigles-audit.js"></script>
+<script src="certs/sigles-gestion.js"></script>
+<script src="certs/sigles-complement.js"></script>
 <script src="certs/iso27001-li.js"></script>
 <script src="certs/iso27001-li-qcm.js"></script>
 <script src="certs/iso27001-li-why.js"></script>
@@ -248,6 +261,7 @@ function certById(id){ return CERTS.find(c => c.id === id); }
 function parseHash(){
   const h = decodeURIComponent(location.hash.replace(/^#/, ''));
   if(!h || h === 'accueil') return {view:'home'};
+  if(h === 'sigles' || h.startsWith('sigles-')) return {view:'sigles', q:h.slice(7)};
   const cert = CERTS.slice().sort((a,b) => b.id.length - a.id.length).find(c => h === c.id || h.startsWith(c.id + '-'));
   if(!cert) return {view:'home'};
   const rest = h === cert.id ? '' : h.slice(cert.id.length + 1);
@@ -268,6 +282,7 @@ function renderSide(r){
   let h = '<p style="margin:0 0 14px;font-size:.85rem"><a href="../" style="padding:0;display:inline">' + t('hub') + '</a></p><p class="brand">' + t('brand') + '</p><p class="brand-sub">' + t('brandSub') + '</p>';
   h += '<div class="filters" role="group" aria-label="' + t('langLabel') + '"><button type="button" class="chip" data-lang="fr" aria-pressed="' + (LANG === 'fr') + '">Français</button><button type="button" class="chip" data-lang="en" aria-pressed="' + (LANG === 'en') + '">English</button></div>';
   h += '<a href="#accueil"' + (r.view === 'home' ? ' class="active"' : '') + '><span class="n">⌂</span>' + t('all') + '</a>';
+  h += '<a href="#sigles"' + (r.view === 'sigles' ? ' class="active"' : '') + '><span class="n">Aa</span>' + SL().title + '</a>';
   if(r.cert){
     const c = V(r.cert), seen = store.get(c.id + ':seen', {});
     const a = (hash, label, n, active, done) => '<a href="#' + hash + '"' + (active ? ' class="active" aria-current="page"' : '') + '><span class="n">' + n + '</span><span>' + label + '</span>' + (done ? '<span class="done" aria-label="' + t('read') + '">✓</span>' : '') + '</a>';
@@ -309,6 +324,7 @@ function home(){
   });
   h += '</div>';
   });
+  h += '<h2>' + SL().title + '</h2><p>' + SL().lead + '</p><p><a class="btn" href="#sigles">' + SL().title + ' (' + new Set(Object.values(SIGLES)).size + ') →</a></p>';
   return h + '<div class="box"><h4>' + t('howTitle') + '</h4><p>' + t('howText') + '</p></div>';
 }
 
@@ -455,6 +471,56 @@ function runExam(raw, total, minutes){
   timer = setInterval(() => { left--; const el = document.getElementById('exClock'); if(el) el.textContent = '⏱ ' + fmt(left); if(left <= 0) finish(); }, 1000);
 }
 
+
+/* ---- Sigles : repérage dans le texte, fiche au clic, encadré par module, glossaire ---- */
+const SL = () => LANG === 'en' ? {mod:'Acronyms in this module', page:'Acronyms on this page', d:'What it is', x:'Example', all:'All acronyms', title:'Acronym glossary', lead:'Every acronym used in the courses, with its full form, what it means and an example. Click an underlined acronym in any course to see its card. (Content in French for now.)', search:'Search an acronym or a word…', none:'No match.'}
+  : {mod:'Sigles de ce module', page:'Sigles de cette page', d:'Ce que c\'est', x:'Exemple', all:'Tous les sigles', title:'Glossaire des sigles', lead:'Tous les sigles utilisés dans les cours, avec leur forme développée, leur signification et un exemple. Dans un cours, clique sur un sigle souligné pour voir sa fiche.', search:'Chercher un sigle ou un mot…', none:'Aucun résultat.'};
+let SIGRE = null;
+function sigRe(){ if(!SIGRE){ const ks = Object.keys(SIGLES).sort((a, b) => b.length - a.length).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); SIGRE = new RegExp('(?<![A-Za-z0-9À-ÿ\\-])(' + ks.join('|') + ')(?![A-Za-z0-9À-ÿ\\-])', 'g'); } SIGRE.lastIndex = 0; return SIGRE; }
+const SIGSKIP = 'SCRIPT,STYLE,ABBR,A,BUTTON,LABEL,INPUT,TEXTAREA,SELECT,CODE,PRE,H1,OPTION'.split(',');
+function sigWrap(root){
+  if(!Object.keys(SIGLES).length) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode(n){
+    for(let p = n.parentNode; p && p !== root.parentNode; p = p.parentNode){ if(SIGSKIP.includes(p.nodeName) || (p.classList && (p.classList.contains('sigcard') || p.classList.contains('nosig')))) return NodeFilter.FILTER_REJECT; }
+    const re = sigRe(); return re.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP; }});
+  const nodes = []; while(w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => { const frag = document.createDocumentFragment(), txt = n.nodeValue, re = sigRe(); let last = 0, m;
+    while((m = re.exec(txt))){ frag.appendChild(document.createTextNode(txt.slice(last, m.index))); const a = document.createElement('abbr'); a.className = 'sig'; a.tabIndex = 0; a.dataset.k = m[1]; a.title = SIGLES[m[1]].f; a.textContent = m[1]; frag.appendChild(a); last = m.index + m[1].length; }
+    frag.appendChild(document.createTextNode(txt.slice(last))); n.parentNode.replaceChild(frag, n); });
+}
+function sigCard(e, tag){ const L = SL(); return '<' + (tag || 'div') + ' class="sigcard"><div class="k">' + esc(e.s) + '</div><div class="f">' + esc(e.f) + '</div><p><span class="lbl">' + L.d + ' : </span>' + esc(e.d) + '</p><p><span class="lbl">' + L.x + ' : </span>' + esc(e.x) + '</p></' + (tag || 'div') + '>'; }
+function sigList(view){
+  const seen = []; $page.querySelectorAll('abbr.sig').forEach(a => { const e = SIGLES[a.dataset.k]; if(e && !seen.includes(e)) seen.push(e); });
+  if(!seen.length) return; seen.sort((a, b) => a.s.localeCompare(b.s));
+  const L = SL(), d = document.createElement('section'); d.className = 'siglist nosig';
+  d.innerHTML = '<h2>' + (view === 'module' ? L.mod : L.page) + ' (' + seen.length + ')</h2>' + seen.map(e => sigCard(e)).join('') + '<p><a href="#sigles">' + L.all + ' →</a></p>';
+  $page.appendChild(d);
+}
+function siglesPage(q){
+  const L = SL(), n = new Set(Object.values(SIGLES)).size;
+  let h = '<p class="eyebrow">Campus</p><h1>' + L.title + ' (' + n + ')</h1><p class="lead">' + L.lead + '</p><input type="search" class="sigsearch" id="sigQ" placeholder="' + L.search + '" value="' + esc(decodeURIComponent(q || '')) + '"><div id="sigRes" class="nosig"></div>';
+  $page.innerHTML = h;
+  const draw = () => { const v = document.getElementById('sigQ').value.trim().toLowerCase(); let out = '';
+    SIGCATS.forEach(c => { const it = c.items.filter(e => !v || (e.s + ' ' + e.f + ' ' + e.d).toLowerCase().includes(v)).sort((a, b) => a.s.localeCompare(b.s)); if(it.length) out += '<h2>' + esc(c.title) + ' (' + it.length + ')</h2>' + it.map(e => sigCard(e)).join(''); });
+    document.getElementById('sigRes').innerHTML = out || '<p>' + L.none + '</p>'; };
+  document.getElementById('sigQ').oninput = draw; draw();
+}
+let $pop = null;
+function sigClose(){ if($pop){ $pop.remove(); $pop = null; } }
+function sigOpen(a){
+  sigClose(); const e = SIGLES[a.dataset.k]; if(!e) return; const L = SL();
+  $pop = document.createElement('div'); $pop.id = 'sigpop'; $pop.setAttribute('role', 'dialog');
+  $pop.innerHTML = '<div class="k">' + esc(e.s) + '</div><div class="f">' + esc(e.f) + '</div><p><span class="lbl">' + L.d + ' : </span>' + esc(e.d) + '</p><p><span class="lbl">' + L.x + ' : </span>' + esc(e.x) + '</p><a href="#sigles">' + L.all + ' →</a>';
+  document.body.appendChild($pop);
+  const r = a.getBoundingClientRect(), pw = $pop.offsetWidth, ph = $pop.offsetHeight;
+  let left = Math.max(8, Math.min(window.scrollX + r.left, window.scrollX + document.documentElement.clientWidth - pw - 8));
+  let top = window.scrollY + r.bottom + 6; if(r.bottom + ph + 12 > window.innerHeight && r.top > ph + 12) top = window.scrollY + r.top - ph - 6;
+  $pop.style.left = left + 'px'; $pop.style.top = top + 'px';
+}
+document.addEventListener('click', ev => { const a = ev.target.closest && ev.target.closest('abbr.sig'); if(a){ ev.preventDefault(); ev.stopPropagation(); sigOpen(a); return; } if(!(ev.target.closest && ev.target.closest('#sigpop'))) sigClose(); }, true);
+document.addEventListener('keydown', ev => { if(ev.key === 'Escape') sigClose(); else if(ev.key === 'Enter' && document.activeElement && document.activeElement.matches && document.activeElement.matches('abbr.sig')) sigOpen(document.activeElement); });
+let sigTimer = null;
+new MutationObserver(() => { clearTimeout(sigTimer); sigTimer = setTimeout(() => sigWrap($page), 30); }).observe(document.getElementById('page'), {childList:true, subtree:true});
 function route(){
   if(timer){ clearInterval(timer); timer = null; }
   $page.onclick = null;
@@ -468,6 +534,9 @@ function route(){
   else if(r.view === 'page'){ const c = V(r.cert), p = c.pages[r.pi]; $page.innerHTML = (c.translated ? '' : notice()) + '<p class="eyebrow">' + esc(c.title) + '</p><h1>' + esc(p.title) + '</h1>' + p.html; }
   else if(r.view === 'quiz') quizPage(r.cert, r.filter);
   else if(r.view === 'exam') examPage(r.cert);
+  else if(r.view === 'sigles') siglesPage(r.q);
+  sigClose();
+  if(r.view !== 'sigles'){ sigWrap($page); if(r.view === 'module' || r.view === 'page' || r.view === 'format') sigList(r.view); }
   renderSide(r);
   if(r.view !== 'quiz' || !location.hash.includes('quiz-')) window.scrollTo(0, 0);
   $side.classList.remove('open');
