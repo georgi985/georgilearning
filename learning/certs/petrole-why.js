@@ -1,0 +1,25 @@
+/* Pétrole et gaz : pourquoi les autres réponses sont fausses (ordre de petrole-qcm.js). */
+WHY("petrole", [
+["L'amont regroupe exploration et production.","L'intermédiaire couvre transport et stockage.","L'exploration fait partie de l'amont."],
+["100 litres sous-estime le baril.","200 litres surestime le baril.","1 000 litres correspond à un mètre cube."],
+["Le franc CFA est arrimé à l'euro, pas au pétrole.","Les salaires locaux sont en francs CFA.","L'exposition est réelle dès que les prix sont en dollars."],
+["Dans un CPP, la compagnie ne devient pas propriétaire de toute la production.","Les sous-traitants sont payés pour leurs services.","La banque prête de l'argent, elle ne possède pas le pétrole."],
+["L'impôt est payé à part, sur les bénéfices.","La société nationale reçoit sa part comme partenaire.","Les salaires de l'État n'ont aucun rapport."],
+["L'État n'a pas intérêt à gonfler les coûts.","La TVA n'est pas l'objet de cet audit.","Ce n'est pas lié à la Bourse."],
+["L'État n'est pas forcément partenaire opérateur.","L'opérateur est souvent une compagnie internationale.","L'opérateur tient la comptabilité de la joint-venture."],
+["Les prix à la pompe relèvent de la régulation des prix.","Les réserves ne sont pas l'objet principal de l'ITIE.","Les salaires ne sont pas publiés par l'ITIE."],
+["Immobiliser un puits sec correspond à la méthode full cost.","La provision de démantèlement concerne la remise en état, pas le coût du forage.","Une dépense réelle ne peut pas être ignorée."],
+["30 correspond à 10 % de la valeur, sans lien avec les volumes.","60 confond réserves et dotation.","10 confond production et dotation."],
+["Moins de réserves pour la même valeur donne une dotation par baril plus forte.","La dotation change avec les réserves.","La dotation ne devient nulle que si le champ est totalement amorti."],
+["Attendre la fin sous-estime les passifs pendant toute la production.","L'obligation existe : il faut la provisionner.","L'obligation existe même sans accident."],
+["La correction n'est pas seulement fiscale : elle mesure la quantité réelle.","Elle ne réduit pas les stocks, elle les mesure correctement.","Les litres restent utilisés ; on les corrige."],
+["Il manque du produit : l'écart est négatif.","5 000 L est le stock théorique, pas l'écart.","Le réel diffère du théorique."],
+["Les factures fournisseurs mesurent les achats.","Le nombre de voitures ne donne pas les volumes.","Le jaugeage sert au stock, pas directement aux ventes."],
+["Elles sont justement souvent payées avec retard.","Elles sont légales.","Elles existent quand l'État compense les prix."],
+["L'ISO 9001 concerne la qualité.","IFRS 6 est une norme comptable.","L'ISO 14001 concerne l'environnement."],
+["Le prix à la pompe est réglementé.","Le transport public n'est pas concerné.","Le prix des actions n'est pas un prix de transfert."],
+["Connecter l'OT à Internet expose les installations.","Supprimer les sauvegardes empêche la reprise.","Désactiver les journaux empêche la détection."],
+["Le nombre de stations ne vérifie aucun volume.","La couleur des camions est sans intérêt.","Le prix des actions n'est pas un test de stock."],
+["La consultation ne modifie rien.","L'impression ne modifie rien.","Le mot de passe personnel est un accès normal."],
+["Le fractionnement n'est pas une bonne pratique.","Les prix ne baissent pas : les factures sont découpées.","La TVA n'est pas en cause."]
+]);

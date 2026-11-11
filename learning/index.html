@@ -161,6 +161,12 @@ window.WHY=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c
 <script src="certs/telecoms.js"></script>
 <script src="certs/telecoms-qcm.js"></script>
 <script src="certs/telecoms-why.js"></script>
+<script src="certs/petrole.js"></script>
+<script src="certs/petrole-qcm.js"></script>
+<script src="certs/petrole-why.js"></script>
+<script src="certs/finance.js"></script>
+<script src="certs/finance-qcm.js"></script>
+<script src="certs/finance-why.js"></script>
 <script>
 (function(){
 const $page = document.getElementById('page');
@@ -212,7 +218,7 @@ CERTS.forEach(c => c.questions.forEach(q => { q.p = q.o.map((_, i) => i).sort(()
 function Q(c, q, idx){
   const e = LANG === 'en' && c.enQuestions && c.enQuestions[idx];
   const src = e || q;
-  const w = e ? e.w : q.w;
+  const w = (e && e.w) || q.w;
   return { m:q.m, q:src.q, e:src.e, o:q.p.map(i => src.o[i]), a:q.p.indexOf(q.a), w: w ? q.p.map(i => w[i] || '') : null };
 }
 /* Explication de chaque mauvaise réponse (champ w, aligné sur les options). */
