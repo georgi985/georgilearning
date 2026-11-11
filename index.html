@@ -7,7 +7,7 @@
 <meta name="description" content="Georges Alain Cabo : audit des systèmes d'information et sécurité de l'information. CV, cours de certification (ISO 27001, Security+, CISA, CISM, CISSP) et outils.">
 <script>
 /* Anciennes adresses du type georgilearning.academy/#iso27001-li : renvoi vers la rubrique Learning. */
-(function(){var h=location.hash.slice(1);if(h&&!/^(accueil|cv|learning|outils|contact)$/.test(h)){location.replace('learning/#'+h);}})();
+(function(){var h=location.hash.slice(1);if(h&&!/^(accueil|cv|services|learning|outils|contact)$/.test(h)){location.replace('learning/#'+h);}})();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -48,6 +48,7 @@ p,li{max-width:68ch}
 a.card:hover{border-color:var(--accent)}
 .card .d{font-size:.9rem;color:var(--muted)}
 .tag{align-self:flex-start;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
+.card ul.svc{margin:6px 0 0;padding-left:18px;font-size:.9rem}.card ul.svc li{margin:3px 0}
 .tag.soon{background:var(--warn-soft);color:var(--warn)}
 .btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-weight:500;font-size:.95rem;padding:10px 18px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);cursor:pointer;text-decoration:none}
 .btn.ghost{background:transparent;color:var(--accent)}
@@ -94,7 +95,7 @@ let LANG = store.get('lang', null) || ((navigator.language || 'fr').toLowerCase(
 
 /* ===== Contenu bilingue. Pour mettre à jour le CV : modifier CV.fr et CV.en ci-dessous. ===== */
 const T = {
-  fr:{ nav:{accueil:"Accueil",cv:"CV",learning:"Learning",outils:"Outils",contact:"Contact"},
+  fr:{ nav:{accueil:"Accueil",cv:"CV",services:"Services",learning:"Learning",outils:"Outils",contact:"Contact"},
     title:"Georges Alain Cabo · Audit IT et sécurité de l'information",
     eyebrow:"AUDIT IT · SÉCURITÉ DE L'INFORMATION · GOUVERNANCE",
     h1:"Rendre la sécurité de l'information mesurable, auditable et utile au métier.",
@@ -103,6 +104,7 @@ const T = {
     modules:"Sur ce site",
     m:[
       ["cv","CV","Parcours, compétences et certifications, en français et en anglais.",""],
+      ["services","Compétences et services","Ce que je sais faire et ce que je propose : audit IT, ISO 27001, surveillance de sécurité avec Wazuh, formation.",""],
       ["learning","Learning","Cours et QCM corrigés : ISO 27001 Lead Implementer, Security+, CISA, CISM, CISSP. Tous les cours et QCM existent en français et en anglais.",""],
       ["outils","Outils","Calculatrice de risque (ALE) et glossaire bilingue de l'audit et de la sécurité.",""],
       ["contact","Contact","Me joindre pour une mission d'audit, un accompagnement ISO 27001 ou une formation.",""],
@@ -110,6 +112,36 @@ const T = {
       [null,"Boîte à outils","Modèles téléchargeables : DdA, matrice de risques, check-list ITGC.","soon"],
       [null,"Blog et veille","Notes sur les normes, la réglementation et l'actualité cyber.","soon"]
     ],
+    svc:{ title:"Compétences et services", eyebrow:"COMPÉTENCES · OFFRES DE SERVICE",
+      lead:"J'aide les organisations à prouver que leurs systèmes sont maîtrisés : audit des contrôles informatiques, mise en place d'un système de management de la sécurité, et surveillance de sécurité avec des outils open source comme Wazuh.",
+      skillsTitle:"Compétences",
+      skills:[
+        ["Audit des systèmes d'information","Contrôles généraux informatiques (ITGC) : accès, changements, exploitation. Contrôles applicatifs (ITAC) et fiabilité des rapports (IPE). Analyse de données d'audit."],
+        ["Gouvernance et ISO/IEC 27001","Analyse d'écart, appréciation des risques, Déclaration d'applicabilité, politiques, préparation à l'audit de certification."],
+        ["Surveillance de sécurité (SOC) avec Wazuh","Collecte et analyse des journaux, règles de détection sur mesure, intégrité des fichiers, conformité CIS, vulnérabilités, réponse active, tableaux de bord MITRE ATT&CK et PCI DSS."],
+        ["Environnements Windows et Active Directory","Stratégies de groupe (GPO), stratégie d'audit avancée, déploiement d'agents, durcissement."],
+        ["Connaissance des secteurs","Banque (UMOA), monnaie électronique, assurance (CIMA), télécoms, pétrole et gaz, entreprises commerciales et industrielles."]],
+      offersTitle:"Offres de service",
+      offers:[
+        ["Audit IT (ITGC et ITAC)","Pour les directions, les cabinets d'audit et les commissaires aux comptes.",["Cartographie des applications qui alimentent les comptes","Tests des accès, des changements et de l'exploitation","Tests des contrôles automatiques et des rapports","Rapport de constats classés par risque, avec recommandations"]],
+        ["Accompagnement ISO/IEC 27001","Pour les organisations qui visent la certification ou veulent structurer leur sécurité.",["Analyse d'écart par rapport à la norme","Méthode et appréciation des risques","Déclaration d'applicabilité et plan de traitement","Préparation de l'audit interne et de la revue de direction"]],
+        ["Mise en place d'une surveillance de sécurité avec Wazuh","Pour les PME, banques, microfinances et émetteurs de monnaie électronique qui veulent un SOC sans licence coûteuse.",["Installation et déploiement des agents (y compris par GPO)","Règles de détection adaptées aux applications métier","Surveillance des fichiers sensibles : qui a modifié quoi","Réduction du bruit pour ne garder que les alertes utiles","Tableaux de bord pour la direction et preuves pour les auditeurs"]],
+        ["Diagnostic de conformité des postes et serveurs","Mesure du niveau de configuration par rapport aux recommandations CIS, avec plan de correction.",["Score de conformité initial","Corrections par stratégies de groupe","Suivi dans le temps et alerte en cas de recul"]],
+        ["Formation et sensibilisation","Pour les équipes d'audit, informatiques et métiers.",["Audit IT pour auditeurs financiers","Préparation aux certifications (ISO 27001, CISA, Security+)","Sensibilisation des utilisateurs aux risques"]]],
+      demoTitle:"Démonstration : mon laboratoire Wazuh",
+      demoLead:"Pour montrer concrètement ma maîtrise de l'outil, j'ai monté un laboratoire complet (contrôleur de domaine Samba AD, serveur Wazuh 4.14, poste Windows 11) et documenté chaque étape dans un cahier de 105 pages. Ce que chaque lab démontre :",
+      labs:[
+        ["Lab 1 · Comment Wazuh lit un journal","Décodeurs, règles, niveaux d'alerte et règles de corrélation (détection de force brute SSH)."],
+        ["Lab 2 · Règles sur mesure","Écriture d'un décodeur et de règles pour une application métier dont Wazuh ne connaît pas les journaux."],
+        ["Lab 3 · Stratégies de groupe","Création de GPO d'audit avancé et déploiement automatique de l'agent Wazuh sur le domaine."],
+        ["Lab 4 · Conformité CIS (SCA)","Score de conformité d'un poste Windows 11, corrections par GPO et alerte quand la conformité recule."],
+        ["Lab 5 · Intégrité des fichiers","Savoir qui a modifié un fichier sensible, avec quel programme et ce qui a changé."],
+        ["Bonus · Réduction du bruit","Règles enfants pour supprimer environ 90 alertes critiques inutiles par jour sans perdre de détection."],
+        ["Lab 6 · Inventaire et vulnérabilités","Inventaire logiciel, vulnérabilités connues (CVE, CVSS), correction et vérification."],
+        ["Lab 7 · Réponse active","Blocage automatique d'un attaquant par le pare-feu après une force brute."],
+        ["Lab 8 · MITRE, conformité, tableaux de bord","Lecture de la couverture MITRE ATT&CK, preuves PCI DSS et NIS2, vues pour la direction et l'analyste, plan d'amélioration."]],
+      demoNote:"Ce laboratoire est un environnement de test personnel : aucune donnée de client n'y est utilisée.",
+      ctaTitle:"Un projet ?", cta:"Me contacter", ctaText:"Décrivez votre besoin : je vous réponds avec une proposition adaptée à votre taille et à votre secteur." },
     soon:"Bientôt", open:"Ouvrir",
     cvTitle:"Curriculum vitæ", print:"Imprimer / PDF",
     cvNote:"",
@@ -123,7 +155,7 @@ const T = {
     contactLead:"Pour une mission d'audit, un accompagnement à la mise en œuvre d'un SMSI ou une session de formation.",
     contactNote:"Coordonnées à compléter : indique-moi l'adresse électronique et le profil LinkedIn que tu veux afficher publiquement.",
     foot:"© 2026 Georges Alain Cabo · georgilearning.academy" },
-  en:{ nav:{accueil:"Home",cv:"Resume",learning:"Learning",outils:"Tools",contact:"Contact"},
+  en:{ nav:{accueil:"Home",cv:"Resume",services:"Services",learning:"Learning",outils:"Tools",contact:"Contact"},
     title:"Georges Alain Cabo · IT audit and information security",
     eyebrow:"IT AUDIT · INFORMATION SECURITY · GOVERNANCE",
     h1:"Making information security measurable, auditable and useful to the business.",
@@ -132,6 +164,7 @@ const T = {
     modules:"On this site",
     m:[
       ["cv","Resume","Background, skills and certifications, in English and French.",""],
+      ["services","Skills and services","What I do and what I offer: IT audit, ISO 27001, security monitoring with Wazuh, training.",""],
       ["learning","Learning","Courses and practice questions: ISO 27001 Lead Implementer, Security+, CISA, CISM, CISSP. All courses and practice questions are available in English and French.",""],
       ["outils","Tools","Risk calculator (ALE) and bilingual audit and security glossary.",""],
       ["contact","Contact","Reach me for an audit engagement, ISO 27001 support or training.",""],
@@ -139,6 +172,36 @@ const T = {
       [null,"Toolkit","Downloadable templates: SoA, risk matrix, ITGC checklist.","soon"],
       [null,"Blog and news","Notes on standards, regulation and cyber news.","soon"]
     ],
+    svc:{ title:"Skills and services", eyebrow:"SKILLS · SERVICES",
+      lead:"I help organizations prove that their systems are under control: IT controls audit, information security management systems, and security monitoring with open source tools such as Wazuh.",
+      skillsTitle:"Skills",
+      skills:[
+        ["Information systems audit","IT general controls (ITGC): access, change, operations. Application controls (ITAC) and report reliability (IPE). Audit data analytics."],
+        ["Governance and ISO/IEC 27001","Gap analysis, risk assessment, Statement of Applicability, policies, certification audit readiness."],
+        ["Security monitoring (SOC) with Wazuh","Log collection and analysis, custom detection rules, file integrity, CIS compliance, vulnerabilities, active response, MITRE ATT&CK and PCI DSS dashboards."],
+        ["Windows and Active Directory","Group Policy (GPO), advanced audit policy, agent deployment, hardening."],
+        ["Industry knowledge","Banking (WAMU), e-money, insurance (CIMA), telecoms, oil and gas, trading and industrial companies."]],
+      offersTitle:"Services",
+      offers:[
+        ["IT audit (ITGC and ITAC)","For management, audit firms and statutory auditors.",["Map the applications that feed the financial statements","Test access, change and operations controls","Test automated controls and system reports","Findings report ranked by risk, with recommendations"]],
+        ["ISO/IEC 27001 support","For organizations aiming at certification or structuring their security.",["Gap analysis against the standard","Risk method and risk assessment","Statement of Applicability and treatment plan","Internal audit and management review readiness"]],
+        ["Security monitoring with Wazuh","For SMEs, banks, microfinance institutions and e-money issuers that want a SOC without costly licenses.",["Installation and agent deployment (including through GPO)","Detection rules tailored to business applications","Monitoring of sensitive files: who changed what","Noise reduction to keep only useful alerts","Dashboards for management and evidence for auditors"]],
+        ["Endpoint and server compliance assessment","Measure configuration against CIS recommendations, with a remediation plan.",["Baseline compliance score","Fixes through Group Policy","Tracking over time and alert when compliance drops"]],
+        ["Training and awareness","For audit, IT and business teams.",["IT audit for financial auditors","Certification preparation (ISO 27001, CISA, Security+)","User security awareness"]]],
+      demoTitle:"Showcase: my Wazuh lab",
+      demoLead:"To show hands-on command of the tool, I built a complete lab (Samba AD domain controller, Wazuh 4.14 server, Windows 11 endpoint) and documented every step in a 105-page lab book. What each lab demonstrates:",
+      labs:[
+        ["Lab 1 · How Wazuh reads a log","Decoders, rules, alert levels and correlation rules (SSH brute force detection)."],
+        ["Lab 2 · Custom rules","Writing a decoder and rules for a business application whose logs Wazuh does not know."],
+        ["Lab 3 · Group Policy","Building advanced audit GPOs and deploying the Wazuh agent automatically across the domain."],
+        ["Lab 4 · CIS compliance (SCA)","Compliance score of a Windows 11 endpoint, fixes through GPO and an alert when compliance drops."],
+        ["Lab 5 · File integrity","Knowing who changed a sensitive file, with which program, and what changed."],
+        ["Bonus · Noise reduction","Child rules that remove about 90 useless critical alerts a day without losing detection."],
+        ["Lab 6 · Inventory and vulnerabilities","Software inventory, known vulnerabilities (CVE, CVSS), remediation and verification."],
+        ["Lab 7 · Active response","Automatic firewall block of an attacker after a brute force."],
+        ["Lab 8 · MITRE, compliance, dashboards","Reading MITRE ATT&CK coverage, PCI DSS and NIS2 evidence, views for management and analysts, improvement plan."]],
+      demoNote:"This lab is a personal test environment: no client data is used in it.",
+      ctaTitle:"A project?", cta:"Contact me", ctaText:"Describe your needs: I will reply with a proposal suited to your size and industry." },
     soon:"Coming soon", open:"Open",
     cvTitle:"Resume", print:"Print / PDF",
     cvNote:"",
@@ -270,7 +333,7 @@ const GLOSSARY = [
   ["Moindre privilège","Least privilege","N'accorder que les droits strictement nécessaires.","Grant only the rights strictly needed."]
 ];
 
-const SECTIONS = ['accueil','cv','learning','outils','contact'];
+const SECTIONS = ['accueil','cv','services','learning','outils','contact'];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt = n => isFinite(n) ? Math.round(n).toLocaleString(LANG === 'fr' ? 'fr-FR' : 'en-US') : '–';
 
@@ -327,6 +390,16 @@ function calcAle(){
   if(isFinite(cost) && isFinite(ale)) h += '<br><span style="font-family:var(--body);font-size:.9rem">' + (cost <= ale ? t.worth : t.notWorth) + '</span>';
   document.getElementById('aleOut').innerHTML = h;
 }
+function pSvc(t){
+  const v = t.svc;
+  let h = '<p class="eyebrow">' + v.eyebrow + '</p><h1>' + v.title + '</h1><p class="lead">' + v.lead + '</p>';
+  h += '<div class="actions"><a class="btn" href="#contact">' + v.cta + '</a><a class="btn ghost" href="#cv">' + t.seeCv + '</a></div>';
+  h += '<h2>' + v.skillsTitle + '</h2><div class="grid">' + v.skills.map(([n, d]) => '<div class="card"><h3>' + n + '</h3><span class="d">' + d + '</span></div>').join('') + '</div>';
+  h += '<h2>' + v.offersTitle + '</h2><div class="grid">' + v.offers.map(([n, d, items]) => '<div class="card"><h3>' + n + '</h3><span class="d">' + d + '</span><ul class="svc">' + items.map(i => '<li>' + i + '</li>').join('') + '</ul></div>').join('') + '</div>';
+  h += '<h2>' + v.demoTitle + '</h2><p>' + v.demoLead + '</p><div class="grid">' + v.labs.map(([n, d]) => '<div class="card"><span class="tag">Wazuh</span><h3>' + n + '</h3><span class="d">' + d + '</span></div>').join('') + '</div><p class="d" style="color:var(--muted);font-size:.9rem">' + v.demoNote + '</p>';
+  h += '<h2>' + v.ctaTitle + '</h2><p>' + v.ctaText + '</p><div class="actions"><a class="btn" href="#contact">' + v.cta + '</a></div>';
+  return h;
+}
 function pContact(t){
   return '<p class="eyebrow">' + t.contactTitle.toUpperCase() + '</p><h1>' + t.contactTitle + '</h1><p class="lead">' + t.contactLead + '</p>'
        + '<div class="grid">' + CV[LANG].side[0][1].map(x => '<div class="card">' + x + '</div>').join('') + '</div>';
@@ -342,7 +415,7 @@ function route(){
   document.getElementById('nav').innerHTML = SECTIONS.map(k => '<a href="' + (k === 'learning' ? 'learning/' : '#' + k) + '"' + (k === s ? ' class="active" aria-current="page"' : '') + '>' + t.nav[k] + '</a>').join('');
   document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === LANG));
   const page = document.getElementById('page');
-  page.innerHTML = s === 'cv' ? pCv(t) : s === 'outils' ? pTools(t) : s === 'contact' ? pContact(t) : pHome(t);
+  page.innerHTML = s === 'cv' ? pCv(t) : s === 'services' ? pSvc(t) : s === 'outils' ? pTools(t) : s === 'contact' ? pContact(t) : pHome(t);
   document.getElementById('foot').textContent = t.foot;
   if(s === 'outils'){ document.getElementById('ale').addEventListener('input', calcAle); calcAle(); }
   window.scrollTo(0, 0);
