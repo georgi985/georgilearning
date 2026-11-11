@@ -9,83 +9,251 @@
 /* Anciennes adresses du type georgilearning.academy/#iso27001-li : renvoi vers la rubrique Learning. */
 (function(){var h=location.hash.slice(1);if(h&&!/^(accueil|cv|services|learning|outils|contact)$/.test(h)){location.replace('learning/#'+h);}})();
 </script>
+<meta property="og:title" content="Georges Alain Cabo · Audit IT et sécurité de l'information">
+<meta property="og:description" content="Audit IT (ITGC, ITAC), accompagnement ISO/IEC 27001 et surveillance de sécurité avec Wazuh. Dakar, Afrique de l'Ouest.">
+<meta property="og:image" content="https://georgilearning.academy/assets/photo.jpg">
+<meta property="og:url" content="https://georgilearning.academy/">
+<meta name="theme-color" content="#0a1c24">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f5f7f8; --surface:#ffffff; --ink:#17232b; --muted:#56656f; --line:#d9e1e5;
-  --accent:#0d6e6e; --accent-soft:#e1f0ef; --warn:#8a5a00; --warn-soft:#fff3d6;
+  --bg:#f4f6f7; --surface:#ffffff; --ink:#132029; --muted:#5a6a74; --line:#dde5e9;
+  --accent:#0c7f78; --accent-2:#15b0a4; --accent-soft:#e0f2f0; --gold:#d6a03d; --gold-soft:#fbf1dc;
+  --navy:#0a1c24; --navy-2:#0f2e38; --on-dark:#e9f2f4; --on-dark-muted:#a5bcc4;
+  --warn:#8a5a00; --warn-soft:#fff3d6;
   --display:"Fraunces", Georgia, serif; --body:"IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif; --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --radius:14px; --shadow:0 1px 2px rgba(10,28,36,.06), 0 8px 24px rgba(10,28,36,.07); --shadow-lg:0 2px 6px rgba(10,28,36,.08), 0 22px 48px rgba(10,28,36,.14);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark){
-  :root{--bg:#0f1619; --surface:#162126; --ink:#e4ecef; --muted:#9aabb3; --line:#2a3a41; --accent:#4fc1bd; --accent-soft:#173634; --warn:#f2c46b; --warn-soft:#3a2f14; color-scheme: dark;}
+  :root{--bg:#0c1519; --surface:#132026; --ink:#e4ecef; --muted:#9aabb3; --line:#25363d; --accent:#3cc7bd; --accent-2:#5fd8ce; --accent-soft:#143532; --gold:#e8b85a; --gold-soft:#33290f; --warn:#f2c46b; --warn-soft:#3a2f14; --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25); --shadow-lg:0 2px 6px rgba(0,0,0,.35), 0 22px 48px rgba(0,0,0,.4); color-scheme: dark;}
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
 a{color:var(--accent)}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-header.top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
-.bar{max-width:1040px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.logo{font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--ink);text-decoration:none;margin-right:auto}
-nav.main{display:flex;gap:4px;flex-wrap:wrap}
-nav.main a{padding:6px 12px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:.93rem}
+:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+/* En-tête */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--surface) 86%, transparent);backdrop-filter:saturate(1.6) blur(12px);-webkit-backdrop-filter:saturate(1.6) blur(12px);border-bottom:1px solid var(--line)}
+.bar{max-width:1140px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.15rem;font-weight:700;color:var(--ink);text-decoration:none;margin-right:auto;white-space:nowrap}
+.logo .mk{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--navy-2));color:#fff;font-family:var(--mono);font-size:.82rem;letter-spacing:.02em}
+nav.main{display:flex;gap:2px}
+nav.main a{padding:7px 13px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:.93rem;font-weight:500}
 nav.main a:hover{background:var(--accent-soft)}
-nav.main a.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
-.lang{display:flex;gap:6px}
-.chip{font:inherit;font-size:.82rem;padding:4px 11px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-main{max-width:1040px;margin:0 auto;padding:40px 20px 80px}
-.eyebrow{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.04em;margin:0 0 6px}
-h1{font-family:var(--display);font-size:2.5rem;line-height:1.12;margin:0 0 14px;text-wrap:balance}
-h2{font-family:var(--display);font-size:1.5rem;line-height:1.25;margin:40px 0 12px;text-wrap:balance}
-h3{font-size:1.05rem;margin:0 0 4px}
+nav.main a.active{color:var(--accent);background:var(--accent-soft)}
+.lang{display:flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:20px;background:var(--surface)}
+.chip{font:inherit;font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:16px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#fff}
+.menu{display:none;font:inherit;background:transparent;border:1px solid var(--line);border-radius:10px;width:42px;height:40px;color:var(--ink);cursor:pointer}
+.menu svg{width:22px;height:22px}
+.hire{display:inline-flex}
+/* Typographie */
+main{min-height:60vh}
+.page{max-width:1140px;margin:0 auto;padding:48px 24px 90px}
+.eyebrow{font-family:var(--mono);font-size:.76rem;font-weight:500;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+h1{font-family:var(--display);font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 18px;text-wrap:balance}
+h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+.page h2{margin-top:56px}
+h3{font-size:1.06rem;line-height:1.35;margin:0 0 6px}
 p,li{max-width:68ch}
-.lead{font-size:1.12rem;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:18px 0}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:6px;color:var(--ink);text-decoration:none}
-a.card:hover{border-color:var(--accent)}
-.card .d{font-size:.9rem;color:var(--muted)}
-.tag{align-self:flex-start;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
-.card ul.svc{margin:6px 0 0;padding-left:18px;font-size:.9rem}.card ul.svc li{margin:3px 0}
-.tag.soon{background:var(--warn-soft);color:var(--warn)}
-.btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-weight:500;font-size:.95rem;padding:10px 18px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);cursor:pointer;text-decoration:none}
+.lead{font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--muted)}
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:600;font-size:.95rem;padding:12px 20px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px color-mix(in srgb, var(--accent) 30%, transparent)}
 .btn.ghost{background:transparent;color:var(--accent)}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.btn.light{background:#fff;border-color:#fff;color:var(--navy)}
+.btn.outline-light{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
+.btn.sm{padding:8px 14px;font-size:.88rem}
+.btn svg{width:18px;height:18px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+/* Bandeaux pleine largeur */
+.band{padding:88px 0}
+.band.alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band .head{max-width:720px;margin-bottom:36px}
+.band .head p{color:var(--muted);font-size:1.05rem;margin:0}
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 500px at 85% -10%, rgba(21,176,164,.28), transparent 60%),radial-gradient(800px 400px at -10% 110%, rgba(214,160,61,.16), transparent 60%),linear-gradient(160deg,var(--navy),var(--navy-2));color:var(--on-dark)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;padding-top:84px;padding-bottom:96px}
+.hero .eyebrow{color:var(--accent-2)}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent-2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{color:var(--on-dark-muted);max-width:60ch}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:8px;font-size:.9rem;color:var(--on-dark-muted)}
+.trust span{display:inline-flex;align-items:center;gap:8px}
+.trust svg{width:17px;height:17px;color:var(--accent-2)}
+.portrait{position:relative;justify-self:center;width:min(100%,330px)}
+.portrait .frame{position:relative;aspect-ratio:4/4.4;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 60px rgba(0,0,0,.35);background:linear-gradient(160deg,#20424d,#0d2129)}
+.portrait .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.portrait .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,28,36,.55))}
+.float{position:absolute;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.96);color:var(--navy);border-radius:14px;padding:10px 14px;box-shadow:0 14px 34px rgba(0,0,0,.25);font-size:.82rem;line-height:1.25;animation:bob 6s ease-in-out infinite}
+.float b{display:block;font-size:.92rem}
+.float .ic{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accent-soft);color:#0c7f78;flex:none}
+.float .ic svg{width:19px;height:19px}
+.float.f1{left:-34px;bottom:56px}
+.float.f2{right:-26px;top:28px;animation-delay:-3s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+/* Chiffres clés */
+.stats{position:relative;margin-top:-46px;z-index:2}
+.stats .grid4{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden}
+.stat{padding:24px 26px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--display);font-size:2.1rem;line-height:1.1;color:var(--accent)}
+.stat span{font-size:.9rem;color:var(--muted)}
+/* Cartes */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:20px 0}
+.grid.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:8px;color:var(--ink);text-decoration:none;box-shadow:var(--shadow);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+a.card:hover,.card.lift:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb, var(--accent) 45%, var(--line))}
+.card .d{font-size:.93rem;color:var(--muted)}
+.card .ic{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);margin-bottom:6px}
+.card .ic svg{width:24px;height:24px}
+.card .more{margin-top:auto;padding-top:10px;font-weight:600;font-size:.9rem;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+.card .more svg{width:16px;height:16px;transition:transform .2s}
+a.card:hover .more svg{transform:translateX(3px)}
+.card.offer{border-top:4px solid var(--accent)}
+.card.offer .n{font-family:var(--mono);font-size:.78rem;color:var(--accent)}
+.tag{align-self:flex-start;font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:12px;background:var(--accent-soft);color:var(--accent)}
+.tag.soon{background:var(--warn-soft);color:var(--warn)}
+ul.svc,ul.check{list-style:none;margin:8px 0 0;padding:0;font-size:.92rem}
+ul.svc li,ul.check li{position:relative;padding-left:26px;margin:7px 0}
+ul.svc li::before,ul.check li::before{content:"";position:absolute;left:0;top:.28em;width:16px;height:16px;border-radius:50%;background:var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230c7f78' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/10px no-repeat}
+/* Démarche */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{position:relative;padding:26px 22px 22px;border-radius:var(--radius);background:var(--bg);border:1px solid var(--line)}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:.8rem;font-weight:500;color:#fff;background:linear-gradient(135deg,var(--accent),var(--navy-2));border-radius:8px;padding:4px 9px;display:inline-block;margin-bottom:14px}
+.step p{margin:0;color:var(--muted);font-size:.93rem}
+/* Secteurs */
+.sectors{display:flex;flex-wrap:wrap;gap:10px}
+.sector{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border-radius:30px;background:var(--surface);border:1px solid var(--line);font-weight:500;font-size:.93rem;box-shadow:var(--shadow)}
+.sector svg{width:18px;height:18px;color:var(--accent)}
+/* Mises en avant sombres */
+.features{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.feature{position:relative;overflow:hidden;border-radius:20px;padding:34px;color:var(--on-dark);background:linear-gradient(150deg,var(--navy),var(--navy-2));box-shadow:var(--shadow-lg);display:flex;flex-direction:column;gap:10px}
+.feature::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(21,176,164,.35),transparent 70%)}
+.feature.gold::after{background:radial-gradient(circle,rgba(214,160,61,.35),transparent 70%)}
+.feature h3{font-family:var(--display);font-size:1.45rem;color:#fff}
+.feature p{color:var(--on-dark-muted);margin:0}
+.feature .kpis{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.feature .kpis span{font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff}
+.feature .btn{align-self:flex-start;margin-top:10px}
+/* Appel à l'action */
+.cta{border-radius:24px;padding:48px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;color:#fff;background:radial-gradient(600px 300px at 100% 0%, rgba(214,160,61,.3), transparent 60%),linear-gradient(135deg,#0c7f78,#0a3d48);box-shadow:var(--shadow-lg)}
+.cta h2{color:#fff;margin:0 0 8px}
+.cta p{margin:0;color:#d5ecea}
+.cta .actions{margin:0;justify-content:flex-end}
+/* Pages internes */
+.pagehead{background:linear-gradient(160deg,var(--navy),var(--navy-2));color:var(--on-dark);position:relative;overflow:hidden}
+.pagehead::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:44px 44px}
+.pagehead .wrap{position:relative;padding-top:64px;padding-bottom:64px}
+.pagehead h1{color:#fff}
+.pagehead .eyebrow{color:var(--accent-2)}
+.pagehead .lead{color:var(--on-dark-muted)}
+.pagehead .actions{margin-bottom:0}
 .note{border:1px solid var(--line);border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:8px;padding:12px 16px;margin:18px 0;font-size:.93rem}
-.cv{display:grid;grid-template-columns:240px 1fr;gap:28px}
-.cv aside{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;align-self:start}
-.cv aside h3{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+/* CV */
+.cvhead{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.cvhead img{width:128px;height:128px;border-radius:50%;object-fit:cover;object-position:50% 25%;border:3px solid rgba(255,255,255,.25);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.cvhead h1{margin:0 0 4px}
+.cvhead .lead{margin:0}
+.cv{display:grid;grid-template-columns:290px 1fr;gap:36px}
+.cv aside{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;align-self:start;position:sticky;top:84px;box-shadow:var(--shadow)}
+.cv aside h3{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:18px 0 8px;font-family:var(--mono);font-weight:500}
 .cv aside h3:first-child{margin-top:0}
-.cv aside ul{margin:0;padding-left:18px;font-size:.92rem}
-.job{border-left:2px solid var(--line);padding:0 0 18px 16px;margin-left:4px}
-.job .when{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
-.ph{background:var(--warn-soft);border-radius:3px;padding:0 4px}
-form.calc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;align-items:end}
-label{display:flex;flex-direction:column;gap:4px;font-size:.88rem;font-weight:500}
-input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.cv aside ul{margin:0;padding-left:18px;font-size:.9rem}
+.cv aside li{margin:4px 0;overflow-wrap:anywhere}
+.cv .summary{font-size:1.05rem;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:18px 22px;box-shadow:var(--shadow);margin-top:0}
+.cv h2{margin-top:40px}
+.job{position:relative;border-left:2px solid var(--line);padding:0 0 22px 22px;margin-left:6px}
+.job::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--accent)}
+.job .when{font-family:var(--mono);font-size:.78rem;color:var(--accent);font-weight:500}
+.job ul{padding-left:18px;margin:6px 0 0}
+.job li{margin:4px 0;font-size:.95rem}
+/* Outils */
+form.calc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;align-items:end;box-shadow:var(--shadow)}
+label{display:flex;flex-direction:column;gap:5px;font-size:.88rem;font-weight:500}
+input{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
 .out{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.05rem}
 .out strong{font-family:var(--display);font-size:1.6rem;color:var(--accent)}
-details{background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:0 14px}
-details summary{cursor:pointer;padding:10px 0;font-weight:600}
-footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-footer .bar{padding:18px 20px}
-@media (max-width:760px){ .cv{grid-template-columns:1fr} h1{font-size:1.9rem} main{padding:24px 16px 60px} }
-@media print{ header.top,footer,.actions,.note{display:none} body{background:#fff;color:#000} }
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin:8px 0;padding:0 16px}
+details summary{cursor:pointer;padding:12px 0;font-weight:600}
+/* Contact */
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:8px 0 30px}
+.contact{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);color:var(--ink);text-decoration:none;transition:transform .2s, box-shadow .2s}
+.contact:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.contact .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);flex:none}
+.contact .ic svg{width:22px;height:22px}
+.contact small{display:block;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+.contact b{font-weight:600;overflow-wrap:anywhere}
+/* Pied de page */
+footer{background:var(--navy);color:var(--on-dark-muted);font-size:.9rem}
+footer .fgrid{max-width:1140px;margin:0 auto;padding:48px 24px 24px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer h4{color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;font-family:var(--mono);font-weight:500}
+footer a{color:var(--on-dark);text-decoration:none}
+footer a:hover{color:var(--accent-2)}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin:6px 0}
+footer .brand{font-family:var(--display);font-size:1.25rem;color:#fff;margin:0 0 8px}
+footer .legal{max-width:1140px;margin:0 auto;padding:18px 24px 28px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem}
+/* Apparition au défilement */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none} .float{animation:none} html{scroll-behavior:auto} .btn,.card,.contact{transition:none} }
+/* Responsive */
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;padding-top:56px}
+  .portrait{width:min(100%,280px)}
+  .steps{grid-template-columns:1fr 1fr}
+  .features{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;padding:34px}
+  .cta .actions{justify-content:flex-start}
+  .cv{grid-template-columns:1fr}
+  .cv aside{position:static}
+  footer .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .menu{display:inline-grid;place-items:center}
+  .hire{display:none}
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--line);padding:10px 16px 16px;box-shadow:var(--shadow-lg)}
+  header.top.open nav.main{display:flex}
+  nav.main a{padding:12px 14px;font-size:1rem}
+}
+@media (max-width:640px){
+  .wrap,.bar,.page{padding-left:18px;padding-right:18px}
+  .band{padding:64px 0}
+  .stats .grid4{grid-template-columns:1fr 1fr}
+  .stat{padding:18px;border-bottom:1px solid var(--line)}
+  .stat:nth-child(2n){border-right:0}
+  .stat b{font-size:1.7rem}
+  .steps{grid-template-columns:1fr}
+  .float.f1{left:-8px;bottom:24px}
+  .float.f2{right:-8px;top:14px}
+  .feature{padding:26px}
+  .cta{padding:28px 22px;border-radius:18px}
+  footer .fgrid{grid-template-columns:1fr}
+  .logo .nm{font-size:1rem}
+}
+@media print{ header.top,footer,.actions,.note,.menu{display:none} body{background:#fff;color:#000} .pagehead{background:none;color:#000} .pagehead h1,.pagehead .lead{color:#000} .cv aside{position:static;box-shadow:none} .rv{opacity:1;transform:none} }
 </style>
 </head>
 <body>
-<header class="top"><div class="bar">
-  <a class="logo" href="#accueil">Georges Alain Cabo</a>
+<header class="top" id="top"><div class="bar">
+  <a class="logo" href="#accueil"><span class="mk">GC</span><span class="nm">Georges Alain Cabo</span></a>
   <nav class="main" id="nav" aria-label="Menu"></nav>
   <div class="lang" role="group" aria-label="Langue / Language">
     <button type="button" class="chip" data-lang="fr">FR</button>
     <button type="button" class="chip" data-lang="en">EN</button>
   </div>
+  <a class="btn sm hire" id="hire" href="#contact">Contact</a>
+  <button type="button" class="menu" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menu"></button>
 </div></header>
 <main id="page"></main>
-<footer><div class="bar" id="foot"></div></footer>
+<footer id="foot"></footer>
 <script>
 const store = {
   get(k, d){ try{ const v = localStorage.getItem('campus:' + k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
@@ -337,24 +505,138 @@ const SECTIONS = ['accueil','cv','services','learning','outils','contact'];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt = n => isFinite(n) ? Math.round(n).toLocaleString(LANG === 'fr' ? 'fr-FR' : 'en-US') : '–';
 
-function pHome(t){
-  let h = '<p class="eyebrow">' + t.eyebrow + '</p><h1>' + t.h1 + '</h1><p class="lead">' + t.lead + '</p>';
-  h += '<div class="actions"><a class="btn" href="#cv">' + t.seeCv + '</a><a class="btn ghost" href="learning/">' + t.goLearning + '</a></div>';
-  h += '<h2>' + t.modules + '</h2><div class="grid">';
-  t.m.forEach(([id, name, d, soon]) => {
-    const href = id === 'learning' ? 'learning/' : '#' + id;
-    h += soon ? '<div class="card"><span class="tag soon">' + t.soon + '</span><h3>' + name + '</h3><span class="d">' + d + '</span></div>'
-              : '<a class="card" href="' + href + '"><span class="tag">' + t.open + '</span><h3>' + name + '</h3><span class="d">' + d + '</span></a>';
-  });
-  return h + '</div>';
+/* ===== Icônes (traits simples) ===== */
+const ICON = (() => { const p = {
+  audit:'<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2M8.5 11l1.8 1.8 3.4-3.6"/>',
+  shield:'<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M8.8 12l2.2 2.2 4.2-4.4"/>',
+  radar:'<path d="M3 12h3l2.5-6 4 13 3-9 1.8 2H21"/>',
+  grad:'<path d="M2.5 9L12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.5c1.6 1.6 3.4 2.4 5.5 2.4s3.9-.8 5.5-2.4V11M21.5 9v5"/>',
+  bank:'<path d="M3 9.5L12 4l9 5.5M4.5 10v8M9 10v8M15 10v8M19.5 10v8M3 20h18"/>',
+  phone:'<path d="M5 3.5h3.5l1.7 4.5-2.2 1.4a11 11 0 005.6 5.6l1.4-2.2 4.5 1.7V18a2.5 2.5 0 01-2.7 2.5C9.6 20 4 14.4 3.5 6.2A2.5 2.5 0 015 3.5z"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5L12 13l8.5-6.5"/>',
+  in:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5v6M7.5 7.5v.01M11.5 16.5v-6M11.5 13c0-1.6 1-2.6 2.4-2.6s2.1 1 2.1 2.6v3.5"/>',
+  pin:'<path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0113 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>',
+  arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  doc:'<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
+  mobile:'<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
+  umbrella:'<path d="M3 12a9 9 0 0118 0z"/><path d="M12 12v6.5a2 2 0 01-4 0"/>',
+  signal:'<path d="M12 20v-7M8.5 9.5a5 5 0 017 0M5.5 6.5a9.2 9.2 0 0113 0"/><circle cx="12" cy="12.5" r="1"/>',
+  drop:'<path d="M12 3.5s6 6.6 6 11a6 6 0 01-12 0c0-4.4 6-11 6-11z"/>',
+  factory:'<path d="M3 20V10l5 3V10l5 3V6h4l1 14z"/><path d="M3 20h18"/>',
+  building:'<path d="M4 20V7l8-4 8 4v13M9 20v-5h6v5M8 10h.01M12 10h.01M16 10h.01"/>',
+  book:'<path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 18H20v3H6.5"/>',
+  menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
+  close:'<path d="M6 6l12 12M18 6L6 18"/>',
+  download:'<path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/>'};
+  return n => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (p[n] || '') + '</svg>'; })();
+
+/* ===== Page d'accueil : textes ===== */
+const HOME = {
+  fr:{ eyebrow:"Audit IT · Sécurité de l'information · Gouvernance",
+    h1:"Des systèmes d'information <em>maîtrisés</em>, et des preuves pour le démontrer.",
+    lead:"Auditeur senior des systèmes d'information basé à Dakar, j'aide les banques, émetteurs de monnaie électronique, opérateurs télécoms et entreprises à fiabiliser leurs contrôles informatiques, à se préparer à ISO/IEC 27001 et à surveiller leur sécurité.",
+    ctaMain:"Discutons de votre projet", ctaSvc:"Voir mes services", cv:"CV (PDF)",
+    trust:["Auditeur senior chez Eritedge","Ancien d'EY (audit IT)","Ingénieur télécoms et réseaux"],
+    f1:["Auditeur senior","Audit IT · Risques"], f2:["ISO/IEC 27001","Lead Implementer en préparation"],
+    stats:[["3 ans","d'audit IT en cabinet (EY puis Eritedge)"],["6 secteurs","banque, monnaie électronique, télécoms, pétrole…"],["105 pages","de laboratoire Wazuh documenté"],["13 cours","bilingues publiés sur mon campus"]],
+    svcEyebrow:"Services", svcTitle:"Ce que je fais pour vous", svcLead:"Des missions concrètes, avec des livrables clairs et des constats classés par risque.",
+    svc:[["audit","Audit IT (ITGC et ITAC)","Accès, changements, exploitation, contrôles automatiques et fiabilité des rapports, pour la direction et les commissaires aux comptes."],
+      ["shield","Accompagnement ISO/IEC 27001","Analyse d'écart, appréciation des risques, Déclaration d'applicabilité et préparation à la certification."],
+      ["radar","Surveillance de sécurité avec Wazuh","Un SOC open source, sans licence coûteuse : détection, intégrité des fichiers, conformité CIS, vulnérabilités."],
+      ["grad","Formation et sensibilisation","Audit IT pour auditeurs financiers, préparation aux certifications, sensibilisation des utilisateurs."]],
+    more:"En savoir plus",
+    howEyebrow:"Démarche", howTitle:"Une méthode claire, du cadrage au rapport",
+    how:[["Comprendre","Vos processus, vos applications critiques et ce qui alimente vos états financiers."],["Évaluer les risques","Identifier ce qui peut mal tourner et prioriser selon l'impact métier."],["Tester","Contrôles testés sur pièces et sur données, avec des preuves documentées."],["Restituer","Constats classés par risque, recommandations réalistes et plan d'action suivi."]],
+    secEyebrow:"Secteurs", secTitle:"Une expérience des secteurs régulés", secLead:"Des missions menées dans des environnements où le contrôle interne et la conformité sont exigés.",
+    sectors:[["bank","Banques commerciales"],["building","Banques centrales"],["mobile","Monnaie électronique"],["signal","Télécommunications"],["umbrella","Assurance (CIMA)"],["drop","Pétrole et gaz"],["factory","Industrie et commerce"]],
+    proofEyebrow:"Preuves", proofTitle:"Des compétences démontrées, pas seulement déclarées",
+    lab:["Laboratoire Wazuh complet","Contrôleur de domaine, serveur Wazuh 4.14 et poste Windows 11 : 8 labs documentés, des règles sur mesure à la réponse active et aux tableaux de bord MITRE ATT&CK.",["Détection sur mesure","Conformité CIS","Intégrité des fichiers","Réponse active"],"Voir le laboratoire"],
+    campus:["Campus de formation bilingue","Des cours pas à pas, en français et en anglais : ISO 27001, Security+, CISA, CISM, CISSP, comptabilité, finance et 6 secteurs, avec QCM corrigés et programmes de travail ITAC.",["13 cours","QCM expliqués","Sigles définis","FR · EN"],"Visiter le campus"],
+    ctaTitle:"Un audit, une certification, un SOC à mettre en place ?", ctaText:"Décrivez votre besoin : je vous réponds rapidement avec une proposition adaptée à votre taille et à votre secteur.", ctaMail:"M'écrire", ctaCall:"Appeler",
+    hire:"Me contacter", menu:"Menu",
+    foot:{about:"Audit des systèmes d'information, ISO/IEC 27001 et surveillance de sécurité. Basé à Dakar, disponible en Afrique de l'Ouest et à distance.", nav:"Navigation", contact:"Contact", legal:"© 2026 Georges Alain Cabo · georgilearning.academy"},
+    contactLabels:{tel:"Téléphone", mail:"E-mail", in:"LinkedIn", pin:"Localisation"}, mailSubject:"Demande de mission" },
+  en:{ eyebrow:"IT audit · Information security · Governance",
+    h1:"Information systems <em>under control</em>, with the evidence to prove it.",
+    lead:"A Dakar-based senior information systems auditor, I help banks, e-money issuers, telecom operators and companies strengthen their IT controls, prepare for ISO/IEC 27001 and monitor their security.",
+    ctaMain:"Let's discuss your project", ctaSvc:"See my services", cv:"Resume (PDF)",
+    trust:["Senior auditor at Eritedge","Former EY IT auditor","Telecoms and network engineer"],
+    f1:["Senior auditor","IT audit · Risk"], f2:["ISO/IEC 27001","Lead Implementer in progress"],
+    stats:[["3 years","of IT audit at firms (EY, then Eritedge)"],["6 sectors","banking, e-money, telecoms, oil…"],["105 pages","of documented Wazuh lab work"],["13 courses","published in two languages on my campus"]],
+    svcEyebrow:"Services", svcTitle:"What I do for you", svcLead:"Practical engagements with clear deliverables and findings ranked by risk.",
+    svc:[["audit","IT audit (ITGC and ITAC)","Access, change, operations, automated controls and report reliability, for management and statutory auditors."],
+      ["shield","ISO/IEC 27001 support","Gap analysis, risk assessment, Statement of Applicability and certification readiness."],
+      ["radar","Security monitoring with Wazuh","An open source SOC with no costly licenses: detection, file integrity, CIS compliance, vulnerabilities."],
+      ["grad","Training and awareness","IT audit for financial auditors, certification preparation, user awareness."]],
+    more:"Learn more",
+    howEyebrow:"Approach", howTitle:"A clear method, from scoping to report",
+    how:[["Understand","Your processes, your critical applications and what feeds your financial statements."],["Assess risk","Identify what can go wrong and prioritize by business impact."],["Test","Controls tested on documents and data, with documented evidence."],["Report","Findings ranked by risk, realistic recommendations and a tracked action plan."]],
+    secEyebrow:"Sectors", secTitle:"Experience in regulated industries", secLead:"Engagements in environments where internal control and compliance are required.",
+    sectors:[["bank","Commercial banks"],["building","Central banks"],["mobile","E-money"],["signal","Telecommunications"],["umbrella","Insurance (CIMA)"],["drop","Oil and gas"],["factory","Industry and trade"]],
+    proofEyebrow:"Proof", proofTitle:"Skills demonstrated, not just claimed",
+    lab:["A complete Wazuh lab","Domain controller, Wazuh 4.14 server and Windows 11 endpoint: 8 documented labs, from custom rules to active response and MITRE ATT&CK dashboards.",["Custom detection","CIS compliance","File integrity","Active response"],"See the lab"],
+    campus:["A bilingual learning campus","Step-by-step courses in English and French: ISO 27001, Security+, CISA, CISM, CISSP, accounting, finance and 6 sectors, with explained quizzes and ITAC work programs.",["13 courses","Explained quizzes","Acronyms defined","EN · FR"],"Visit the campus"],
+    ctaTitle:"An audit, a certification, a SOC to set up?", ctaText:"Describe your needs: I will get back to you quickly with a proposal suited to your size and industry.", ctaMail:"Email me", ctaCall:"Call",
+    hire:"Contact me", menu:"Menu",
+    foot:{about:"Information systems audit, ISO/IEC 27001 and security monitoring. Based in Dakar, available across West Africa and remotely.", nav:"Navigation", contact:"Contact", legal:"© 2026 Georges Alain Cabo · georgilearning.academy"},
+    contactLabels:{tel:"Phone", mail:"Email", in:"LinkedIn", pin:"Location"}, mailSubject:"Engagement request" }
+};
+/* Coordonnées tirées du CV : [type, libellé, lien]. */
+function contactItems(){
+  return CV[LANG].side[0][1].map(x => { const m = x.match(/href="([^"]+)"[^>]*>([^<]+)</), href = m ? m[1] : '', label = m ? m[2] : x.replace(/<[^>]+>/g, '');
+    const type = href.startsWith('tel:') ? 'tel' : href.startsWith('mailto:') ? 'mail' : /linkedin/.test(href) ? 'in' : 'pin';
+    return {type, label: type === 'in' ? 'georges-alain-gracien-cabo' : label, href}; });
 }
+const cvPdf = () => 'assets/cv/' + (LANG === 'en' ? 'Georges-Alain-Cabo-CV-EN.pdf' : 'Georges-Alain-Cabo-CV-FR.pdf');
+const mailHref = () => { const m = contactItems().find(c => c.type === 'mail'); return m ? m.href + '?subject=' + encodeURIComponent(HOME[LANG].mailSubject) : '#contact'; };
+const telHref = () => { const m = contactItems().find(c => c.type === 'tel'); return m ? m.href : '#contact'; };
+
+function pHome(t){
+  const H = HOME[LANG];
+  let h = '<section class="hero"><div class="wrap"><div><p class="eyebrow">' + H.eyebrow + '</p><h1>' + H.h1 + '</h1><p class="lead">' + H.lead + '</p>'
+    + '<div class="actions"><a class="btn" href="#contact">' + H.ctaMain + ICON('arrow') + '</a><a class="btn outline-light" href="#services">' + H.ctaSvc + '</a><a class="btn outline-light" href="' + cvPdf() + '" download>' + ICON('download') + H.cv + '</a></div>'
+    + '<div class="trust">' + H.trust.map(x => '<span>' + ICON('check') + x + '</span>').join('') + '</div></div>'
+    + '<div class="portrait"><div class="frame"><img src="assets/photo.jpg" alt="Georges Alain Cabo" width="312" height="274"></div>'
+    + '<div class="float f1"><span class="ic">' + ICON('audit') + '</span><span><b>' + H.f1[0] + '</b>' + H.f1[1] + '</span></div>'
+    + '<div class="float f2"><span class="ic">' + ICON('shield') + '</span><span><b>' + H.f2[0] + '</b>' + H.f2[1] + '</span></div></div></div></section>';
+  h += '<div class="stats"><div class="wrap"><div class="grid4">' + H.stats.map(([b, s]) => '<div class="stat"><b>' + b + '</b><span>' + s + '</span></div>').join('') + '</div></div></div>';
+  h += '<section class="band"><div class="wrap"><div class="head rv"><p class="eyebrow">' + H.svcEyebrow + '</p><h2>' + H.svcTitle + '</h2><p>' + H.svcLead + '</p></div><div class="grid">'
+    + H.svc.map(([ic, n, d]) => '<a class="card rv" href="#services"><span class="ic">' + ICON(ic) + '</span><h3>' + n + '</h3><span class="d">' + d + '</span><span class="more">' + H.more + ICON('arrow') + '</span></a>').join('') + '</div></div></section>';
+  h += '<section class="band alt"><div class="wrap"><div class="head rv"><p class="eyebrow">' + H.howEyebrow + '</p><h2>' + H.howTitle + '</h2></div><div class="steps">'
+    + H.how.map(([n, d]) => '<div class="step rv"><h3>' + n + '</h3><p>' + d + '</p></div>').join('') + '</div></div></section>';
+  h += '<section class="band"><div class="wrap"><div class="head rv"><p class="eyebrow">' + H.secEyebrow + '</p><h2>' + H.secTitle + '</h2><p>' + H.secLead + '</p></div><div class="sectors rv">'
+    + H.sectors.map(([ic, n]) => '<span class="sector">' + ICON(ic) + n + '</span>').join('') + '</div></div></section>';
+  const feat = (f, href, cls) => '<div class="feature rv' + cls + '"><h3>' + f[0] + '</h3><p>' + f[1] + '</p><div class="kpis">' + f[2].map(k => '<span>' + k + '</span>').join('') + '</div><a class="btn light" href="' + href + '">' + f[3] + ICON('arrow') + '</a></div>';
+  h += '<section class="band alt"><div class="wrap"><div class="head rv"><p class="eyebrow">' + H.proofEyebrow + '</p><h2>' + H.proofTitle + '</h2></div><div class="features">'
+    + feat(H.lab, '#services', '') + feat(H.campus, 'learning/', ' gold') + '</div></div></section>';
+  h += '<section class="band"><div class="wrap"><div class="cta rv"><div><h2>' + H.ctaTitle + '</h2><p>' + H.ctaText + '</p></div><div class="actions"><a class="btn light" href="' + mailHref() + '">' + ICON('mail') + H.ctaMail + '</a><a class="btn outline-light" href="' + telHref() + '">' + ICON('phone') + H.ctaCall + '</a></div></div></div></section>';
+  return h;
+}
+function pageHead(eyebrow, title, lead, actions){
+  return '<section class="pagehead"><div class="wrap"><p class="eyebrow">' + eyebrow + '</p><h1>' + title + '</h1>' + (lead ? '<p class="lead">' + lead + '</p>' : '') + (actions ? '<div class="actions">' + actions + '</div>' : '') + '</div></section>';
+}
+function footerHtml(t){
+  const H = HOME[LANG];
+  return '<div class="fgrid"><div><p class="brand">Georges Alain Cabo</p><p style="margin:0;max-width:44ch">' + H.foot.about + '</p></div>'
+    + '<div><h4>' + H.foot.nav + '</h4><ul>' + SECTIONS.map(k => '<li><a href="' + (k === 'learning' ? 'learning/' : '#' + k) + '">' + t.nav[k] + '</a></li>').join('') + '</ul></div>'
+    + '<div><h4>' + H.foot.contact + '</h4><ul>' + contactItems().map(c => '<li>' + (c.href ? '<a href="' + c.href + '"' + (c.type === 'in' ? ' target="_blank" rel="noopener"' : '') + '>' + esc(c.label) + '</a>' : esc(c.label)) + '</li>').join('') + '</ul></div></div>'
+    + '<div class="legal">' + H.foot.legal + '</div>';
+}
+function reveal(){
+  const els = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){ els.forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {rootMargin:'0px 0px -40px 0px', threshold:.08});
+  els.forEach(e => io.observe(e));
+}
+
 function pCv(t){
   const c = CV[LANG];
-  let h = '<p class="eyebrow">' + t.cvTitle.toUpperCase() + '</p><div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:8px"><img src="assets/photo.jpg" alt="' + c.name + '" width="120" height="105" style="border-radius:10px;object-fit:cover;border:1px solid var(--line)"><div><h1 style="margin-bottom:4px">' + c.name + '</h1><p class="lead" style="margin:0">' + c.role + ' · ' + c.place + '</p></div></div>';
+  let h = '<section class="pagehead"><div class="wrap"><div class="cvhead"><img src="assets/photo.jpg" alt="' + c.name + '" width="128" height="128"><div><p class="eyebrow">' + t.cvTitle + '</p><h1>' + c.name + '</h1><p class="lead">' + c.role + ' · ' + c.place + '</p></div></div>';
+  h += '<div class="actions"><a class="btn light" href="' + cvPdf() + '" download>' + ICON('download') + (LANG === 'en' ? 'Download resume (PDF)' : 'Télécharger le CV (PDF)') + '</a><button class="btn outline-light" type="button" onclick="window.print()">' + t.print + '</button><a class="btn outline-light" href="#contact">' + HOME[LANG].hire + '</a></div></div></section><div class="page">';
   if(t.cvNote) h += '<div class="note">' + t.cvNote + '</div>';
-  h += '<div class="actions"><a class="btn" href="assets/cv/' + (LANG === 'en' ? 'Georges-Alain-Cabo-CV-EN.pdf' : 'Georges-Alain-Cabo-CV-FR.pdf') + '" download>' + (LANG === 'en' ? 'Download CV (PDF)' : 'Télécharger le CV (PDF)') + '</a><button class="btn ghost" type="button" onclick="window.print()">' + t.print + '</button></div>';
   h += '<div class="cv"><aside>' + c.side.map(([k, items]) => '<h3>' + k + '</h3><ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul>').join('') + '</aside><div>';
-  h += '<p>' + c.summary + '</p><h2>' + c.expTitle + '</h2>';
+  h += '<p class="summary">' + c.summary + '</p><h2>' + c.expTitle + '</h2>';
   c.jobs.forEach(([when, what, items]) => { h += '<div class="job"><div class="when">' + when + '</div><h3>' + what + '</h3><ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul></div>'; });
   h += '<h2>' + c.certTitle + '</h2>';
   c.certs.forEach(([g, items, imgs]) => {
@@ -364,11 +646,11 @@ function pCv(t){
   });
   h += '<h2>' + c.eduTitle + '</h2>';
   c.edu.forEach(([when, what]) => { h += '<div class="job"><div class="when">' + when + '</div><h3>' + what + '</h3></div>'; });
-  return h + '</div></div>';
+  return h + '</div></div></div>';
 }
 function pTools(t){
-  let h = '<p class="eyebrow">' + t.toolsTitle.toUpperCase() + '</p><h1>' + t.toolsTitle + '</h1>';
-  h += '<h2>' + t.aleTitle + '</h2><p>' + t.aleLead + '</p>';
+  let h = pageHead(t.toolsTitle, t.toolsTitle, LANG === 'en' ? 'Practical tools for risk analysis and audit vocabulary.' : "Des outils pratiques pour l'analyse de risque et le vocabulaire de l'audit.") + '<div class="page">';
+  h += '<h2 style="margin-top:0">' + t.aleTitle + '</h2><p>' + t.aleLead + '</p>';
   h += '<form class="calc" id="ale" onsubmit="return false">'
      + '<label>' + t.av + ' (' + t.cur + ')<input type="number" min="0" id="av" value="40000000"></label>'
      + '<label>' + t.ef + '<input type="number" min="0" max="100" id="ef" value="25"></label>'
@@ -380,7 +662,7 @@ function pTools(t){
     const [a, b, d] = LANG === 'fr' ? [fr, en, dfr] : [en, fr, den];
     h += '<details><summary>' + a + ' <span style="color:var(--muted);font-weight:400">· ' + b + '</span></summary><p>' + d + '</p></details>';
   });
-  return h;
+  return h + '</div>';
 }
 function calcAle(){
   const t = T[LANG], v = id => parseFloat(document.getElementById(id).value);
@@ -391,20 +673,20 @@ function calcAle(){
   document.getElementById('aleOut').innerHTML = h;
 }
 function pSvc(t){
-  const v = t.svc;
-  let h = '<p class="eyebrow">' + v.eyebrow + '</p><h1>' + v.title + '</h1><p class="lead">' + v.lead + '</p>';
-  h += '<div class="actions"><a class="btn" href="#contact">' + v.cta + '</a><a class="btn ghost" href="#cv">' + t.seeCv + '</a></div>';
-  h += '<h2>' + v.skillsTitle + '</h2><div class="grid">' + v.skills.map(([n, d]) => '<div class="card"><h3>' + n + '</h3><span class="d">' + d + '</span></div>').join('') + '</div>';
-  h += '<h2>' + v.offersTitle + '</h2><div class="grid">' + v.offers.map(([n, d, items]) => '<div class="card"><h3>' + n + '</h3><span class="d">' + d + '</span><ul class="svc">' + items.map(i => '<li>' + i + '</li>').join('') + '</ul></div>').join('') + '</div>';
-  h += '<h2>' + v.demoTitle + '</h2><p>' + v.demoLead + '</p><div class="grid">' + v.labs.map(([n, d]) => '<div class="card"><span class="tag">Wazuh</span><h3>' + n + '</h3><span class="d">' + d + '</span></div>').join('') + '</div><p class="d" style="color:var(--muted);font-size:.9rem">' + v.demoNote + '</p>';
-  h += '<h2>' + v.ctaTitle + '</h2><p>' + v.ctaText + '</p><div class="actions"><a class="btn" href="#contact">' + v.cta + '</a></div>';
-  return h;
+  const v = t.svc, H = HOME[LANG], icons = ['audit','shield','radar','building','bank'], oic = ['audit','shield','radar','doc','grad'];
+  let h = pageHead(v.eyebrow, v.title, v.lead, '<a class="btn light" href="' + mailHref() + '">' + ICON('mail') + v.cta + '</a><a class="btn outline-light" href="#cv">' + t.seeCv + '</a>') + '<div class="page">';
+  h += '<h2 style="margin-top:0">' + v.offersTitle + '</h2><div class="grid g3">' + v.offers.map(([n, d, items], i) => '<div class="card offer lift rv"><span class="ic">' + ICON(oic[i] || 'check') + '</span><span class="n">0' + (i + 1) + '</span><h3>' + n + '</h3><span class="d">' + d + '</span><ul class="svc">' + items.map(x => '<li>' + x + '</li>').join('') + '</ul></div>').join('') + '</div>';
+  h += '<h2>' + v.skillsTitle + '</h2><div class="grid">' + v.skills.map(([n, d], i) => '<div class="card rv"><span class="ic">' + ICON(icons[i] || 'check') + '</span><h3>' + n + '</h3><span class="d">' + d + '</span></div>').join('') + '</div>';
+  h += '<h2>' + v.demoTitle + '</h2><p class="lead">' + v.demoLead + '</p><div class="grid g3">' + v.labs.map(([n, d]) => '<div class="card lift rv"><span class="tag">Wazuh</span><h3>' + n + '</h3><span class="d">' + d + '</span></div>').join('') + '</div><p style="color:var(--muted);font-size:.9rem">' + v.demoNote + '</p>';
+  h += '<div class="cta rv" style="margin-top:56px"><div><h2>' + v.ctaTitle + '</h2><p>' + v.ctaText + '</p></div><div class="actions"><a class="btn light" href="' + mailHref() + '">' + ICON('mail') + H.ctaMail + '</a><a class="btn outline-light" href="' + telHref() + '">' + ICON('phone') + H.ctaCall + '</a></div></div>';
+  return h + '</div>';
 }
 function pContact(t){
-  return '<p class="eyebrow">' + t.contactTitle.toUpperCase() + '</p><h1>' + t.contactTitle + '</h1><p class="lead">' + t.contactLead + '</p>'
-       + '<div class="grid">' + CV[LANG].side[0][1].map(x => '<div class="card">' + x + '</div>').join('') + '</div>';
+  const H = HOME[LANG];
+  return pageHead(t.contactTitle, t.contactTitle, t.contactLead) + '<div class="page"><div class="contacts">'
+    + contactItems().map(c => (c.href ? '<a class="contact rv" href="' + c.href + '"' + (c.type === 'in' ? ' target="_blank" rel="noopener"' : '') + '>' : '<div class="contact rv">') + '<span class="ic">' + ICON(c.type === 'tel' ? 'phone' : c.type) + '</span><span><small>' + H.contactLabels[c.type] + '</small><b>' + esc(c.label) + '</b></span>' + (c.href ? '</a>' : '</div>')).join('')
+    + '</div><div class="cta rv"><div><h2>' + H.ctaTitle + '</h2><p>' + H.ctaText + '</p></div><div class="actions"><a class="btn light" href="' + mailHref() + '">' + ICON('mail') + H.ctaMail + '</a><a class="btn outline-light" href="' + cvPdf() + '" download>' + ICON('download') + H.cv + '</a></div></div></div>';
 }
-
 function route(){
   const t = T[LANG];
   let s = location.hash.slice(1) || 'accueil';
@@ -416,12 +698,17 @@ function route(){
   document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === LANG));
   const page = document.getElementById('page');
   page.innerHTML = s === 'cv' ? pCv(t) : s === 'services' ? pSvc(t) : s === 'outils' ? pTools(t) : s === 'contact' ? pContact(t) : pHome(t);
-  document.getElementById('foot').textContent = t.foot;
+  document.getElementById('foot').innerHTML = footerHtml(t);
+  document.getElementById('hire').textContent = HOME[LANG].hire;
+  const top = document.getElementById('top'), mb = document.getElementById('menuBtn');
+  top.classList.remove('open'); mb.setAttribute('aria-expanded', 'false'); mb.innerHTML = ICON('menu');
+  reveal();
   if(s === 'outils'){ document.getElementById('ale').addEventListener('input', calcAle); calcAle(); }
   window.scrollTo(0, 0);
 }
 document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => { LANG = b.dataset.lang; store.set('lang', LANG); route(); }));
 window.addEventListener('hashchange', route);
+document.getElementById('menuBtn').addEventListener('click', () => { const top = document.getElementById('top'), o = top.classList.toggle('open'), mb = document.getElementById('menuBtn'); mb.setAttribute('aria-expanded', o); mb.innerHTML = ICON(o ? 'close' : 'menu'); });
 route();
 </script>
 </body>
