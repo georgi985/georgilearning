@@ -95,6 +95,7 @@ a.card:hover{border-color:var(--accent)}
 .pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.bad{background:var(--bad-soft);color:var(--bad)}
 .result{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin:0 0 20px}
 .menu-btn{display:none}
+.pas{margin-top:36px;padding-top:8px;border-top:2px solid var(--accent-soft)}.pas>h2{color:var(--accent)}dl.voc{margin:8px 0 16px}dl.voc dt{font-weight:600;margin-top:10px}dl.voc dd{margin:2px 0 0 0}
 .why{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line)}.why .whyT{font-weight:600;margin:0 0 4px}.why ul{margin:0;padding-left:18px}.why li{margin:3px 0}.why li.mine{color:var(--bad)}
 details{background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:0 14px}
 details summary{cursor:pointer;padding:10px 0;font-weight:600}
@@ -118,7 +119,16 @@ details summary{cursor:pointer;padding:10px 0;font-weight:600}
 <script>window.CERTS=[];window.CATALOG=[];window.CATEGORIES=[];
 /* WHY(id, liste) : pour chaque question (dans l'ordre), explications des mauvaises réponses dans l'ordre des options, sans la bonne. en=true pour la version anglaise. */
 window.WHY=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c) return; const qs = en ? c.enQuestions : c.questions; if(!qs) return;
-  list.forEach((w, i) => { const q = c.questions[i], t = qs[i]; if(!q || !t || !w) return; const full = w.slice(); full.splice(q.a, 0, ''); if(full.length !== q.o.length) console.error('WHY', id, i); t.w = full; }); };</script>
+  list.forEach((w, i) => { const q = c.questions[i], t = qs[i]; if(!q || !t || !w) return; const full = w.slice(); full.splice(q.a, 0, ''); if(full.length !== q.o.length) console.error('WHY', id, i); t.w = full; }); };
+/* PAS(id, liste) : complète chaque module (dans l'ordre) par un parcours débutant : vocabulaire, exemple, méthode, exercices, pièges. */
+window.PAS=function(id, list){ const c = CERTS.find(x => x.id === id); if(!c) return;
+  list.forEach((b, i) => { const m = c.modules[i]; if(!m || !b) return; let h = '<section class="pas"><h2>Pas à pas pour débutant</h2>';
+    if(b.voc) h += '<h3>Les mots à connaître</h3><dl class="voc">' + b.voc.map(v => '<dt>' + v[0] + '</dt><dd>' + v[1] + '</dd>').join('') + '</dl>';
+    if(b.ex) h += '<h3>Un exemple concret</h3>' + b.ex;
+    if(b.steps) h += '<h3>La méthode, étape par étape</h3><ol>' + b.steps.map(s => '<li>' + s + '</li>').join('') + '</ol>';
+    if(b.exo) h += '<h3>Entraîne-toi</h3>' + b.exo.map(x => '<details><summary>Exercice corrigé : ' + x[0] + '</summary>' + x[1] + '</details>').join('');
+    if(b.piege) h += '<div class="box tip"><h4>Pièges à l\'examen</h4><ul>' + b.piege.map(p => '<li>' + p + '</li>').join('') + '</ul></div>';
+    m.pas = h + '</section>'; }); };</script>
 <script src="certs/catalogue.js"></script>
 <script src="certs/iso27001-li.js"></script>
 <script src="certs/iso27001-li-qcm.js"></script>
@@ -138,6 +148,7 @@ window.WHY=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c
 <script src="certs/cism.js"></script>
 <script src="certs/cism-qcm.js"></script>
 <script src="certs/cism-why.js"></script>
+<script src="certs/cism-pas.js"></script>
 <script src="certs/cism.en.js"></script>
 <script src="certs/cism-qcm.en.js"></script>
 <script src="certs/cissp.js"></script>
@@ -208,7 +219,7 @@ function V(c){
     id:c.id, org:c.org, passMark:c.passMark, examMinutes:c.examMinutes, examQuestions:c.examQuestions,
     title:(en && en.title) || c.title, intro:(en && en.intro) || c.intro, exam:(en && en.exam) || c.exam,
     translated: LANG === 'fr' || !!en,
-    modules:c.modules.map((m, i) => { const e = en && en.modules && en.modules[i]; return {id:m.id, day:(e && e.day) || m.day, title:(e && e.title) || m.title, html:(e && e.html) || m.html, tr:!!e || LANG === 'fr'}; }),
+    modules:c.modules.map((m, i) => { const e = en && en.modules && en.modules[i]; return {id:m.id, day:(e && e.day) || m.day, title:(e && e.title) || m.title, html:((e && e.html) || m.html) + (m.pas || ''), tr:!!e || LANG === 'fr'}; }),
     pages:(c.pages || []).map((p, i) => { const e = en && en.pages && en.pages[i]; return {id:p.id, title:(e && e.title) || p.title, html:(e && e.html) || p.html}; }),
     questions:c.questions
   };
