@@ -4,7 +4,7 @@ Site personnel de Georges Cabo, bilingue français / anglais, publié avec GitHu
 
 ## Structure
 
-- `index.html` : page d'accueil (présentation, CV, outils, contact). Le CV se modifie dans les objets `CV.fr` et `CV.en` du script.
+- `index.html` : page d'accueil (présentation, CV, outils, contact). Les textes sont dans `data/*.json` et se modifient avec Pages CMS (https://app.pagescms.org, configuration `.pages.yml`).
 - `learning/` : cours et entraînement aux certifications (ISO/IEC 27001 Lead Implementer, CompTIA Security+, CISA, CISM, CISSP), avec questions corrigées et examen blanc chronométré.
 - Les anciennes adresses du type `/#iso27001-li` sont redirigées vers `/learning/#iso27001-li`.
 
