@@ -578,7 +578,7 @@ function sigClose(){ if($pop){ $pop.remove(); $pop = null; } }
 function sigOpen(a){
   sigClose(); const e0 = SIGLES[a.dataset.k]; if(!e0) return; const L = SL(), e = SVK(e0, a.dataset.k);
   $pop = document.createElement('div'); $pop.id = 'sigpop'; $pop.setAttribute('role', 'dialog');
-  $pop.innerHTML = '<div class="k">' + esc(e.s) + '</div><div class="f">' + esc(e.f) + '</div><p><span class="lbl">' + L.d + ' : </span>' + esc(e.d) + '</p><p><span class="lbl">' + L.x + ' : </span>' + esc(e.x) + '</p><a href="#sigles">' + L.all + ' →</a>';
+  $pop.innerHTML = '<div class="k">' + esc(e0.kf && e0.kf[a.dataset.k] ? a.dataset.k : e.s) + '</div><div class="f">' + esc(e.f) + '</div><p><span class="lbl">' + L.d + ' : </span>' + esc(e.d) + '</p><p><span class="lbl">' + L.x + ' : </span>' + esc(e.x) + '</p><a href="#sigles">' + L.all + ' →</a>';
   document.body.appendChild($pop);
   const r = a.getBoundingClientRect(), pw = $pop.offsetWidth, ph = $pop.offsetHeight;
   let left = Math.max(8, Math.min(window.scrollX + r.left, window.scrollX + document.documentElement.clientWidth - pw - 8));
@@ -604,7 +604,8 @@ function route(){
   else if(r.view === 'exam') examPage(r.cert);
   else if(r.view === 'sigles') siglesPage(r.q);
   sigClose();
-  if(r.view !== 'sigles'){ sigWrap($page); if(r.view === 'module' || r.view === 'page' || r.view === 'format') sigInline(); }
+  /* Sigles : soulignés seulement ; la définition et l'exemple s'ouvrent au clic (sigInline n'est plus appelé). */
+  if(r.view !== 'sigles') sigWrap($page);
   renderSide(r);
   if(r.view !== 'quiz' || !location.hash.includes('quiz-')) window.scrollTo(0, 0);
   $side.classList.remove('open');
