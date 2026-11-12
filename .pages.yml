@@ -41,6 +41,7 @@ content:
       list: true
     - name: badge_1
       label: Badge sur la photo (1)
+      description: Laissez le titre vide pour masquer ce badge.
       type: object
       fields:
       - name: titre
@@ -51,6 +52,7 @@ content:
         type: string
     - name: badge_2
       label: Badge sur la photo (2)
+      description: Laissez le titre vide pour masquer ce badge.
       type: object
       fields:
       - name: titre
@@ -283,6 +285,7 @@ content:
       list: true
     - name: badge_1
       label: Badge sur la photo (1)
+      description: Laissez le titre vide pour masquer ce badge.
       type: object
       fields:
       - name: titre
@@ -293,6 +296,7 @@ content:
         type: string
     - name: badge_2
       label: Badge sur la photo (2)
+      description: Laissez le titre vide pour masquer ce badge.
       type: object
       fields:
       - name: titre

@@ -161,8 +161,8 @@ function pHome(t){
     + '<div class="actions"><a class="btn" href="#contact">' + H.ctaMain + ICON('arrow') + '</a><a class="btn outline-light" href="#services">' + H.ctaSvc + '</a><a class="btn outline-light" href="' + cvPdf() + '" download>' + ICON('download') + H.cv + '</a></div>'
     + '<div class="trust">' + H.trust.map(x => '<span>' + ICON('check') + x + '</span>').join('') + '</div></div>'
     + '<div class="portrait"><div class="frame"><img src="' + esc(asset(PROFIL.photo)) + '" alt="Georges Alain Cabo" width="900" height="990"></div>'
-    + '<div class="float f1"><span class="ic">' + ICON('audit') + '</span><span><b>' + H.f1[0] + '</b>' + H.f1[1] + '</span></div>'
-    + '<div class="float f2"><span class="ic">' + ICON('shield') + '</span><span><b>' + H.f2[0] + '</b>' + H.f2[1] + '</span></div></div></div></section>';
+    + (H.f1[0] ? '<div class="float f1"><span class="ic">' + ICON('audit') + '</span><span><b>' + H.f1[0] + '</b>' + H.f1[1] + '</span></div>' : '')
+    + (H.f2[0] ? '<div class="float f2"><span class="ic">' + ICON('shield') + '</span><span><b>' + H.f2[0] + '</b>' + H.f2[1] + '</span></div>' : '') + '</div></div></section>';
   h += '<div class="stats"><div class="wrap"><div class="grid4">' + H.stats.map(([b, s]) => '<div class="stat"><b>' + b + '</b><span>' + s + '</span></div>').join('') + '</div></div></div>';
   h += '<section class="band"><div class="wrap"><div class="head rv"><p class="eyebrow">' + H.svcEyebrow + '</p><h2>' + H.svcTitle + '</h2><p>' + H.svcLead + '</p></div><div class="grid">'
     + H.svc.map(([ic, n, d]) => '<a class="card rv" href="#services"><span class="ic">' + ICON(ic) + '</span><h3>' + n + '</h3><span class="d">' + d + '</span><span class="more">' + H.more + ICON('arrow') + '</span></a>').join('') + '</div></div></section>';
