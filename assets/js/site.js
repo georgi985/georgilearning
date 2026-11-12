@@ -160,7 +160,7 @@ function pHome(t){
   let h = '<section class="hero"><div class="wrap"><div><p class="eyebrow">' + H.eyebrow + '</p><h1>' + H.h1 + '</h1><p class="lead">' + H.lead + '</p>'
     + '<div class="actions"><a class="btn" href="#contact">' + H.ctaMain + ICON('arrow') + '</a><a class="btn outline-light" href="#services">' + H.ctaSvc + '</a><a class="btn outline-light" href="' + cvPdf() + '" download>' + ICON('download') + H.cv + '</a></div>'
     + '<div class="trust">' + H.trust.map(x => '<span>' + ICON('check') + x + '</span>').join('') + '</div></div>'
-    + '<div class="portrait"><div class="frame"><img src="' + esc(asset(PROFIL.photo)) + '" alt="Georges Alain Cabo" width="312" height="274"></div>'
+    + '<div class="portrait"><div class="frame"><img src="' + esc(asset(PROFIL.photo)) + '" alt="Georges Alain Cabo" width="900" height="990"></div>'
     + '<div class="float f1"><span class="ic">' + ICON('audit') + '</span><span><b>' + H.f1[0] + '</b>' + H.f1[1] + '</span></div>'
     + '<div class="float f2"><span class="ic">' + ICON('shield') + '</span><span><b>' + H.f2[0] + '</b>' + H.f2[1] + '</span></div></div></div></section>';
   h += '<div class="stats"><div class="wrap"><div class="grid4">' + H.stats.map(([b, s]) => '<div class="stat"><b>' + b + '</b><span>' + s + '</span></div>').join('') + '</div></div></div>';
