@@ -1,0 +1,13 @@
+{
+  "photo": "/assets/photo.jpg",
+  "cv_pdf_fr": "/assets/cv/Georges-Alain-Cabo-CV-FR.pdf",
+  "cv_pdf_en": "/assets/cv/Georges-Alain-Cabo-CV-EN.pdf",
+  "telephone": "+221 77 156 79 40",
+  "emails": [
+    { "identifiant": "georgesalain985", "domaine": "gmail.com" },
+    { "identifiant": "georginho985", "domaine": "icloud.com" }
+  ],
+  "linkedin": "https://www.linkedin.com/in/georges-alain-gracien-cabo-445189183",
+  "lieu_fr": "Dakar, Sénégal",
+  "lieu_en": "Dakar, Senegal"
+}

@@ -4,7 +4,7 @@ const store = {
 };
 let LANG = store.get('lang', null) || ((navigator.language || 'fr').toLowerCase().startsWith('fr') ? 'fr' : 'en');
 
-/* ===== Contenu bilingue. Pour mettre à jour le CV : modifier CV.fr et CV.en ci-dessous. ===== */
+/* ===== Libellés de l'interface. Les textes du site (accueil, services, CV, contact, glossaire) sont dans data/*.json. ===== */
 const T = {
   fr:{ nav:{accueil:"Accueil",cv:"CV",services:"Services",learning:"Learning",outils:"Outils",contact:"Contact"},
     title:"Georges Alain Cabo · Audit IT et sécurité de l'information",
@@ -23,36 +23,6 @@ const T = {
       [null,"Boîte à outils","Modèles téléchargeables : DdA, matrice de risques, check-list ITGC.","soon"],
       [null,"Blog et veille","Notes sur les normes, la réglementation et l'actualité cyber.","soon"]
     ],
-    svc:{ title:"Compétences et services", eyebrow:"COMPÉTENCES · OFFRES DE SERVICE",
-      lead:"J'aide les organisations à prouver que leurs systèmes sont maîtrisés : audit des contrôles informatiques, mise en place d'un système de management de la sécurité, et surveillance de sécurité avec des outils open source comme Wazuh.",
-      skillsTitle:"Compétences",
-      skills:[
-        ["Audit des systèmes d'information","Contrôles généraux informatiques (ITGC) : accès, changements, exploitation. Contrôles applicatifs (ITAC) et fiabilité des rapports (IPE). Analyse de données d'audit."],
-        ["Gouvernance et ISO/IEC 27001","Analyse d'écart, appréciation des risques, Déclaration d'applicabilité, politiques, préparation à l'audit de certification."],
-        ["Surveillance de sécurité (SOC) avec Wazuh","Collecte et analyse des journaux, règles de détection sur mesure, intégrité des fichiers, conformité CIS, vulnérabilités, réponse active, tableaux de bord MITRE ATT&CK et PCI DSS."],
-        ["Environnements Windows et Active Directory","Stratégies de groupe (GPO), stratégie d'audit avancée, déploiement d'agents, durcissement."],
-        ["Connaissance des secteurs","Banque (UMOA), monnaie électronique, assurance (CIMA), télécoms, pétrole et gaz, entreprises commerciales et industrielles."]],
-      offersTitle:"Offres de service",
-      offers:[
-        ["Audit IT (ITGC et ITAC)","Pour les directions, les cabinets d'audit et les commissaires aux comptes.",["Cartographie des applications qui alimentent les comptes","Tests des accès, des changements et de l'exploitation","Tests des contrôles automatiques et des rapports","Rapport de constats classés par risque, avec recommandations"]],
-        ["Accompagnement ISO/IEC 27001","Pour les organisations qui visent la certification ou veulent structurer leur sécurité.",["Analyse d'écart par rapport à la norme","Méthode et appréciation des risques","Déclaration d'applicabilité et plan de traitement","Préparation de l'audit interne et de la revue de direction"]],
-        ["Mise en place d'une surveillance de sécurité avec Wazuh","Pour les PME, banques, microfinances et émetteurs de monnaie électronique qui veulent un SOC sans licence coûteuse.",["Installation et déploiement des agents (y compris par GPO)","Règles de détection adaptées aux applications métier","Surveillance des fichiers sensibles : qui a modifié quoi","Réduction du bruit pour ne garder que les alertes utiles","Tableaux de bord pour la direction et preuves pour les auditeurs"]],
-        ["Diagnostic de conformité des postes et serveurs","Mesure du niveau de configuration par rapport aux recommandations CIS, avec plan de correction.",["Score de conformité initial","Corrections par stratégies de groupe","Suivi dans le temps et alerte en cas de recul"]],
-        ["Formation et sensibilisation","Pour les équipes d'audit, informatiques et métiers.",["Audit IT pour auditeurs financiers","Préparation aux certifications (ISO 27001, CISA, Security+)","Sensibilisation des utilisateurs aux risques"]]],
-      demoTitle:"Démonstration : mon laboratoire Wazuh",
-      demoLead:"Pour montrer concrètement ma maîtrise de l'outil, j'ai monté un laboratoire complet (contrôleur de domaine Samba AD, serveur Wazuh 4.14, poste Windows 11) et documenté chaque étape dans un cahier de 105 pages. Ce que chaque lab démontre :",
-      labs:[
-        ["Lab 1 · Comment Wazuh lit un journal","Décodeurs, règles, niveaux d'alerte et règles de corrélation (détection de force brute SSH)."],
-        ["Lab 2 · Règles sur mesure","Écriture d'un décodeur et de règles pour une application métier dont Wazuh ne connaît pas les journaux."],
-        ["Lab 3 · Stratégies de groupe","Création de GPO d'audit avancé et déploiement automatique de l'agent Wazuh sur le domaine."],
-        ["Lab 4 · Conformité CIS (SCA)","Score de conformité d'un poste Windows 11, corrections par GPO et alerte quand la conformité recule."],
-        ["Lab 5 · Intégrité des fichiers","Savoir qui a modifié un fichier sensible, avec quel programme et ce qui a changé."],
-        ["Bonus · Réduction du bruit","Règles enfants pour supprimer environ 90 alertes critiques inutiles par jour sans perdre de détection."],
-        ["Lab 6 · Inventaire et vulnérabilités","Inventaire logiciel, vulnérabilités connues (CVE, CVSS), correction et vérification."],
-        ["Lab 7 · Réponse active","Blocage automatique d'un attaquant par le pare-feu après une force brute."],
-        ["Lab 8 · MITRE, conformité, tableaux de bord","Lecture de la couverture MITRE ATT&CK, preuves PCI DSS et NIS2, vues pour la direction et l'analyste, plan d'amélioration."]],
-      demoNote:"Ce laboratoire est un environnement de test personnel : aucune donnée de client n'y est utilisée.",
-      ctaTitle:"Un projet ?", cta:"Me contacter", ctaText:"Décrivez votre besoin : je vous réponds avec une proposition adaptée à votre taille et à votre secteur." },
     soon:"Bientôt", open:"Ouvrir",
     cvTitle:"Curriculum vitæ", print:"Imprimer / PDF",
     cvNote:"",
@@ -83,36 +53,6 @@ const T = {
       [null,"Toolkit","Downloadable templates: SoA, risk matrix, ITGC checklist.","soon"],
       [null,"Blog and news","Notes on standards, regulation and cyber news.","soon"]
     ],
-    svc:{ title:"Skills and services", eyebrow:"SKILLS · SERVICES",
-      lead:"I help organizations prove that their systems are under control: IT controls audit, information security management systems, and security monitoring with open source tools such as Wazuh.",
-      skillsTitle:"Skills",
-      skills:[
-        ["Information systems audit","IT general controls (ITGC): access, change, operations. Application controls (ITAC) and report reliability (IPE). Audit data analytics."],
-        ["Governance and ISO/IEC 27001","Gap analysis, risk assessment, Statement of Applicability, policies, certification audit readiness."],
-        ["Security monitoring (SOC) with Wazuh","Log collection and analysis, custom detection rules, file integrity, CIS compliance, vulnerabilities, active response, MITRE ATT&CK and PCI DSS dashboards."],
-        ["Windows and Active Directory","Group Policy (GPO), advanced audit policy, agent deployment, hardening."],
-        ["Industry knowledge","Banking (WAMU), e-money, insurance (CIMA), telecoms, oil and gas, trading and industrial companies."]],
-      offersTitle:"Services",
-      offers:[
-        ["IT audit (ITGC and ITAC)","For management, audit firms and statutory auditors.",["Map the applications that feed the financial statements","Test access, change and operations controls","Test automated controls and system reports","Findings report ranked by risk, with recommendations"]],
-        ["ISO/IEC 27001 support","For organizations aiming at certification or structuring their security.",["Gap analysis against the standard","Risk method and risk assessment","Statement of Applicability and treatment plan","Internal audit and management review readiness"]],
-        ["Security monitoring with Wazuh","For SMEs, banks, microfinance institutions and e-money issuers that want a SOC without costly licenses.",["Installation and agent deployment (including through GPO)","Detection rules tailored to business applications","Monitoring of sensitive files: who changed what","Noise reduction to keep only useful alerts","Dashboards for management and evidence for auditors"]],
-        ["Endpoint and server compliance assessment","Measure configuration against CIS recommendations, with a remediation plan.",["Baseline compliance score","Fixes through Group Policy","Tracking over time and alert when compliance drops"]],
-        ["Training and awareness","For audit, IT and business teams.",["IT audit for financial auditors","Certification preparation (ISO 27001, CISA, Security+)","User security awareness"]]],
-      demoTitle:"Showcase: my Wazuh lab",
-      demoLead:"To show hands-on command of the tool, I built a complete lab (Samba AD domain controller, Wazuh 4.14 server, Windows 11 endpoint) and documented every step in a 105-page lab book. What each lab demonstrates:",
-      labs:[
-        ["Lab 1 · How Wazuh reads a log","Decoders, rules, alert levels and correlation rules (SSH brute force detection)."],
-        ["Lab 2 · Custom rules","Writing a decoder and rules for a business application whose logs Wazuh does not know."],
-        ["Lab 3 · Group Policy","Building advanced audit GPOs and deploying the Wazuh agent automatically across the domain."],
-        ["Lab 4 · CIS compliance (SCA)","Compliance score of a Windows 11 endpoint, fixes through GPO and an alert when compliance drops."],
-        ["Lab 5 · File integrity","Knowing who changed a sensitive file, with which program, and what changed."],
-        ["Bonus · Noise reduction","Child rules that remove about 90 useless critical alerts a day without losing detection."],
-        ["Lab 6 · Inventory and vulnerabilities","Software inventory, known vulnerabilities (CVE, CVSS), remediation and verification."],
-        ["Lab 7 · Active response","Automatic firewall block of an attacker after a brute force."],
-        ["Lab 8 · MITRE, compliance, dashboards","Reading MITRE ATT&CK coverage, PCI DSS and NIS2 evidence, views for management and analysts, improvement plan."]],
-      demoNote:"This lab is a personal test environment: no client data is used in it.",
-      ctaTitle:"A project?", cta:"Contact me", ctaText:"Describe your needs: I will reply with a proposal suited to your size and industry." },
     soon:"Coming soon", open:"Open",
     cvTitle:"Resume", print:"Print / PDF",
     cvNote:"",
@@ -128,121 +68,9 @@ const T = {
     foot:"© 2026 Georges Alain Cabo · georgilearning.academy" }
 };
 
-const CV = {
-  fr:{ name:"Georges Alain Cabo", role:"Auditeur senior · Audit IT et risques", place:"Dakar, Sénégal",
-    summary:"Ingénieur de conception en télécommunications et réseaux devenu auditeur IT. Depuis octobre 2023, d'abord chez EY puis chez Eritedge Sénégal (auditeur senior depuis juillet 2026), j'interviens sur le volet informatique des missions de commissariat aux comptes : contrôle interne, contrôles généraux informatiques, revue des accès et analyse de données, pour des banques, des opérateurs télécoms, des émetteurs de monnaie électronique et des industriels en Afrique de l'Ouest. Je prépare la certification ISO/IEC 27001 Lead Implementer.",
-    side:[
-      ["Contact",["<a href=\"tel:+221771567940\">+221 77 156 79 40</a>","<a href=\"mailto:georgesalain985" + String.fromCharCode(64) + "gmail.com\">georgesalain985" + String.fromCharCode(64) + "gmail.com</a>","<a href=\"mailto:georginho985" + String.fromCharCode(64) + "icloud.com\">georginho985" + String.fromCharCode(64) + "icloud.com</a>","<a href=\"https://www.linkedin.com/in/georges-alain-gracien-cabo-445189183\" rel=\"noopener\" target=\"_blank\">LinkedIn</a>","Dakar, Sénégal"]],
-      ["Compétences",["Audit informatique selon ISO/IEC 27001, COBIT 5 et ITIL","Gouvernance et gestion des risques IT","Contrôles généraux informatiques et contrôles applicatifs","Séparation des tâches (SoD)","Revue des accès et gestion des habilitations, PAM","Conformité réglementaire et audits"]],
-      ["Outils",["Analyse de données : Excel, Alteryx, Python, ACL","Bases de données : Oracle, SQL Server, Informix","Systèmes : Windows Server, Red Hat, AIX","Réseaux : TCP/IP, VLAN, VPN, pare-feu, routage","VoIP : Asterisk, FreePBX, 3CX"]],
-      ["Points forts",["Badges EY Bronze : cybersécurité et cloud (2024)","TryHackMe : Cyber Security 101 (2025)","Cisco : CCNAv7 et DevNet Associate","ISO/IEC 27001 Lead Implementer (PECB) : en préparation"]],
-      ["Langues",["Français : courant","Wolof : courant","Anglais : intermédiaire"]],
-      ["Musique",["Autodidacte : piano, guitare, flûte à bec, flûte traversière, harmonica","Lecture et déchiffrage de partitions"]]
-    ],
-    expTitle:"Expérience",
-    jobs:[
-      ["Depuis juillet 2026","Auditeur senior · Eritedge Sénégal, Dakar",[
-        "Évaluation de la conception (test of design) et de l'efficacité (test of effectiveness) du contrôle interne dans le cadre du commissariat aux comptes.",
-        "Revue des contrôles généraux informatiques et des contrôles applicatifs ; analyse des processus finance, achats, ventes et stocks.",
-        "Analyse de données avec des outils CAAT (ACL) et des requêtes sur Oracle et SQL Server ; évaluation des risques opérationnels.",
-        "Revue des accès et des habilitations : cycle de vie des comptes, moindre privilège, revues périodiques, comptes orphelins ou excessifs, comptes à privilèges (PAM), matrices de séparation des tâches.",
-        "Secteurs : banques commerciales et banques centrales, télécommunications, monnaie électronique, pétrole et industrie."]],
-      ["Mai – juillet 2026","Auditeur assistant · Eritedge Sénégal, Dakar",[
-        "Missions d'audit IT dans les secteurs bancaire, télécoms et monnaie électronique."]],
-      ["Juillet 2024 – avril 2026","Assistant · EY, Sénégal",[
-        "Audit IT des missions de commissariat aux comptes : contrôles généraux informatiques, contrôles applicatifs, revue des accès et analyse de données.",
-        "Formation interne EY et pratique professionnelle de l'anglais."]],
-      ["Octobre 2023 – septembre 2024","Staff (stage) · EY, Dakar",[
-        "Intégration à l'équipe d'audit IT : tests de contrôles, revue des accès et préparation des dossiers de travail ; formation interne EY."]],
-      ["Septembre 2022 – février 2023","Responsable VoIP · INTERSIP International, Dakar",[
-        "Mise en place d'un serveur de téléphonie et d'un serveur vocal interactif (IVR) qui diffuse des messages programmés et enregistre les réponses en base de données.",
-        "Serveur FTP pour sauvegarder et récupérer les fichiers de configuration et les enregistrements audio.",
-        "Sécurité et supervision : VPN, proxy, pare-feu, ELK, NGINX, Zabbix, Bind9 ; travail avec l'équipe de développement."]],
-      ["Mars – juin 2022","Stage de fin d'études d'ingénieur · INTERSIP International, Dakar",[
-        "Mémoire : mise en place d'un serveur vocal interactif (Asterisk) pour la formation des habitants en zone rurale."]],
-      ["Juin – juillet 2019","Stage de technicien supérieur · INFOCONSUL, Dakar",[
-        "Mémoire : mise en place d'un service 3CX permettant aux employés d'utiliser le même numéro sur le fixe, le mobile et l'ordinateur."]],
-      ["Juillet – septembre 2018","Consultant · INFOCONSUL, Dakar",[
-        "Câblage et réfection de réseaux pour l'hôpital Aristide Le Dantec, l'Administration pénitentiaire et la caserne Samba Diéry Diallo."]]
-    ],
-    certTitle:"Certifications, badges et formations",
-    certs:[
-      ["Badges EY",["Cybersecurity, niveau Bronze (2024)","Cloud Computing, niveau Bronze (2024)"],["ey-cybersecurity-bronze-learning-2024","ey-cloud-bronze-learning-2024"]],
-      ["TryHackMe",["Cyber Security 101, parcours complet de 45 h (décembre 2025), certificat THM-DTWGQPKC5T","Advent of Cyber 2025 : 24 défis de cybersécurité (décembre 2025)","Pre Security, parcours complet de 19 h (septembre 2026), certificat THM-SXI3U9GYSR"]],
-      ["Cisco Networking Academy",["CCNAv7 : Introduction aux réseaux (2023)","DevNet Associate (2021)"]],
-      ["Formations EY en cybersécurité",["Cybersecurity : Introduction (2023)","Identity and Access Management (2024)","Data Protection and Privacy (2024)","Cybersecurity Program Assessment (2024)","Next Generation Security Operations and Response (2024)"]],
-      ["Formations en ligne (Udemy)",["CompTIA Security+ SY0-701, cours complet et examen blanc, Jason Dion, 31 h (2025)","TOTAL : CompTIA Security+ SY0-701, Mike Meyers, 20,5 h (2024)","AWS Certified Cloud Practitioner CLF-C02, Stéphane Maarek, 15 h (2024)","A Practical Introduction to Cloud Computing (2024)","The Absolute Beginners Guide to Cyber Security 2024, parties 1 et 2 (2024)","Computer Forensics Fundamentals (2023)","Introduction to Security Awareness Campaigns (2023)","Cybersecurity for HR Professionals (2024)","Marketing Fundamentals : Small Business Marketing Success (2024)"]],
-      ["Déontologie, qualité et conformité (EY)",["Global Code of Conduct, Conflicts of Interest, Independence Basics et Independence Update 2024","Financial Crime Fundamentals, Data Protection Fundamentals","Annual Data Protection and Information Security Update FY24, Security Awareness","Assurance Advisory Quality & Risk Management (2026), QRM Annual Update FY26","Inclusive Leadership for All (cours et podcasts), Transformation Realized"]]
-    ],
-    eduTitle:"Formation",
-    edu:[["2019 – 2022","Diplôme d'ingénieur de conception en télécommunications et réseaux · École supérieure polytechnique (UCAD), Dakar"],
-         ["2017 – 2019","Diplôme supérieur de technologie en télécommunications et réseaux · École supérieure polytechnique (UCAD), Dakar"],
-         ["2017","Baccalauréat S2 · Collège Cardinal Hyacinthe Thiandoum, Dakar"]] },
-  en:{ name:"Georges Alain Cabo", role:"Senior auditor · IT audit and risk", place:"Dakar, Senegal",
-    summary:"Telecommunications and network design engineer turned IT auditor. Since October 2023, first at EY and then at Eritedge Senegal (senior auditor since July 2026), I have worked on the IT side of statutory audit engagements: internal control, IT general controls, access reviews and data analytics, for banks, telecom operators, e-money issuers and industrial companies in West Africa. I am preparing for the ISO/IEC 27001 Lead Implementer certification.",
-    side:[
-      ["Contact",["<a href=\"tel:+221771567940\">+221 77 156 79 40</a>","<a href=\"mailto:georgesalain985" + String.fromCharCode(64) + "gmail.com\">georgesalain985" + String.fromCharCode(64) + "gmail.com</a>","<a href=\"mailto:georginho985" + String.fromCharCode(64) + "icloud.com\">georginho985" + String.fromCharCode(64) + "icloud.com</a>","<a href=\"https://www.linkedin.com/in/georges-alain-gracien-cabo-445189183\" rel=\"noopener\" target=\"_blank\">LinkedIn</a>","Dakar, Senegal"]],
-      ["Skills",["IT audit based on ISO/IEC 27001, COBIT 5 and ITIL","IT governance and risk management","IT general controls and application controls","Segregation of duties (SoD)","Access reviews and entitlement management, PAM","Regulatory compliance and audits"]],
-      ["Tools",["Data analytics: Excel, Alteryx, Python, ACL","Databases: Oracle, SQL Server, Informix","Systems: Windows Server, Red Hat, AIX","Networking: TCP/IP, VLAN, VPN, firewalls, routing","VoIP: Asterisk, FreePBX, 3CX"]],
-      ["Highlights",["EY Bronze badges: cybersecurity and cloud (2024)","TryHackMe: Cyber Security 101 (2025)","Cisco: CCNAv7 and DevNet Associate","ISO/IEC 27001 Lead Implementer (PECB): in preparation"]],
-      ["Languages",["French: fluent","Wolof: fluent","English: intermediate"]],
-      ["Music",["Self-taught: piano, guitar, recorder, transverse flute, harmonica","Reading and sight-reading sheet music"]]
-    ],
-    expTitle:"Experience",
-    jobs:[
-      ["Since July 2026","Senior auditor · Eritedge Senegal, Dakar",[
-        "Assessing the design (test of design) and operating effectiveness (test of effectiveness) of internal control as part of statutory audits.",
-        "Reviewing IT general controls and application controls; analyzing finance, procurement, sales and inventory processes.",
-        "Data analytics with CAAT tools (ACL) and queries on Oracle and SQL Server; operational risk assessment.",
-        "Access and entitlement reviews: account life cycle, least privilege, periodic reviews, orphaned or excessive accounts, privileged accounts (PAM), segregation of duties matrices.",
-        "Sectors: commercial and central banks, telecommunications, e-money, oil and industry."]],
-      ["May – July 2026","Assistant auditor · Eritedge Senegal, Dakar",[
-        "IT audit engagements in banking, telecoms and e-money."]],
-      ["July 2024 – April 2026","Assistant · EY, Senegal",[
-        "IT audit for statutory audit engagements: IT general controls, application controls, access reviews and data analytics.",
-        "EY internal training and professional use of English."]],
-      ["October 2023 – September 2024","Staff (internship) · EY, Dakar",[
-        "Joined the IT audit team: control testing, access reviews and preparation of working papers; EY internal training."]],
-      ["September 2022 – February 2023","VoIP lead · INTERSIP International, Dakar",[
-        "Deployed a telephony server and an interactive voice response (IVR) system that plays scheduled messages and stores answers in a database.",
-        "FTP server to back up and retrieve configuration files and audio recordings.",
-        "Security and monitoring: VPN, proxy, firewall, ELK, NGINX, Zabbix, Bind9; worked with the development team."]],
-      ["March – June 2022","Engineering degree internship · INTERSIP International, Dakar",[
-        "Thesis: deploying an interactive voice server (Asterisk) to train residents of rural areas."]],
-      ["June – July 2019","Technician degree internship · INFOCONSUL, Dakar",[
-        "Thesis: deploying a 3CX service so employees can use the same number on desk phone, mobile and computer."]],
-      ["July – September 2018","Consultant · INFOCONSUL, Dakar",[
-        "Network cabling and refurbishment for Aristide Le Dantec hospital, the Prison Administration and the Samba Diéry Diallo barracks."]]
-    ],
-    certTitle:"Certifications, badges and training",
-    certs:[
-      ["EY Badges",["Cybersecurity, Bronze level (2024)","Cloud Computing, Bronze level (2024)"],["ey-cybersecurity-bronze-learning-2024","ey-cloud-bronze-learning-2024"]],
-      ["TryHackMe",["Cyber Security 101, full 45-hour learning path (December 2025), certificate THM-DTWGQPKC5T","Advent of Cyber 2025: 24 cybersecurity challenges (December 2025)","Pre Security, full 19-hour learning path (September 2026), certificate THM-SXI3U9GYSR"]],
-      ["Cisco Networking Academy",["CCNAv7: Introduction to Networks (2023)","DevNet Associate (2021)"]],
-      ["EY cybersecurity training",["Cybersecurity: Introduction (2023)","Identity and Access Management (2024)","Data Protection and Privacy (2024)","Cybersecurity Program Assessment (2024)","Next Generation Security Operations and Response (2024)"]],
-      ["Online courses (Udemy)",["CompTIA Security+ SY0-701 Complete Course & Practice Exam, Jason Dion, 31 h (2025)","TOTAL: CompTIA Security+ SY0-701, Mike Meyers, 20.5 h (2024)","AWS Certified Cloud Practitioner CLF-C02, Stéphane Maarek, 15 h (2024)","A Practical Introduction to Cloud Computing (2024)","The Absolute Beginners Guide to Cyber Security 2024, parts 1 and 2 (2024)","Computer Forensics Fundamentals (2023)","Introduction to Security Awareness Campaigns (2023)","Cybersecurity for HR Professionals (2024)","Marketing Fundamentals: Small Business Marketing Success (2024)"]],
-      ["Ethics, quality and compliance (EY)",["Global Code of Conduct, Conflicts of Interest, Independence Basics and Independence Update 2024","Financial Crime Fundamentals, Data Protection Fundamentals","Annual Data Protection and Information Security Update FY24, Security Awareness","Assurance Advisory Quality & Risk Management (2026), QRM Annual Update FY26","Inclusive Leadership for All (courses and podcasts), Transformation Realized"]]
-    ],
-    eduTitle:"Education",
-    edu:[["2019 – 2022","Telecommunications and network design engineering degree · École supérieure polytechnique (UCAD), Dakar"],
-         ["2017 – 2019","Higher technology diploma in telecommunications and networks · École supérieure polytechnique (UCAD), Dakar"],
-         ["2017","Science baccalaureate (S2) · Collège Cardinal Hyacinthe Thiandoum, Dakar"]] }
-};
-
-const GLOSSARY = [
-  ["SMSI","ISMS","Système de management de la sécurité de l'information.","Information security management system."],
-  ["DdA (Déclaration d'applicabilité)","SoA (Statement of Applicability)","Liste des mesures retenues ou exclues, avec justification.","List of controls included or excluded, with justification."],
-  ["Propriétaire du risque","Risk owner","Personne ayant l'autorité pour gérer un risque.","Person with the authority to manage a risk."],
-  ["Risque résiduel","Residual risk","Risque qui subsiste après traitement.","Risk remaining after treatment."],
-  ["Non-conformité","Nonconformity","Non-satisfaction d'une exigence.","Non-fulfilment of a requirement."],
-  ["Action corrective","Corrective action","Action qui élimine la cause d'une non-conformité.","Action to eliminate the cause of a nonconformity."],
-  ["Contrôles généraux informatiques","IT general controls (ITGC)","Contrôles sur les accès, les changements, l'exploitation et le développement.","Controls over access, change, operations and development."],
-  ["Séparation des tâches","Segregation of duties","Répartir les tâches incompatibles entre plusieurs personnes.","Splitting conflicting duties among several people."],
-  ["Constat d'audit","Audit finding","Résultat de l'évaluation des preuves par rapport aux critères.","Result of evaluating evidence against audit criteria."],
-  ["Revue de direction","Management review","Examen périodique du SMSI par la direction (clause 9.3).","Periodic review of the ISMS by top management (clause 9.3)."],
-  ["Plan de continuité d'activité","Business continuity plan","Procédures pour maintenir les activités critiques pendant une perturbation.","Procedures to keep critical activities running during a disruption."],
-  ["Moindre privilège","Least privilege","N'accorder que les droits strictement nécessaires.","Grant only the rights strictly needed."]
-];
+/* Contenu modifiable : fichiers data/*.json (espace d'administration Pages CMS). Chargés par loadData() puis convertis par applyData(). */
+const CV = {fr:{}, en:{}};
+let GLOSSARY = [], PROFIL = {};
 
 const SECTIONS = ['accueil','cv','services','learning','outils','contact'];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -276,62 +104,54 @@ const ICON = (() => { const p = {
 
 /* ===== Page d'accueil : textes ===== */
 const HOME = {
-  fr:{ eyebrow:"Audit IT · Sécurité de l'information · Gouvernance",
-    h1:"Des systèmes d'information <em>maîtrisés</em>, et des preuves pour le démontrer.",
-    lead:"Auditeur senior des systèmes d'information basé à Dakar, j'aide les banques, émetteurs de monnaie électronique, opérateurs télécoms et entreprises à fiabiliser leurs contrôles informatiques, à se préparer à ISO/IEC 27001 et à surveiller leur sécurité.",
-    ctaMain:"Discutons de votre projet", ctaSvc:"Voir mes services", cv:"CV (PDF)",
-    trust:["Auditeur senior chez Eritedge","Ancien d'EY (audit IT)","Ingénieur télécoms et réseaux"],
-    f1:["Auditeur senior","Audit IT · Risques"], f2:["ISO/IEC 27001","Lead Implementer en préparation"],
-    stats:[["3 ans","d'audit IT en cabinet (EY puis Eritedge)"],["6 secteurs","banque, monnaie électronique, télécoms, pétrole…"],["105 pages","de laboratoire Wazuh documenté"],["13 cours","bilingues publiés sur mon campus"]],
-    svcEyebrow:"Services", svcTitle:"Ce que je fais pour vous", svcLead:"Des missions concrètes, avec des livrables clairs et des constats classés par risque.",
-    svc:[["audit","Audit IT (ITGC et ITAC)","Accès, changements, exploitation, contrôles automatiques et fiabilité des rapports, pour la direction et les commissaires aux comptes."],
-      ["shield","Accompagnement ISO/IEC 27001","Analyse d'écart, appréciation des risques, Déclaration d'applicabilité et préparation à la certification."],
-      ["radar","Surveillance de sécurité avec Wazuh","Un SOC open source, sans licence coûteuse : détection, intégrité des fichiers, conformité CIS, vulnérabilités."],
-      ["grad","Formation et sensibilisation","Audit IT pour auditeurs financiers, préparation aux certifications, sensibilisation des utilisateurs."]],
-    more:"En savoir plus",
-    howEyebrow:"Démarche", howTitle:"Une méthode claire, du cadrage au rapport",
-    how:[["Comprendre","Vos processus, vos applications critiques et ce qui alimente vos états financiers."],["Évaluer les risques","Identifier ce qui peut mal tourner et prioriser selon l'impact métier."],["Tester","Contrôles testés sur pièces et sur données, avec des preuves documentées."],["Restituer","Constats classés par risque, recommandations réalistes et plan d'action suivi."]],
-    secEyebrow:"Secteurs", secTitle:"Une expérience des secteurs régulés", secLead:"Des missions menées dans des environnements où le contrôle interne et la conformité sont exigés.",
-    sectors:[["bank","Banques commerciales"],["building","Banques centrales"],["mobile","Monnaie électronique"],["signal","Télécommunications"],["umbrella","Assurance (CIMA)"],["drop","Pétrole et gaz"],["factory","Industrie et commerce"]],
-    proofEyebrow:"Preuves", proofTitle:"Des compétences démontrées, pas seulement déclarées",
-    lab:["Laboratoire Wazuh complet","Contrôleur de domaine, serveur Wazuh 4.14 et poste Windows 11 : 8 labs documentés, des règles sur mesure à la réponse active et aux tableaux de bord MITRE ATT&CK.",["Détection sur mesure","Conformité CIS","Intégrité des fichiers","Réponse active"],"Voir le laboratoire"],
-    campus:["Campus de formation bilingue","Des cours pas à pas, en français et en anglais : ISO 27001, Security+, CISA, CISM, CISSP, comptabilité, finance et 6 secteurs, avec QCM corrigés et programmes de travail ITAC.",["13 cours","QCM expliqués","Sigles définis","FR · EN"],"Visiter le campus"],
-    ctaTitle:"Un audit, une certification, un SOC à mettre en place ?", ctaText:"Décrivez votre besoin : je vous réponds rapidement avec une proposition adaptée à votre taille et à votre secteur.", ctaMail:"M'écrire", ctaCall:"Appeler",
-    hire:"Me contacter", menu:"Menu",
-    foot:{about:"Audit des systèmes d'information, ISO/IEC 27001 et surveillance de sécurité. Basé à Dakar, disponible en Afrique de l'Ouest et à distance.", nav:"Navigation", contact:"Contact", legal:"© 2026 Georges Alain Cabo · georgilearning.academy"},
-    contactLabels:{tel:"Téléphone", mail:"E-mail", in:"LinkedIn", pin:"Localisation"}, mailSubject:"Demande de mission" },
-  en:{ eyebrow:"IT audit · Information security · Governance",
-    h1:"Information systems <em>under control</em>, with the evidence to prove it.",
-    lead:"A Dakar-based senior information systems auditor, I help banks, e-money issuers, telecom operators and companies strengthen their IT controls, prepare for ISO/IEC 27001 and monitor their security.",
-    ctaMain:"Let's discuss your project", ctaSvc:"See my services", cv:"Resume (PDF)",
-    trust:["Senior auditor at Eritedge","Former EY IT auditor","Telecoms and network engineer"],
-    f1:["Senior auditor","IT audit · Risk"], f2:["ISO/IEC 27001","Lead Implementer in progress"],
-    stats:[["3 years","of IT audit at firms (EY, then Eritedge)"],["6 sectors","banking, e-money, telecoms, oil…"],["105 pages","of documented Wazuh lab work"],["13 courses","published in two languages on my campus"]],
-    svcEyebrow:"Services", svcTitle:"What I do for you", svcLead:"Practical engagements with clear deliverables and findings ranked by risk.",
-    svc:[["audit","IT audit (ITGC and ITAC)","Access, change, operations, automated controls and report reliability, for management and statutory auditors."],
-      ["shield","ISO/IEC 27001 support","Gap analysis, risk assessment, Statement of Applicability and certification readiness."],
-      ["radar","Security monitoring with Wazuh","An open source SOC with no costly licenses: detection, file integrity, CIS compliance, vulnerabilities."],
-      ["grad","Training and awareness","IT audit for financial auditors, certification preparation, user awareness."]],
-    more:"Learn more",
-    howEyebrow:"Approach", howTitle:"A clear method, from scoping to report",
-    how:[["Understand","Your processes, your critical applications and what feeds your financial statements."],["Assess risk","Identify what can go wrong and prioritize by business impact."],["Test","Controls tested on documents and data, with documented evidence."],["Report","Findings ranked by risk, realistic recommendations and a tracked action plan."]],
-    secEyebrow:"Sectors", secTitle:"Experience in regulated industries", secLead:"Engagements in environments where internal control and compliance are required.",
-    sectors:[["bank","Commercial banks"],["building","Central banks"],["mobile","E-money"],["signal","Telecommunications"],["umbrella","Insurance (CIMA)"],["drop","Oil and gas"],["factory","Industry and trade"]],
-    proofEyebrow:"Proof", proofTitle:"Skills demonstrated, not just claimed",
-    lab:["A complete Wazuh lab","Domain controller, Wazuh 4.14 server and Windows 11 endpoint: 8 documented labs, from custom rules to active response and MITRE ATT&CK dashboards.",["Custom detection","CIS compliance","File integrity","Active response"],"See the lab"],
-    campus:["A bilingual learning campus","Step-by-step courses in English and French: ISO 27001, Security+, CISA, CISM, CISSP, accounting, finance and 6 sectors, with explained quizzes and ITAC work programs.",["13 courses","Explained quizzes","Acronyms defined","EN · FR"],"Visit the campus"],
-    ctaTitle:"An audit, a certification, a SOC to set up?", ctaText:"Describe your needs: I will get back to you quickly with a proposal suited to your size and industry.", ctaMail:"Email me", ctaCall:"Call",
-    hire:"Contact me", menu:"Menu",
-    foot:{about:"Information systems audit, ISO/IEC 27001 and security monitoring. Based in Dakar, available across West Africa and remotely.", nav:"Navigation", contact:"Contact", legal:"© 2026 Georges Alain Cabo · georgilearning.academy"},
-    contactLabels:{tel:"Phone", mail:"Email", in:"LinkedIn", pin:"Location"}, mailSubject:"Engagement request" }
+  fr:{ more:"En savoir plus", hire:"Me contacter", menu:"Menu", foot:{nav:"Navigation", contact:"Contact"}, contactLabels:{tel:"Téléphone", mail:"E-mail", in:"LinkedIn", pin:"Localisation"} },
+  en:{ more:"Learn more", hire:"Contact me", menu:"Menu", foot:{nav:"Navigation", contact:"Contact"}, contactLabels:{tel:"Phone", mail:"Email", in:"LinkedIn", pin:"Location"} }
 };
-/* Coordonnées tirées du CV : [type, libellé, lien]. */
+const asset = u => String(u || '').replace(/^\//, '');
+const mark = x => esc(x).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+/* Convertit les fichiers de données (champs nommés) vers les structures utilisées par l'affichage. */
+function applyData(d){
+  PROFIL = d.profil;
+  const mails = (PROFIL.emails || []).map(m => m.identifiant + String.fromCharCode(64) + m.domaine);
+  ['fr','en'].forEach(l => {
+    const A = d.accueil[l], H = HOME[l], V = d.services[l], C = d.cv[l];
+    Object.assign(H, { eyebrow:A.eyebrow, h1:mark(A.titre), lead:A.intro, ctaMain:A.bouton_contact, ctaSvc:A.bouton_services, cv:A.bouton_cv, trust:A.atouts || [],
+      f1:[A.badge_1.titre, A.badge_1.texte], f2:[A.badge_2.titre, A.badge_2.texte], stats:(A.chiffres || []).map(x => [x.chiffre, x.texte]),
+      svcEyebrow:A.services.surtitre, svcTitle:A.services.titre, svcLead:A.services.intro, more:A.services.lien || H.more, svc:(A.services.cartes || []).map(x => [x.icone, x.titre, x.texte]),
+      howEyebrow:A.demarche.surtitre, howTitle:A.demarche.titre, how:(A.demarche.etapes || []).map(x => [x.titre, x.texte]),
+      secEyebrow:A.secteurs.surtitre, secTitle:A.secteurs.titre, secLead:A.secteurs.intro, sectors:(A.secteurs.liste || []).map(x => [x.icone, x.nom]),
+      proofEyebrow:A.preuves.surtitre, proofTitle:A.preuves.titre,
+      lab:[A.preuves.labo.titre, A.preuves.labo.texte, A.preuves.labo.points || [], A.preuves.labo.bouton],
+      campus:[A.preuves.campus.titre, A.preuves.campus.texte, A.preuves.campus.points || [], A.preuves.campus.bouton],
+      ctaTitle:A.appel.titre, ctaText:A.appel.texte, ctaMail:A.appel.bouton_mail, ctaCall:A.appel.bouton_appel, mailSubject:A.appel.objet_mail });
+    H.foot.about = A.pied_de_page.presentation; H.foot.legal = A.pied_de_page.mention;
+    T[l].title = A.titre_onglet; T[l].contactTitle = A.contact.titre; T[l].contactLead = A.contact.texte;
+    T[l].svc = { eyebrow:V.surtitre, title:V.titre, lead:V.intro, offersTitle:V.offres_titre, offers:(V.offres || []).map(x => [x.titre, x.texte, x.points || []]),
+      skillsTitle:V.competences_titre, skills:(V.competences || []).map(x => [x.titre, x.texte]), demoTitle:V.labo_titre, demoLead:V.labo_intro,
+      labs:(V.labs || []).map(x => [x.titre, x.texte]), demoNote:V.labo_note || '', ctaTitle:V.appel_titre, ctaText:V.appel_texte, cta:V.bouton_contact };
+    const contact = ['<a href="tel:' + String(PROFIL.telephone || '').replace(/[^+\d]/g, '') + '">' + esc(PROFIL.telephone || '') + '</a>']
+      .concat(mails.map(m => '<a href="mailto:' + m + '">' + m + '</a>'))
+      .concat(PROFIL.linkedin ? ['<a href="' + esc(PROFIL.linkedin) + '" rel="noopener" target="_blank">LinkedIn</a>'] : [])
+      .concat([esc(l === 'en' ? PROFIL.lieu_en : PROFIL.lieu_fr)]);
+    Object.assign(CV[l], { name:C.nom, role:C.poste, place:C.lieu, summary:C.resume,
+      side:[[l === 'en' ? 'Contact' : 'Contact', contact]].concat((C.colonne || []).map(x => [x.titre, x.elements || []])),
+      expTitle:C.experience_titre, jobs:(C.experiences || []).map(x => [x.periode, x.poste, x.taches || []]),
+      certTitle:C.certifications_titre, certs:(C.certifications || []).map(x => [x.groupe, x.elements || [], (x.badges || []).length ? x.badges : null]),
+      eduTitle:C.formation_titre, edu:(C.formation || []).map(x => [x.periode, x.diplome]) });
+  });
+  GLOSSARY = (d.glossaire.termes || []).map(x => [x.terme_fr, x.terme_en, x.definition_fr, x.definition_en]);
+}
+function loadData(){
+  const files = ['accueil','services','cv','profil','glossaire'];
+  return Promise.all(files.map(f => fetch('data/' + f + '.json', {cache:'no-cache'}).then(r => { if(!r.ok) throw new Error(f); return r.json(); })))
+    .then(arr => { const d = {}; files.forEach((f, i) => d[f] = arr[i]); applyData(d); });
+}
 function contactItems(){
   return CV[LANG].side[0][1].map(x => { const m = x.match(/href="([^"]+)"[^>]*>([^<]+)</), href = m ? m[1] : '', label = m ? m[2] : x.replace(/<[^>]+>/g, '');
     const type = href.startsWith('tel:') ? 'tel' : href.startsWith('mailto:') ? 'mail' : /linkedin/.test(href) ? 'in' : 'pin';
-    return {type, label: type === 'in' ? 'georges-alain-gracien-cabo' : label, href}; });
+    return {type, label: type === 'in' ? (href.split('/in/')[1] || 'LinkedIn').replace(/\/$/, '').replace(/-\d+$/, '') : label, href}; });
 }
-const cvPdf = () => 'assets/cv/' + (LANG === 'en' ? 'Georges-Alain-Cabo-CV-EN.pdf' : 'Georges-Alain-Cabo-CV-FR.pdf');
+const cvPdf = () => asset(LANG === 'en' ? PROFIL.cv_pdf_en : PROFIL.cv_pdf_fr);
 const mailHref = () => { const m = contactItems().find(c => c.type === 'mail'); return m ? m.href + '?subject=' + encodeURIComponent(HOME[LANG].mailSubject) : '#contact'; };
 const telHref = () => { const m = contactItems().find(c => c.type === 'tel'); return m ? m.href : '#contact'; };
 
@@ -340,7 +160,7 @@ function pHome(t){
   let h = '<section class="hero"><div class="wrap"><div><p class="eyebrow">' + H.eyebrow + '</p><h1>' + H.h1 + '</h1><p class="lead">' + H.lead + '</p>'
     + '<div class="actions"><a class="btn" href="#contact">' + H.ctaMain + ICON('arrow') + '</a><a class="btn outline-light" href="#services">' + H.ctaSvc + '</a><a class="btn outline-light" href="' + cvPdf() + '" download>' + ICON('download') + H.cv + '</a></div>'
     + '<div class="trust">' + H.trust.map(x => '<span>' + ICON('check') + x + '</span>').join('') + '</div></div>'
-    + '<div class="portrait"><div class="frame"><img src="assets/photo.jpg" alt="Georges Alain Cabo" width="312" height="274"></div>'
+    + '<div class="portrait"><div class="frame"><img src="' + esc(asset(PROFIL.photo)) + '" alt="Georges Alain Cabo" width="312" height="274"></div>'
     + '<div class="float f1"><span class="ic">' + ICON('audit') + '</span><span><b>' + H.f1[0] + '</b>' + H.f1[1] + '</span></div>'
     + '<div class="float f2"><span class="ic">' + ICON('shield') + '</span><span><b>' + H.f2[0] + '</b>' + H.f2[1] + '</span></div></div></div></section>';
   h += '<div class="stats"><div class="wrap"><div class="grid4">' + H.stats.map(([b, s]) => '<div class="stat"><b>' + b + '</b><span>' + s + '</span></div>').join('') + '</div></div></div>';
@@ -375,7 +195,7 @@ function reveal(){
 
 function pCv(t){
   const c = CV[LANG];
-  let h = '<section class="pagehead"><div class="wrap"><div class="cvhead"><img src="assets/photo.jpg" alt="' + c.name + '" width="128" height="128"><div><p class="eyebrow">' + t.cvTitle + '</p><h1>' + c.name + '</h1><p class="lead">' + c.role + ' · ' + c.place + '</p></div></div>';
+  let h = '<section class="pagehead"><div class="wrap"><div class="cvhead"><img src="' + esc(asset(PROFIL.photo)) + '" alt="' + c.name + '" width="128" height="128"><div><p class="eyebrow">' + t.cvTitle + '</p><h1>' + c.name + '</h1><p class="lead">' + c.role + ' · ' + c.place + '</p></div></div>';
   h += '<div class="actions"><a class="btn light" href="' + cvPdf() + '" download>' + ICON('download') + (LANG === 'en' ? 'Download resume (PDF)' : 'Télécharger le CV (PDF)') + '</a><button class="btn outline-light" type="button" id="printBtn">' + t.print + '</button><a class="btn outline-light" href="#contact">' + HOME[LANG].hire + '</a></div></div></section><div class="page">';
   if(t.cvNote) h += '<div class="note">' + t.cvNote + '</div>';
   h += '<div class="cv"><aside>' + c.side.map(([k, items]) => '<h3>' + k + '</h3><ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul>').join('') + '</aside><div>';
@@ -384,7 +204,7 @@ function pCv(t){
   h += '<h2>' + c.certTitle + '</h2>';
   c.certs.forEach(([g, items, imgs]) => {
     h += '<div class="job"><h3>' + g + '</h3>';
-    if(imgs) h += '<div style="display:flex;gap:12px;margin:8px 0">' + imgs.map(n => '<img src="assets/badges/' + n + '.png" alt="" width="88" height="88">').join('') + '</div>';
+    if(imgs) h += '<div style="display:flex;gap:12px;margin:8px 0">' + imgs.map(n => '<img src="' + esc(asset(n)) + '" alt="" width="88" height="88" style="object-fit:contain">').join('') + '</div>';
     h += '<ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul></div>';
   });
   h += '<h2>' + c.eduTitle + '</h2>';
@@ -453,4 +273,4 @@ function route(){
 document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => { LANG = b.dataset.lang; store.set('lang', LANG); route(); }));
 window.addEventListener('hashchange', route);
 document.getElementById('menuBtn').addEventListener('click', () => { const top = document.getElementById('top'), o = top.classList.toggle('open'), mb = document.getElementById('menuBtn'); mb.setAttribute('aria-expanded', o); mb.innerHTML = ICON(o ? 'close' : 'menu'); });
-route();
+loadData().then(route).catch(err => { document.getElementById('page').innerHTML = '<div class="page"><h1>Oups</h1><p>Le contenu n\'a pas pu être chargé (' + esc(err.message) + '). Recharge la page.</p></div>'; });

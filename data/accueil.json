@@ -1,0 +1,334 @@
+{
+  "fr": {
+    "titre_onglet": "Georges Alain Cabo · Audit IT et sécurité de l'information",
+    "eyebrow": "Audit IT · Sécurité de l'information · Gouvernance",
+    "titre": "Des systèmes d'information *maîtrisés*, et des preuves pour le démontrer.",
+    "intro": "Auditeur senior des systèmes d'information basé à Dakar, j'aide les banques, émetteurs de monnaie électronique, opérateurs télécoms et entreprises à fiabiliser leurs contrôles informatiques, à se préparer à ISO/IEC 27001 et à surveiller leur sécurité.",
+    "bouton_contact": "Discutons de votre projet",
+    "bouton_services": "Voir mes services",
+    "bouton_cv": "CV (PDF)",
+    "atouts": [
+      "Auditeur senior chez Eritedge",
+      "Ancien d'EY (audit IT)",
+      "Ingénieur télécoms et réseaux"
+    ],
+    "badge_1": {
+      "titre": "Auditeur senior",
+      "texte": "Audit IT · Risques"
+    },
+    "badge_2": {
+      "titre": "ISO/IEC 27001",
+      "texte": "Lead Implementer en préparation"
+    },
+    "chiffres": [
+      {
+        "chiffre": "3 ans",
+        "texte": "d'audit IT en cabinet (EY puis Eritedge)"
+      },
+      {
+        "chiffre": "6 secteurs",
+        "texte": "banque, monnaie électronique, télécoms, pétrole…"
+      },
+      {
+        "chiffre": "105 pages",
+        "texte": "de laboratoire Wazuh documenté"
+      },
+      {
+        "chiffre": "13 cours",
+        "texte": "bilingues publiés sur mon campus"
+      }
+    ],
+    "services": {
+      "surtitre": "Services",
+      "titre": "Ce que je fais pour vous",
+      "intro": "Des missions concrètes, avec des livrables clairs et des constats classés par risque.",
+      "lien": "En savoir plus",
+      "cartes": [
+        {
+          "icone": "audit",
+          "titre": "Audit IT (ITGC et ITAC)",
+          "texte": "Accès, changements, exploitation, contrôles automatiques et fiabilité des rapports, pour la direction et les commissaires aux comptes."
+        },
+        {
+          "icone": "shield",
+          "titre": "Accompagnement ISO/IEC 27001",
+          "texte": "Analyse d'écart, appréciation des risques, Déclaration d'applicabilité et préparation à la certification."
+        },
+        {
+          "icone": "radar",
+          "titre": "Surveillance de sécurité avec Wazuh",
+          "texte": "Un SOC open source, sans licence coûteuse : détection, intégrité des fichiers, conformité CIS, vulnérabilités."
+        },
+        {
+          "icone": "grad",
+          "titre": "Formation et sensibilisation",
+          "texte": "Audit IT pour auditeurs financiers, préparation aux certifications, sensibilisation des utilisateurs."
+        }
+      ]
+    },
+    "demarche": {
+      "surtitre": "Démarche",
+      "titre": "Une méthode claire, du cadrage au rapport",
+      "etapes": [
+        {
+          "titre": "Comprendre",
+          "texte": "Vos processus, vos applications critiques et ce qui alimente vos états financiers."
+        },
+        {
+          "titre": "Évaluer les risques",
+          "texte": "Identifier ce qui peut mal tourner et prioriser selon l'impact métier."
+        },
+        {
+          "titre": "Tester",
+          "texte": "Contrôles testés sur pièces et sur données, avec des preuves documentées."
+        },
+        {
+          "titre": "Restituer",
+          "texte": "Constats classés par risque, recommandations réalistes et plan d'action suivi."
+        }
+      ]
+    },
+    "secteurs": {
+      "surtitre": "Secteurs",
+      "titre": "Une expérience des secteurs régulés",
+      "intro": "Des missions menées dans des environnements où le contrôle interne et la conformité sont exigés.",
+      "liste": [
+        {
+          "icone": "bank",
+          "nom": "Banques commerciales"
+        },
+        {
+          "icone": "building",
+          "nom": "Banques centrales"
+        },
+        {
+          "icone": "mobile",
+          "nom": "Monnaie électronique"
+        },
+        {
+          "icone": "signal",
+          "nom": "Télécommunications"
+        },
+        {
+          "icone": "umbrella",
+          "nom": "Assurance (CIMA)"
+        },
+        {
+          "icone": "drop",
+          "nom": "Pétrole et gaz"
+        },
+        {
+          "icone": "factory",
+          "nom": "Industrie et commerce"
+        }
+      ]
+    },
+    "preuves": {
+      "surtitre": "Preuves",
+      "titre": "Des compétences démontrées, pas seulement déclarées",
+      "labo": {
+        "titre": "Laboratoire Wazuh complet",
+        "texte": "Contrôleur de domaine, serveur Wazuh 4.14 et poste Windows 11 : 8 labs documentés, des règles sur mesure à la réponse active et aux tableaux de bord MITRE ATT&CK.",
+        "points": [
+          "Détection sur mesure",
+          "Conformité CIS",
+          "Intégrité des fichiers",
+          "Réponse active"
+        ],
+        "bouton": "Voir le laboratoire"
+      },
+      "campus": {
+        "titre": "Campus de formation bilingue",
+        "texte": "Des cours pas à pas, en français et en anglais : ISO 27001, Security+, CISA, CISM, CISSP, comptabilité, finance et 6 secteurs, avec QCM corrigés et programmes de travail ITAC.",
+        "points": [
+          "13 cours",
+          "QCM expliqués",
+          "Sigles définis",
+          "FR · EN"
+        ],
+        "bouton": "Visiter le campus"
+      }
+    },
+    "appel": {
+      "titre": "Un audit, une certification, un SOC à mettre en place ?",
+      "texte": "Décrivez votre besoin : je vous réponds rapidement avec une proposition adaptée à votre taille et à votre secteur.",
+      "bouton_mail": "M'écrire",
+      "bouton_appel": "Appeler",
+      "objet_mail": "Demande de mission"
+    },
+    "contact": {
+      "titre": "Contact",
+      "texte": "Pour une mission d'audit, un accompagnement à la mise en œuvre d'un SMSI ou une session de formation."
+    },
+    "pied_de_page": {
+      "presentation": "Audit des systèmes d'information, ISO/IEC 27001 et surveillance de sécurité. Basé à Dakar, disponible en Afrique de l'Ouest et à distance.",
+      "mention": "© 2026 Georges Alain Cabo · georgilearning.academy"
+    }
+  },
+  "en": {
+    "titre_onglet": "Georges Alain Cabo · IT audit and information security",
+    "eyebrow": "IT audit · Information security · Governance",
+    "titre": "Information systems *under control*, with the evidence to prove it.",
+    "intro": "A Dakar-based senior information systems auditor, I help banks, e-money issuers, telecom operators and companies strengthen their IT controls, prepare for ISO/IEC 27001 and monitor their security.",
+    "bouton_contact": "Let's discuss your project",
+    "bouton_services": "See my services",
+    "bouton_cv": "Resume (PDF)",
+    "atouts": [
+      "Senior auditor at Eritedge",
+      "Former EY IT auditor",
+      "Telecoms and network engineer"
+    ],
+    "badge_1": {
+      "titre": "Senior auditor",
+      "texte": "IT audit · Risk"
+    },
+    "badge_2": {
+      "titre": "ISO/IEC 27001",
+      "texte": "Lead Implementer in progress"
+    },
+    "chiffres": [
+      {
+        "chiffre": "3 years",
+        "texte": "of IT audit at firms (EY, then Eritedge)"
+      },
+      {
+        "chiffre": "6 sectors",
+        "texte": "banking, e-money, telecoms, oil…"
+      },
+      {
+        "chiffre": "105 pages",
+        "texte": "of documented Wazuh lab work"
+      },
+      {
+        "chiffre": "13 courses",
+        "texte": "published in two languages on my campus"
+      }
+    ],
+    "services": {
+      "surtitre": "Services",
+      "titre": "What I do for you",
+      "intro": "Practical engagements with clear deliverables and findings ranked by risk.",
+      "lien": "Learn more",
+      "cartes": [
+        {
+          "icone": "audit",
+          "titre": "IT audit (ITGC and ITAC)",
+          "texte": "Access, change, operations, automated controls and report reliability, for management and statutory auditors."
+        },
+        {
+          "icone": "shield",
+          "titre": "ISO/IEC 27001 support",
+          "texte": "Gap analysis, risk assessment, Statement of Applicability and certification readiness."
+        },
+        {
+          "icone": "radar",
+          "titre": "Security monitoring with Wazuh",
+          "texte": "An open source SOC with no costly licenses: detection, file integrity, CIS compliance, vulnerabilities."
+        },
+        {
+          "icone": "grad",
+          "titre": "Training and awareness",
+          "texte": "IT audit for financial auditors, certification preparation, user awareness."
+        }
+      ]
+    },
+    "demarche": {
+      "surtitre": "Approach",
+      "titre": "A clear method, from scoping to report",
+      "etapes": [
+        {
+          "titre": "Understand",
+          "texte": "Your processes, your critical applications and what feeds your financial statements."
+        },
+        {
+          "titre": "Assess risk",
+          "texte": "Identify what can go wrong and prioritize by business impact."
+        },
+        {
+          "titre": "Test",
+          "texte": "Controls tested on documents and data, with documented evidence."
+        },
+        {
+          "titre": "Report",
+          "texte": "Findings ranked by risk, realistic recommendations and a tracked action plan."
+        }
+      ]
+    },
+    "secteurs": {
+      "surtitre": "Sectors",
+      "titre": "Experience in regulated industries",
+      "intro": "Engagements in environments where internal control and compliance are required.",
+      "liste": [
+        {
+          "icone": "bank",
+          "nom": "Commercial banks"
+        },
+        {
+          "icone": "building",
+          "nom": "Central banks"
+        },
+        {
+          "icone": "mobile",
+          "nom": "E-money"
+        },
+        {
+          "icone": "signal",
+          "nom": "Telecommunications"
+        },
+        {
+          "icone": "umbrella",
+          "nom": "Insurance (CIMA)"
+        },
+        {
+          "icone": "drop",
+          "nom": "Oil and gas"
+        },
+        {
+          "icone": "factory",
+          "nom": "Industry and trade"
+        }
+      ]
+    },
+    "preuves": {
+      "surtitre": "Proof",
+      "titre": "Skills demonstrated, not just claimed",
+      "labo": {
+        "titre": "A complete Wazuh lab",
+        "texte": "Domain controller, Wazuh 4.14 server and Windows 11 endpoint: 8 documented labs, from custom rules to active response and MITRE ATT&CK dashboards.",
+        "points": [
+          "Custom detection",
+          "CIS compliance",
+          "File integrity",
+          "Active response"
+        ],
+        "bouton": "See the lab"
+      },
+      "campus": {
+        "titre": "A bilingual learning campus",
+        "texte": "Step-by-step courses in English and French: ISO 27001, Security+, CISA, CISM, CISSP, accounting, finance and 6 sectors, with explained quizzes and ITAC work programs.",
+        "points": [
+          "13 courses",
+          "Explained quizzes",
+          "Acronyms defined",
+          "EN · FR"
+        ],
+        "bouton": "Visit the campus"
+      }
+    },
+    "appel": {
+      "titre": "An audit, a certification, a SOC to set up?",
+      "texte": "Describe your needs: I will get back to you quickly with a proposal suited to your size and industry.",
+      "bouton_mail": "Email me",
+      "bouton_appel": "Call",
+      "objet_mail": "Engagement request"
+    },
+    "contact": {
+      "titre": "Contact",
+      "texte": "For an audit engagement, support implementing an ISMS or a training session."
+    },
+    "pied_de_page": {
+      "presentation": "Information systems audit, ISO/IEC 27001 and security monitoring. Based in Dakar, available across West Africa and remotely.",
+      "mention": "© 2026 Georges Alain Cabo · georgilearning.academy"
+    }
+  }
+}

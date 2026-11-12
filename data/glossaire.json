@@ -1,0 +1,76 @@
+{
+  "termes": [
+    {
+      "terme_fr": "SMSI",
+      "terme_en": "ISMS",
+      "definition_fr": "Système de management de la sécurité de l'information.",
+      "definition_en": "Information security management system."
+    },
+    {
+      "terme_fr": "DdA (Déclaration d'applicabilité)",
+      "terme_en": "SoA (Statement of Applicability)",
+      "definition_fr": "Liste des mesures retenues ou exclues, avec justification.",
+      "definition_en": "List of controls included or excluded, with justification."
+    },
+    {
+      "terme_fr": "Propriétaire du risque",
+      "terme_en": "Risk owner",
+      "definition_fr": "Personne ayant l'autorité pour gérer un risque.",
+      "definition_en": "Person with the authority to manage a risk."
+    },
+    {
+      "terme_fr": "Risque résiduel",
+      "terme_en": "Residual risk",
+      "definition_fr": "Risque qui subsiste après traitement.",
+      "definition_en": "Risk remaining after treatment."
+    },
+    {
+      "terme_fr": "Non-conformité",
+      "terme_en": "Nonconformity",
+      "definition_fr": "Non-satisfaction d'une exigence.",
+      "definition_en": "Non-fulfilment of a requirement."
+    },
+    {
+      "terme_fr": "Action corrective",
+      "terme_en": "Corrective action",
+      "definition_fr": "Action qui élimine la cause d'une non-conformité.",
+      "definition_en": "Action to eliminate the cause of a nonconformity."
+    },
+    {
+      "terme_fr": "Contrôles généraux informatiques",
+      "terme_en": "IT general controls (ITGC)",
+      "definition_fr": "Contrôles sur les accès, les changements, l'exploitation et le développement.",
+      "definition_en": "Controls over access, change, operations and development."
+    },
+    {
+      "terme_fr": "Séparation des tâches",
+      "terme_en": "Segregation of duties",
+      "definition_fr": "Répartir les tâches incompatibles entre plusieurs personnes.",
+      "definition_en": "Splitting conflicting duties among several people."
+    },
+    {
+      "terme_fr": "Constat d'audit",
+      "terme_en": "Audit finding",
+      "definition_fr": "Résultat de l'évaluation des preuves par rapport aux critères.",
+      "definition_en": "Result of evaluating evidence against audit criteria."
+    },
+    {
+      "terme_fr": "Revue de direction",
+      "terme_en": "Management review",
+      "definition_fr": "Examen périodique du SMSI par la direction (clause 9.3).",
+      "definition_en": "Periodic review of the ISMS by top management (clause 9.3)."
+    },
+    {
+      "terme_fr": "Plan de continuité d'activité",
+      "terme_en": "Business continuity plan",
+      "definition_fr": "Procédures pour maintenir les activités critiques pendant une perturbation.",
+      "definition_en": "Procedures to keep critical activities running during a disruption."
+    },
+    {
+      "terme_fr": "Moindre privilège",
+      "terme_en": "Least privilege",
+      "definition_fr": "N'accorder que les droits strictement nécessaires.",
+      "definition_en": "Grant only the rights strictly needed."
+    }
+  ]
+}

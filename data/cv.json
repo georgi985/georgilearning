@@ -1,0 +1,406 @@
+{
+  "fr": {
+    "nom": "Georges Alain Cabo",
+    "poste": "Auditeur senior · Audit IT et risques",
+    "lieu": "Dakar, Sénégal",
+    "resume": "Ingénieur de conception en télécommunications et réseaux devenu auditeur IT. Depuis octobre 2023, d'abord chez EY puis chez Eritedge Sénégal (auditeur senior depuis juillet 2026), j'interviens sur le volet informatique des missions de commissariat aux comptes : contrôle interne, contrôles généraux informatiques, revue des accès et analyse de données, pour des banques, des opérateurs télécoms, des émetteurs de monnaie électronique et des industriels en Afrique de l'Ouest. Je prépare la certification ISO/IEC 27001 Lead Implementer.",
+    "colonne": [
+      {
+        "titre": "Compétences",
+        "elements": [
+          "Audit informatique selon ISO/IEC 27001, COBIT 5 et ITIL",
+          "Gouvernance et gestion des risques IT",
+          "Contrôles généraux informatiques et contrôles applicatifs",
+          "Séparation des tâches (SoD)",
+          "Revue des accès et gestion des habilitations, PAM",
+          "Conformité réglementaire et audits"
+        ]
+      },
+      {
+        "titre": "Outils",
+        "elements": [
+          "Analyse de données : Excel, Alteryx, Python, ACL",
+          "Bases de données : Oracle, SQL Server, Informix",
+          "Systèmes : Windows Server, Red Hat, AIX",
+          "Réseaux : TCP/IP, VLAN, VPN, pare-feu, routage",
+          "VoIP : Asterisk, FreePBX, 3CX"
+        ]
+      },
+      {
+        "titre": "Points forts",
+        "elements": [
+          "Badges EY Bronze : cybersécurité et cloud (2024)",
+          "TryHackMe : Cyber Security 101 (2025)",
+          "Cisco : CCNAv7 et DevNet Associate",
+          "ISO/IEC 27001 Lead Implementer (PECB) : en préparation"
+        ]
+      },
+      {
+        "titre": "Langues",
+        "elements": [
+          "Français : courant",
+          "Wolof : courant",
+          "Anglais : intermédiaire"
+        ]
+      },
+      {
+        "titre": "Musique",
+        "elements": [
+          "Autodidacte : piano, guitare, flûte à bec, flûte traversière, harmonica",
+          "Lecture et déchiffrage de partitions"
+        ]
+      }
+    ],
+    "experience_titre": "Expérience",
+    "experiences": [
+      {
+        "periode": "Depuis juillet 2026",
+        "poste": "Auditeur senior · Eritedge Sénégal, Dakar",
+        "taches": [
+          "Évaluation de la conception (test of design) et de l'efficacité (test of effectiveness) du contrôle interne dans le cadre du commissariat aux comptes.",
+          "Revue des contrôles généraux informatiques et des contrôles applicatifs ; analyse des processus finance, achats, ventes et stocks.",
+          "Analyse de données avec des outils CAAT (ACL) et des requêtes sur Oracle et SQL Server ; évaluation des risques opérationnels.",
+          "Revue des accès et des habilitations : cycle de vie des comptes, moindre privilège, revues périodiques, comptes orphelins ou excessifs, comptes à privilèges (PAM), matrices de séparation des tâches.",
+          "Secteurs : banques commerciales et banques centrales, télécommunications, monnaie électronique, pétrole et industrie."
+        ]
+      },
+      {
+        "periode": "Mai – juillet 2026",
+        "poste": "Auditeur assistant · Eritedge Sénégal, Dakar",
+        "taches": [
+          "Missions d'audit IT dans les secteurs bancaire, télécoms et monnaie électronique."
+        ]
+      },
+      {
+        "periode": "Juillet 2024 – avril 2026",
+        "poste": "Assistant · EY, Sénégal",
+        "taches": [
+          "Audit IT des missions de commissariat aux comptes : contrôles généraux informatiques, contrôles applicatifs, revue des accès et analyse de données.",
+          "Formation interne EY et pratique professionnelle de l'anglais."
+        ]
+      },
+      {
+        "periode": "Octobre 2023 – septembre 2024",
+        "poste": "Staff (stage) · EY, Dakar",
+        "taches": [
+          "Intégration à l'équipe d'audit IT : tests de contrôles, revue des accès et préparation des dossiers de travail ; formation interne EY."
+        ]
+      },
+      {
+        "periode": "Septembre 2022 – février 2023",
+        "poste": "Responsable VoIP · INTERSIP International, Dakar",
+        "taches": [
+          "Mise en place d'un serveur de téléphonie et d'un serveur vocal interactif (IVR) qui diffuse des messages programmés et enregistre les réponses en base de données.",
+          "Serveur FTP pour sauvegarder et récupérer les fichiers de configuration et les enregistrements audio.",
+          "Sécurité et supervision : VPN, proxy, pare-feu, ELK, NGINX, Zabbix, Bind9 ; travail avec l'équipe de développement."
+        ]
+      },
+      {
+        "periode": "Mars – juin 2022",
+        "poste": "Stage de fin d'études d'ingénieur · INTERSIP International, Dakar",
+        "taches": [
+          "Mémoire : mise en place d'un serveur vocal interactif (Asterisk) pour la formation des habitants en zone rurale."
+        ]
+      },
+      {
+        "periode": "Juin – juillet 2019",
+        "poste": "Stage de technicien supérieur · INFOCONSUL, Dakar",
+        "taches": [
+          "Mémoire : mise en place d'un service 3CX permettant aux employés d'utiliser le même numéro sur le fixe, le mobile et l'ordinateur."
+        ]
+      },
+      {
+        "periode": "Juillet – septembre 2018",
+        "poste": "Consultant · INFOCONSUL, Dakar",
+        "taches": [
+          "Câblage et réfection de réseaux pour l'hôpital Aristide Le Dantec, l'Administration pénitentiaire et la caserne Samba Diéry Diallo."
+        ]
+      }
+    ],
+    "certifications_titre": "Certifications, badges et formations",
+    "certifications": [
+      {
+        "groupe": "Badges EY",
+        "elements": [
+          "Cybersecurity, niveau Bronze (2024)",
+          "Cloud Computing, niveau Bronze (2024)"
+        ],
+        "badges": [
+          "/assets/badges/ey-cybersecurity-bronze-learning-2024.png",
+          "/assets/badges/ey-cloud-bronze-learning-2024.png"
+        ]
+      },
+      {
+        "groupe": "TryHackMe",
+        "elements": [
+          "Cyber Security 101, parcours complet de 45 h (décembre 2025), certificat THM-DTWGQPKC5T",
+          "Advent of Cyber 2025 : 24 défis de cybersécurité (décembre 2025)",
+          "Pre Security, parcours complet de 19 h (septembre 2026), certificat THM-SXI3U9GYSR"
+        ],
+        "badges": []
+      },
+      {
+        "groupe": "Cisco Networking Academy",
+        "elements": [
+          "CCNAv7 : Introduction aux réseaux (2023)",
+          "DevNet Associate (2021)"
+        ],
+        "badges": []
+      },
+      {
+        "groupe": "Formations EY en cybersécurité",
+        "elements": [
+          "Cybersecurity : Introduction (2023)",
+          "Identity and Access Management (2024)",
+          "Data Protection and Privacy (2024)",
+          "Cybersecurity Program Assessment (2024)",
+          "Next Generation Security Operations and Response (2024)"
+        ],
+        "badges": []
+      },
+      {
+        "groupe": "Formations en ligne (Udemy)",
+        "elements": [
+          "CompTIA Security+ SY0-701, cours complet et examen blanc, Jason Dion, 31 h (2025)",
+          "TOTAL : CompTIA Security+ SY0-701, Mike Meyers, 20,5 h (2024)",
+          "AWS Certified Cloud Practitioner CLF-C02, Stéphane Maarek, 15 h (2024)",
+          "A Practical Introduction to Cloud Computing (2024)",
+          "The Absolute Beginners Guide to Cyber Security 2024, parties 1 et 2 (2024)",
+          "Computer Forensics Fundamentals (2023)",
+          "Introduction to Security Awareness Campaigns (2023)",
+          "Cybersecurity for HR Professionals (2024)",
+          "Marketing Fundamentals : Small Business Marketing Success (2024)"
+        ],
+        "badges": []
+      },
+      {
+        "groupe": "Déontologie, qualité et conformité (EY)",
+        "elements": [
+          "Global Code of Conduct, Conflicts of Interest, Independence Basics et Independence Update 2024",
+          "Financial Crime Fundamentals, Data Protection Fundamentals",
+          "Annual Data Protection and Information Security Update FY24, Security Awareness",
+          "Assurance Advisory Quality & Risk Management (2026), QRM Annual Update FY26",
+          "Inclusive Leadership for All (cours et podcasts), Transformation Realized"
+        ],
+        "badges": []
+      }
+    ],
+    "formation_titre": "Formation",
+    "formation": [
+      {
+        "periode": "2019 – 2022",
+        "diplome": "Diplôme d'ingénieur de conception en télécommunications et réseaux · École supérieure polytechnique (UCAD), Dakar"
+      },
+      {
+        "periode": "2017 – 2019",
+        "diplome": "Diplôme supérieur de technologie en télécommunications et réseaux · École supérieure polytechnique (UCAD), Dakar"
+      },
+      {
+        "periode": "2017",
+        "diplome": "Baccalauréat S2 · Collège Cardinal Hyacinthe Thiandoum, Dakar"
+      }
+    ]
+  },
+  "en": {
+    "nom": "Georges Alain Cabo",
+    "poste": "Senior auditor · IT audit and risk",
+    "lieu": "Dakar, Senegal",
+    "resume": "Telecommunications and network design engineer turned IT auditor. Since October 2023, first at EY and then at Eritedge Senegal (senior auditor since July 2026), I have worked on the IT side of statutory audit engagements: internal control, IT general controls, access reviews and data analytics, for banks, telecom operators, e-money issuers and industrial companies in West Africa. I am preparing for the ISO/IEC 27001 Lead Implementer certification.",
+    "colonne": [
+      {
+        "titre": "Skills",
+        "elements": [
+          "IT audit based on ISO/IEC 27001, COBIT 5 and ITIL",
+          "IT governance and risk management",
+          "IT general controls and application controls",
+          "Segregation of duties (SoD)",
+          "Access reviews and entitlement management, PAM",
+          "Regulatory compliance and audits"
+        ]
+      },
+      {
+        "titre": "Tools",
+        "elements": [
+          "Data analytics: Excel, Alteryx, Python, ACL",
+          "Databases: Oracle, SQL Server, Informix",
+          "Systems: Windows Server, Red Hat, AIX",
+          "Networking: TCP/IP, VLAN, VPN, firewalls, routing",
+          "VoIP: Asterisk, FreePBX, 3CX"
+        ]
+      },
+      {
+        "titre": "Highlights",
+        "elements": [
+          "EY Bronze badges: cybersecurity and cloud (2024)",
+          "TryHackMe: Cyber Security 101 (2025)",
+          "Cisco: CCNAv7 and DevNet Associate",
+          "ISO/IEC 27001 Lead Implementer (PECB): in preparation"
+        ]
+      },
+      {
+        "titre": "Languages",
+        "elements": [
+          "French: fluent",
+          "Wolof: fluent",
+          "English: intermediate"
+        ]
+      },
+      {
+        "titre": "Music",
+        "elements": [
+          "Self-taught: piano, guitar, recorder, transverse flute, harmonica",
+          "Reading and sight-reading sheet music"
+        ]
+      }
+    ],
+    "experience_titre": "Experience",
+    "experiences": [
+      {
+        "periode": "Since July 2026",
+        "poste": "Senior auditor · Eritedge Senegal, Dakar",
+        "taches": [
+          "Assessing the design (test of design) and operating effectiveness (test of effectiveness) of internal control as part of statutory audits.",
+          "Reviewing IT general controls and application controls; analyzing finance, procurement, sales and inventory processes.",
+          "Data analytics with CAAT tools (ACL) and queries on Oracle and SQL Server; operational risk assessment.",
+          "Access and entitlement reviews: account life cycle, least privilege, periodic reviews, orphaned or excessive accounts, privileged accounts (PAM), segregation of duties matrices.",
+          "Sectors: commercial and central banks, telecommunications, e-money, oil and industry."
+        ]
+      },
+      {
+        "periode": "May – July 2026",
+        "poste": "Assistant auditor · Eritedge Senegal, Dakar",
+        "taches": [
+          "IT audit engagements in banking, telecoms and e-money."
+        ]
+      },
+      {
+        "periode": "July 2024 – April 2026",
+        "poste": "Assistant · EY, Senegal",
+        "taches": [
+          "IT audit for statutory audit engagements: IT general controls, application controls, access reviews and data analytics.",
+          "EY internal training and professional use of English."
+        ]
+      },
+      {
+        "periode": "October 2023 – September 2024",
+        "poste": "Staff (internship) · EY, Dakar",
+        "taches": [
+          "Joined the IT audit team: control testing, access reviews and preparation of working papers; EY internal training."
+        ]
+      },
+      {
+        "periode": "September 2022 – February 2023",
+        "poste": "VoIP lead · INTERSIP International, Dakar",
+        "taches": [
+          "Deployed a telephony server and an interactive voice response (IVR) system that plays scheduled messages and stores answers in a database.",
+          "FTP server to back up and retrieve configuration files and audio recordings.",
+          "Security and monitoring: VPN, proxy, firewall, ELK, NGINX, Zabbix, Bind9; worked with the development team."
+        ]
+      },
+      {
+        "periode": "March – June 2022",
+        "poste": "Engineering degree internship · INTERSIP International, Dakar",
+        "taches": [
+          "Thesis: deploying an interactive voice server (Asterisk) to train residents of rural areas."
+        ]
+      },
+      {
+        "periode": "June – July 2019",
+        "poste": "Technician degree internship · INFOCONSUL, Dakar",
+        "taches": [
+          "Thesis: deploying a 3CX service so employees can use the same number on desk phone, mobile and computer."
+        ]
+      },
+      {
+        "periode": "July – September 2018",
+        "poste": "Consultant · INFOCONSUL, Dakar",
+        "taches": [
+          "Network cabling and refurbishment for Aristide Le Dantec hospital, the Prison Administration and the Samba Diéry Diallo barracks."
+        ]
+      }
+    ],
+    "certifications_titre": "Certifications, badges and training",
+    "certifications": [
+      {
+        "groupe": "EY Badges",
+        "elements": [
+          "Cybersecurity, Bronze level (2024)",
+          "Cloud Computing, Bronze level (2024)"
+        ],
+        "badges": [
+          "/assets/badges/ey-cybersecurity-bronze-learning-2024.png",
+          "/assets/badges/ey-cloud-bronze-learning-2024.png"
+        ]
+      },
+      {
+        "groupe": "TryHackMe",
+        "elements": [
+          "Cyber Security 101, full 45-hour learning path (December 2025), certificate THM-DTWGQPKC5T",
+          "Advent of Cyber 2025: 24 cybersecurity challenges (December 2025)",
+          "Pre Security, full 19-hour learning path (September 2026), certificate THM-SXI3U9GYSR"
+        ],
+        "badges": []
+      },
+      {
+        "groupe": "Cisco Networking Academy",
+        "elements": [
+          "CCNAv7: Introduction to Networks (2023)",
+          "DevNet Associate (2021)"
+        ],
+        "badges": []
+      },
+      {
+        "groupe": "EY cybersecurity training",
+        "elements": [
+          "Cybersecurity: Introduction (2023)",
+          "Identity and Access Management (2024)",
+          "Data Protection and Privacy (2024)",
+          "Cybersecurity Program Assessment (2024)",
+          "Next Generation Security Operations and Response (2024)"
+        ],
+        "badges": []
+      },
+      {
+        "groupe": "Online courses (Udemy)",
+        "elements": [
+          "CompTIA Security+ SY0-701 Complete Course & Practice Exam, Jason Dion, 31 h (2025)",
+          "TOTAL: CompTIA Security+ SY0-701, Mike Meyers, 20.5 h (2024)",
+          "AWS Certified Cloud Practitioner CLF-C02, Stéphane Maarek, 15 h (2024)",
+          "A Practical Introduction to Cloud Computing (2024)",
+          "The Absolute Beginners Guide to Cyber Security 2024, parts 1 and 2 (2024)",
+          "Computer Forensics Fundamentals (2023)",
+          "Introduction to Security Awareness Campaigns (2023)",
+          "Cybersecurity for HR Professionals (2024)",
+          "Marketing Fundamentals: Small Business Marketing Success (2024)"
+        ],
+        "badges": []
+      },
+      {
+        "groupe": "Ethics, quality and compliance (EY)",
+        "elements": [
+          "Global Code of Conduct, Conflicts of Interest, Independence Basics and Independence Update 2024",
+          "Financial Crime Fundamentals, Data Protection Fundamentals",
+          "Annual Data Protection and Information Security Update FY24, Security Awareness",
+          "Assurance Advisory Quality & Risk Management (2026), QRM Annual Update FY26",
+          "Inclusive Leadership for All (courses and podcasts), Transformation Realized"
+        ],
+        "badges": []
+      }
+    ],
+    "formation_titre": "Education",
+    "formation": [
+      {
+        "periode": "2019 – 2022",
+        "diplome": "Telecommunications and network design engineering degree · École supérieure polytechnique (UCAD), Dakar"
+      },
+      {
+        "periode": "2017 – 2019",
+        "diplome": "Higher technology diploma in telecommunications and networks · École supérieure polytechnique (UCAD), Dakar"
+      },
+      {
+        "periode": "2017",
+        "diplome": "Science baccalaureate (S2) · Collège Cardinal Hyacinthe Thiandoum, Dakar"
+      }
+    ]
+  }
+}

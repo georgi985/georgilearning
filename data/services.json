@@ -1,0 +1,250 @@
+{
+  "fr": {
+    "surtitre": "COMPÉTENCES · OFFRES DE SERVICE",
+    "titre": "Compétences et services",
+    "intro": "J'aide les organisations à prouver que leurs systèmes sont maîtrisés : audit des contrôles informatiques, mise en place d'un système de management de la sécurité, et surveillance de sécurité avec des outils open source comme Wazuh.",
+    "offres_titre": "Offres de service",
+    "offres": [
+      {
+        "titre": "Audit IT (ITGC et ITAC)",
+        "texte": "Pour les directions, les cabinets d'audit et les commissaires aux comptes.",
+        "points": [
+          "Cartographie des applications qui alimentent les comptes",
+          "Tests des accès, des changements et de l'exploitation",
+          "Tests des contrôles automatiques et des rapports",
+          "Rapport de constats classés par risque, avec recommandations"
+        ]
+      },
+      {
+        "titre": "Accompagnement ISO/IEC 27001",
+        "texte": "Pour les organisations qui visent la certification ou veulent structurer leur sécurité.",
+        "points": [
+          "Analyse d'écart par rapport à la norme",
+          "Méthode et appréciation des risques",
+          "Déclaration d'applicabilité et plan de traitement",
+          "Préparation de l'audit interne et de la revue de direction"
+        ]
+      },
+      {
+        "titre": "Mise en place d'une surveillance de sécurité avec Wazuh",
+        "texte": "Pour les PME, banques, microfinances et émetteurs de monnaie électronique qui veulent un SOC sans licence coûteuse.",
+        "points": [
+          "Installation et déploiement des agents (y compris par GPO)",
+          "Règles de détection adaptées aux applications métier",
+          "Surveillance des fichiers sensibles : qui a modifié quoi",
+          "Réduction du bruit pour ne garder que les alertes utiles",
+          "Tableaux de bord pour la direction et preuves pour les auditeurs"
+        ]
+      },
+      {
+        "titre": "Diagnostic de conformité des postes et serveurs",
+        "texte": "Mesure du niveau de configuration par rapport aux recommandations CIS, avec plan de correction.",
+        "points": [
+          "Score de conformité initial",
+          "Corrections par stratégies de groupe",
+          "Suivi dans le temps et alerte en cas de recul"
+        ]
+      },
+      {
+        "titre": "Formation et sensibilisation",
+        "texte": "Pour les équipes d'audit, informatiques et métiers.",
+        "points": [
+          "Audit IT pour auditeurs financiers",
+          "Préparation aux certifications (ISO 27001, CISA, Security+)",
+          "Sensibilisation des utilisateurs aux risques"
+        ]
+      }
+    ],
+    "competences_titre": "Compétences",
+    "competences": [
+      {
+        "titre": "Audit des systèmes d'information",
+        "texte": "Contrôles généraux informatiques (ITGC) : accès, changements, exploitation. Contrôles applicatifs (ITAC) et fiabilité des rapports (IPE). Analyse de données d'audit."
+      },
+      {
+        "titre": "Gouvernance et ISO/IEC 27001",
+        "texte": "Analyse d'écart, appréciation des risques, Déclaration d'applicabilité, politiques, préparation à l'audit de certification."
+      },
+      {
+        "titre": "Surveillance de sécurité (SOC) avec Wazuh",
+        "texte": "Collecte et analyse des journaux, règles de détection sur mesure, intégrité des fichiers, conformité CIS, vulnérabilités, réponse active, tableaux de bord MITRE ATT&CK et PCI DSS."
+      },
+      {
+        "titre": "Environnements Windows et Active Directory",
+        "texte": "Stratégies de groupe (GPO), stratégie d'audit avancée, déploiement d'agents, durcissement."
+      },
+      {
+        "titre": "Connaissance des secteurs",
+        "texte": "Banque (UMOA), monnaie électronique, assurance (CIMA), télécoms, pétrole et gaz, entreprises commerciales et industrielles."
+      }
+    ],
+    "labo_titre": "Démonstration : mon laboratoire Wazuh",
+    "labo_intro": "Pour montrer concrètement ma maîtrise de l'outil, j'ai monté un laboratoire complet (contrôleur de domaine Samba AD, serveur Wazuh 4.14, poste Windows 11) et documenté chaque étape dans un cahier de 105 pages. Ce que chaque lab démontre :",
+    "labs": [
+      {
+        "titre": "Lab 1 · Comment Wazuh lit un journal",
+        "texte": "Décodeurs, règles, niveaux d'alerte et règles de corrélation (détection de force brute SSH)."
+      },
+      {
+        "titre": "Lab 2 · Règles sur mesure",
+        "texte": "Écriture d'un décodeur et de règles pour une application métier dont Wazuh ne connaît pas les journaux."
+      },
+      {
+        "titre": "Lab 3 · Stratégies de groupe",
+        "texte": "Création de GPO d'audit avancé et déploiement automatique de l'agent Wazuh sur le domaine."
+      },
+      {
+        "titre": "Lab 4 · Conformité CIS (SCA)",
+        "texte": "Score de conformité d'un poste Windows 11, corrections par GPO et alerte quand la conformité recule."
+      },
+      {
+        "titre": "Lab 5 · Intégrité des fichiers",
+        "texte": "Savoir qui a modifié un fichier sensible, avec quel programme et ce qui a changé."
+      },
+      {
+        "titre": "Bonus · Réduction du bruit",
+        "texte": "Règles enfants pour supprimer environ 90 alertes critiques inutiles par jour sans perdre de détection."
+      },
+      {
+        "titre": "Lab 6 · Inventaire et vulnérabilités",
+        "texte": "Inventaire logiciel, vulnérabilités connues (CVE, CVSS), correction et vérification."
+      },
+      {
+        "titre": "Lab 7 · Réponse active",
+        "texte": "Blocage automatique d'un attaquant par le pare-feu après une force brute."
+      },
+      {
+        "titre": "Lab 8 · MITRE, conformité, tableaux de bord",
+        "texte": "Lecture de la couverture MITRE ATT&CK, preuves PCI DSS et NIS2, vues pour la direction et l'analyste, plan d'amélioration."
+      }
+    ],
+    "labo_note": "Ce laboratoire est un environnement de test personnel : aucune donnée de client n'y est utilisée.",
+    "appel_titre": "Un projet ?",
+    "appel_texte": "Décrivez votre besoin : je vous réponds avec une proposition adaptée à votre taille et à votre secteur.",
+    "bouton_contact": "Me contacter"
+  },
+  "en": {
+    "surtitre": "SKILLS · SERVICES",
+    "titre": "Skills and services",
+    "intro": "I help organizations prove that their systems are under control: IT controls audit, information security management systems, and security monitoring with open source tools such as Wazuh.",
+    "offres_titre": "Services",
+    "offres": [
+      {
+        "titre": "IT audit (ITGC and ITAC)",
+        "texte": "For management, audit firms and statutory auditors.",
+        "points": [
+          "Map the applications that feed the financial statements",
+          "Test access, change and operations controls",
+          "Test automated controls and system reports",
+          "Findings report ranked by risk, with recommendations"
+        ]
+      },
+      {
+        "titre": "ISO/IEC 27001 support",
+        "texte": "For organizations aiming at certification or structuring their security.",
+        "points": [
+          "Gap analysis against the standard",
+          "Risk method and risk assessment",
+          "Statement of Applicability and treatment plan",
+          "Internal audit and management review readiness"
+        ]
+      },
+      {
+        "titre": "Security monitoring with Wazuh",
+        "texte": "For SMEs, banks, microfinance institutions and e-money issuers that want a SOC without costly licenses.",
+        "points": [
+          "Installation and agent deployment (including through GPO)",
+          "Detection rules tailored to business applications",
+          "Monitoring of sensitive files: who changed what",
+          "Noise reduction to keep only useful alerts",
+          "Dashboards for management and evidence for auditors"
+        ]
+      },
+      {
+        "titre": "Endpoint and server compliance assessment",
+        "texte": "Measure configuration against CIS recommendations, with a remediation plan.",
+        "points": [
+          "Baseline compliance score",
+          "Fixes through Group Policy",
+          "Tracking over time and alert when compliance drops"
+        ]
+      },
+      {
+        "titre": "Training and awareness",
+        "texte": "For audit, IT and business teams.",
+        "points": [
+          "IT audit for financial auditors",
+          "Certification preparation (ISO 27001, CISA, Security+)",
+          "User security awareness"
+        ]
+      }
+    ],
+    "competences_titre": "Skills",
+    "competences": [
+      {
+        "titre": "Information systems audit",
+        "texte": "IT general controls (ITGC): access, change, operations. Application controls (ITAC) and report reliability (IPE). Audit data analytics."
+      },
+      {
+        "titre": "Governance and ISO/IEC 27001",
+        "texte": "Gap analysis, risk assessment, Statement of Applicability, policies, certification audit readiness."
+      },
+      {
+        "titre": "Security monitoring (SOC) with Wazuh",
+        "texte": "Log collection and analysis, custom detection rules, file integrity, CIS compliance, vulnerabilities, active response, MITRE ATT&CK and PCI DSS dashboards."
+      },
+      {
+        "titre": "Windows and Active Directory",
+        "texte": "Group Policy (GPO), advanced audit policy, agent deployment, hardening."
+      },
+      {
+        "titre": "Industry knowledge",
+        "texte": "Banking (WAMU), e-money, insurance (CIMA), telecoms, oil and gas, trading and industrial companies."
+      }
+    ],
+    "labo_titre": "Showcase: my Wazuh lab",
+    "labo_intro": "To show hands-on command of the tool, I built a complete lab (Samba AD domain controller, Wazuh 4.14 server, Windows 11 endpoint) and documented every step in a 105-page lab book. What each lab demonstrates:",
+    "labs": [
+      {
+        "titre": "Lab 1 · How Wazuh reads a log",
+        "texte": "Decoders, rules, alert levels and correlation rules (SSH brute force detection)."
+      },
+      {
+        "titre": "Lab 2 · Custom rules",
+        "texte": "Writing a decoder and rules for a business application whose logs Wazuh does not know."
+      },
+      {
+        "titre": "Lab 3 · Group Policy",
+        "texte": "Building advanced audit GPOs and deploying the Wazuh agent automatically across the domain."
+      },
+      {
+        "titre": "Lab 4 · CIS compliance (SCA)",
+        "texte": "Compliance score of a Windows 11 endpoint, fixes through GPO and an alert when compliance drops."
+      },
+      {
+        "titre": "Lab 5 · File integrity",
+        "texte": "Knowing who changed a sensitive file, with which program, and what changed."
+      },
+      {
+        "titre": "Bonus · Noise reduction",
+        "texte": "Child rules that remove about 90 useless critical alerts a day without losing detection."
+      },
+      {
+        "titre": "Lab 6 · Inventory and vulnerabilities",
+        "texte": "Software inventory, known vulnerabilities (CVE, CVSS), remediation and verification."
+      },
+      {
+        "titre": "Lab 7 · Active response",
+        "texte": "Automatic firewall block of an attacker after a brute force."
+      },
+      {
+        "titre": "Lab 8 · MITRE, compliance, dashboards",
+        "texte": "Reading MITRE ATT&CK coverage, PCI DSS and NIS2 evidence, views for management and analysts, improvement plan."
+      }
+    ],
+    "labo_note": "This lab is a personal test environment: no client data is used in it.",
+    "appel_titre": "A project?",
+    "appel_texte": "Describe your needs: I will reply with a proposal suited to your size and industry.",
+    "bouton_contact": "Contact me"
+  }
+}

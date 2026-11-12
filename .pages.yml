@@ -1,0 +1,857 @@
+# Configuration de l'administration du site (Pages CMS : https://app.pagescms.org)
+media:
+  input: assets
+  output: /assets
+content:
+- name: accueil
+  label: Page d'accueil
+  type: file
+  path: data/accueil.json
+  format: json
+  fields:
+  - name: fr
+    label: Accueil · Français
+    type: object
+    fields:
+    - name: titre_onglet
+      label: Titre de l'onglet du navigateur
+      type: string
+    - name: eyebrow
+      label: Petite ligne au-dessus du titre
+      type: string
+    - name: titre
+      label: Grand titre
+      type: string
+      description: Mettez entre *astérisques* le mot à colorer.
+    - name: intro
+      label: Introduction
+      type: text
+    - name: bouton_contact
+      label: Bouton contact
+      type: string
+    - name: bouton_services
+      label: Bouton services
+      type: string
+    - name: bouton_cv
+      label: Bouton CV
+      type: string
+    - name: atouts
+      label: Atouts (liste à puces sous les boutons)
+      type: string
+      list: true
+    - name: badge_1
+      label: Badge sur la photo (1)
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: string
+    - name: badge_2
+      label: Badge sur la photo (2)
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: string
+    - name: chiffres
+      label: Chiffres clés
+      type: object
+      fields:
+      - name: chiffre
+        label: Chiffre
+        type: string
+      - name: texte
+        label: Texte
+        type: string
+      list: true
+    - name: services
+      label: Section Services
+      type: object
+      fields:
+      - name: surtitre
+        label: Surtitre
+        type: string
+      - name: titre
+        label: Titre
+        type: string
+      - name: intro
+        label: Introduction
+        type: text
+      - name: lien
+        label: Texte du lien
+        type: string
+      - name: cartes
+        label: Cartes
+        type: object
+        fields:
+        - name: icone
+          label: Icône
+          type: select
+          options:
+            values: &id001
+            - audit
+            - shield
+            - radar
+            - grad
+            - bank
+            - phone
+            - mail
+            - in
+            - pin
+            - arrow
+            - check
+            - doc
+            - mobile
+            - umbrella
+            - signal
+            - drop
+            - factory
+            - building
+            - book
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Texte
+          type: text
+        list: true
+    - name: demarche
+      label: Section Démarche
+      type: object
+      fields:
+      - name: surtitre
+        label: Surtitre
+        type: string
+      - name: titre
+        label: Titre
+        type: string
+      - name: etapes
+        label: Étapes
+        type: object
+        fields:
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Texte
+          type: text
+        list: true
+    - name: secteurs
+      label: Section Secteurs
+      type: object
+      fields:
+      - name: surtitre
+        label: Surtitre
+        type: string
+      - name: titre
+        label: Titre
+        type: string
+      - name: intro
+        label: Introduction
+        type: text
+      - name: liste
+        label: Secteurs
+        type: object
+        fields:
+        - name: icone
+          label: Icône
+          type: select
+          options:
+            values: *id001
+        - name: nom
+          label: Nom
+          type: string
+        list: true
+    - name: preuves
+      label: Section Preuves
+      type: object
+      fields:
+      - name: surtitre
+        label: Surtitre
+        type: string
+      - name: titre
+        label: Titre
+        type: string
+      - name: labo
+        label: Bloc Laboratoire
+        type: object
+        fields:
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Texte
+          type: text
+        - name: points
+          label: Points
+          type: string
+          list: true
+        - name: bouton
+          label: Texte du bouton
+          type: string
+      - name: campus
+        label: Bloc Campus
+        type: object
+        fields:
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Texte
+          type: text
+        - name: points
+          label: Points
+          type: string
+          list: true
+        - name: bouton
+          label: Texte du bouton
+          type: string
+    - name: appel
+      label: Bandeau d'appel à l'action
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      - name: bouton_mail
+        label: Bouton e-mail
+        type: string
+      - name: bouton_appel
+        label: Bouton appel
+        type: string
+      - name: objet_mail
+        label: Objet de l'e-mail
+        type: string
+    - name: contact
+      label: Page Contact
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+    - name: pied_de_page
+      label: Pied de page
+      type: object
+      fields:
+      - name: presentation
+        label: Présentation
+        type: text
+      - name: mention
+        label: Mention
+        type: string
+  - name: en
+    label: Accueil · English (traduction)
+    type: object
+    fields:
+    - name: titre_onglet
+      label: Titre de l'onglet du navigateur
+      type: string
+    - name: eyebrow
+      label: Petite ligne au-dessus du titre
+      type: string
+    - name: titre
+      label: Grand titre
+      type: string
+      description: Mettez entre *astérisques* le mot à colorer.
+    - name: intro
+      label: Introduction
+      type: text
+    - name: bouton_contact
+      label: Bouton contact
+      type: string
+    - name: bouton_services
+      label: Bouton services
+      type: string
+    - name: bouton_cv
+      label: Bouton CV
+      type: string
+    - name: atouts
+      label: Atouts (liste à puces sous les boutons)
+      type: string
+      list: true
+    - name: badge_1
+      label: Badge sur la photo (1)
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: string
+    - name: badge_2
+      label: Badge sur la photo (2)
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: string
+    - name: chiffres
+      label: Chiffres clés
+      type: object
+      fields:
+      - name: chiffre
+        label: Chiffre
+        type: string
+      - name: texte
+        label: Texte
+        type: string
+      list: true
+    - name: services
+      label: Section Services
+      type: object
+      fields:
+      - name: surtitre
+        label: Surtitre
+        type: string
+      - name: titre
+        label: Titre
+        type: string
+      - name: intro
+        label: Introduction
+        type: text
+      - name: lien
+        label: Texte du lien
+        type: string
+      - name: cartes
+        label: Cartes
+        type: object
+        fields:
+        - name: icone
+          label: Icône
+          type: select
+          options:
+            values: *id001
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Texte
+          type: text
+        list: true
+    - name: demarche
+      label: Section Démarche
+      type: object
+      fields:
+      - name: surtitre
+        label: Surtitre
+        type: string
+      - name: titre
+        label: Titre
+        type: string
+      - name: etapes
+        label: Étapes
+        type: object
+        fields:
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Texte
+          type: text
+        list: true
+    - name: secteurs
+      label: Section Secteurs
+      type: object
+      fields:
+      - name: surtitre
+        label: Surtitre
+        type: string
+      - name: titre
+        label: Titre
+        type: string
+      - name: intro
+        label: Introduction
+        type: text
+      - name: liste
+        label: Secteurs
+        type: object
+        fields:
+        - name: icone
+          label: Icône
+          type: select
+          options:
+            values: *id001
+        - name: nom
+          label: Nom
+          type: string
+        list: true
+    - name: preuves
+      label: Section Preuves
+      type: object
+      fields:
+      - name: surtitre
+        label: Surtitre
+        type: string
+      - name: titre
+        label: Titre
+        type: string
+      - name: labo
+        label: Bloc Laboratoire
+        type: object
+        fields:
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Texte
+          type: text
+        - name: points
+          label: Points
+          type: string
+          list: true
+        - name: bouton
+          label: Texte du bouton
+          type: string
+      - name: campus
+        label: Bloc Campus
+        type: object
+        fields:
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Texte
+          type: text
+        - name: points
+          label: Points
+          type: string
+          list: true
+        - name: bouton
+          label: Texte du bouton
+          type: string
+    - name: appel
+      label: Bandeau d'appel à l'action
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      - name: bouton_mail
+        label: Bouton e-mail
+        type: string
+      - name: bouton_appel
+        label: Bouton appel
+        type: string
+      - name: objet_mail
+        label: Objet de l'e-mail
+        type: string
+    - name: contact
+      label: Page Contact
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+    - name: pied_de_page
+      label: Pied de page
+      type: object
+      fields:
+      - name: presentation
+        label: Présentation
+        type: text
+      - name: mention
+        label: Mention
+        type: string
+- name: services
+  label: Page Services
+  type: file
+  path: data/services.json
+  format: json
+  fields:
+  - name: fr
+    label: Services · Français
+    type: object
+    fields:
+    - name: surtitre
+      label: Surtitre
+      type: string
+    - name: titre
+      label: Titre
+      type: string
+    - name: intro
+      label: Introduction
+      type: text
+    - name: offres_titre
+      label: Titre « Offres »
+      type: string
+    - name: offres
+      label: Offres
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      - name: points
+        label: Points
+        type: string
+        list: true
+      list: true
+    - name: competences_titre
+      label: Titre « Compétences »
+      type: string
+    - name: competences
+      label: Compétences
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      list: true
+    - name: labo_titre
+      label: Titre « Laboratoire »
+      type: string
+    - name: labo_intro
+      label: Introduction du laboratoire
+      type: text
+    - name: labs
+      label: Labs
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      list: true
+    - name: labo_note
+      label: Note sous les labs
+      type: text
+    - name: appel_titre
+      label: Titre de l'appel à l'action
+      type: string
+    - name: appel_texte
+      label: Texte de l'appel à l'action
+      type: text
+    - name: bouton_contact
+      label: Bouton contact
+      type: string
+  - name: en
+    label: Services · English (traduction)
+    type: object
+    fields:
+    - name: surtitre
+      label: Surtitre
+      type: string
+    - name: titre
+      label: Titre
+      type: string
+    - name: intro
+      label: Introduction
+      type: text
+    - name: offres_titre
+      label: Titre « Offres »
+      type: string
+    - name: offres
+      label: Offres
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      - name: points
+        label: Points
+        type: string
+        list: true
+      list: true
+    - name: competences_titre
+      label: Titre « Compétences »
+      type: string
+    - name: competences
+      label: Compétences
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      list: true
+    - name: labo_titre
+      label: Titre « Laboratoire »
+      type: string
+    - name: labo_intro
+      label: Introduction du laboratoire
+      type: text
+    - name: labs
+      label: Labs
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      list: true
+    - name: labo_note
+      label: Note sous les labs
+      type: text
+    - name: appel_titre
+      label: Titre de l'appel à l'action
+      type: string
+    - name: appel_texte
+      label: Texte de l'appel à l'action
+      type: text
+    - name: bouton_contact
+      label: Bouton contact
+      type: string
+- name: cv
+  label: Page CV
+  type: file
+  path: data/cv.json
+  format: json
+  fields:
+  - name: fr
+    label: CV · Français
+    type: object
+    fields:
+    - name: nom
+      label: Nom
+      type: string
+    - name: poste
+      label: Poste
+      type: string
+    - name: lieu
+      label: Lieu
+      type: string
+    - name: resume
+      label: Résumé
+      type: text
+    - name: colonne
+      label: Colonne de gauche (le bloc Contact est ajouté automatiquement)
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: elements
+        label: Éléments
+        type: string
+        list: true
+      list: true
+    - name: experience_titre
+      label: Titre « Expérience »
+      type: string
+    - name: experiences
+      label: Expériences
+      type: object
+      fields:
+      - name: periode
+        label: Période
+        type: string
+      - name: poste
+        label: Poste et entreprise
+        type: string
+      - name: taches
+        label: Tâches
+        type: text
+        list: true
+      list: true
+    - name: certifications_titre
+      label: Titre « Certifications »
+      type: string
+    - name: certifications
+      label: Certifications
+      type: object
+      fields:
+      - name: groupe
+        label: Groupe
+        type: string
+      - name: elements
+        label: Éléments
+        type: string
+        list: true
+      - name: badges
+        label: Images des badges
+        type: image
+        list: true
+      list: true
+    - name: formation_titre
+      label: Titre « Formation »
+      type: string
+    - name: formation
+      label: Formation
+      type: object
+      fields:
+      - name: periode
+        label: Période
+        type: string
+      - name: diplome
+        label: Diplôme
+        type: string
+      list: true
+  - name: en
+    label: CV · English (traduction)
+    type: object
+    fields:
+    - name: nom
+      label: Nom
+      type: string
+    - name: poste
+      label: Poste
+      type: string
+    - name: lieu
+      label: Lieu
+      type: string
+    - name: resume
+      label: Résumé
+      type: text
+    - name: colonne
+      label: Colonne de gauche (le bloc Contact est ajouté automatiquement)
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: elements
+        label: Éléments
+        type: string
+        list: true
+      list: true
+    - name: experience_titre
+      label: Titre « Expérience »
+      type: string
+    - name: experiences
+      label: Expériences
+      type: object
+      fields:
+      - name: periode
+        label: Période
+        type: string
+      - name: poste
+        label: Poste et entreprise
+        type: string
+      - name: taches
+        label: Tâches
+        type: text
+        list: true
+      list: true
+    - name: certifications_titre
+      label: Titre « Certifications »
+      type: string
+    - name: certifications
+      label: Certifications
+      type: object
+      fields:
+      - name: groupe
+        label: Groupe
+        type: string
+      - name: elements
+        label: Éléments
+        type: string
+        list: true
+      - name: badges
+        label: Images des badges
+        type: image
+        list: true
+      list: true
+    - name: formation_titre
+      label: Titre « Formation »
+      type: string
+    - name: formation
+      label: Formation
+      type: object
+      fields:
+      - name: periode
+        label: Période
+        type: string
+      - name: diplome
+        label: Diplôme
+        type: string
+      list: true
+- name: profil
+  label: Profil et coordonnées
+  type: file
+  path: data/profil.json
+  format: json
+  fields:
+  - name: photo
+    label: Photo de profil
+    type: image
+    description: Image carrée, au moins 800 px de côté.
+  - name: cv_pdf_fr
+    label: CV PDF (français)
+    type: file
+  - name: cv_pdf_en
+    label: CV PDF (anglais)
+    type: file
+  - name: telephone
+    label: Téléphone
+    type: string
+  - name: emails
+    label: Adresses e-mail
+    type: object
+    fields:
+    - name: identifiant
+      label: Partie avant le @
+      type: string
+    - name: domaine
+      label: Partie après le @
+      type: string
+    list: true
+    description: Coupées en deux pour cacher l'adresse aux robots de spam.
+  - name: linkedin
+    label: Lien LinkedIn
+    type: string
+  - name: lieu_fr
+    label: Lieu (français)
+    type: string
+  - name: lieu_en
+    label: Lieu (anglais)
+    type: string
+- name: glossaire
+  label: Glossaire ISO 27001
+  type: file
+  path: data/glossaire.json
+  format: json
+  fields:
+  - name: termes
+    label: Termes
+    type: object
+    fields:
+    - name: terme_fr
+      label: Terme (français)
+      type: string
+    - name: terme_en
+      label: Terme (anglais)
+      type: string
+    - name: definition_fr
+      label: Définition (français)
+      type: text
+    - name: definition_en
+      label: Définition (anglais)
+      type: text
+    list: true
