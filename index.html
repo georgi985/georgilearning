@@ -5,10 +5,10 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Georges Alain Cabo · Audit IT et sécurité de l'information</title>
-<meta name="description" content="Georges Alain Cabo : audit des systèmes d'information et sécurité de l'information. CV, cours de certification (ISO 27001, Security+, CISA, CISM, CISSP) et outils.">
+<title>Georges Alain Gracien CABO · Audit IT et sécurité de l'information</title>
+<meta name="description" content="Georges Alain Gracien CABO : audit des systèmes d'information et sécurité de l'information. CV, cours de certification (ISO 27001, Security+, CISA, CISM, CISSP) et outils.">
 <script src="assets/js/redirect.js"></script>
-<meta property="og:title" content="Georges Alain Cabo · Audit IT et sécurité de l'information">
+<meta property="og:title" content="Georges Alain Gracien CABO · Audit IT et sécurité de l'information">
 <meta property="og:description" content="Audit IT (ITGC, ITAC), accompagnement ISO/IEC 27001 et surveillance de sécurité avec Wazuh. Dakar, Afrique de l'Ouest.">
 <meta property="og:image" content="https://georgilearning.academy/assets/photo.jpg">
 <meta property="og:url" content="https://georgilearning.academy/">
@@ -234,14 +234,23 @@ footer .legal{max-width:1140px;margin:0 auto;padding:18px 24px 28px;border-top:1
   .feature{padding:26px}
   .cta{padding:28px 22px;border-radius:18px}
   footer .fgrid{grid-template-columns:1fr}
-  .logo .nm{font-size:1rem}
+  .logo{min-width:0;white-space:normal}
+  .logo .nm{font-size:.95rem;line-height:1.1}
+}
+@media (max-width:420px){
+  .logo .mk{flex:none}
+  .logo .nm{font-size:.86rem;max-width:9.5em}
+}
+@media (max-width:360px){
+  .logo{gap:8px}
+  .logo .nm{font-size:.78rem}
 }
 @media print{ header.top,footer,.actions,.note,.menu{display:none} body{background:#fff;color:#000} .pagehead{background:none;color:#000} .pagehead h1,.pagehead .lead{color:#000} .cv aside{position:static;box-shadow:none} .rv{opacity:1;transform:none} }
 </style>
 </head>
 <body>
 <header class="top" id="top"><div class="bar">
-  <a class="logo" href="#accueil"><span class="mk">GC</span><span class="nm">Georges Alain Cabo</span></a>
+  <a class="logo" href="#accueil"><span class="mk">GC</span><span class="nm">Georges Alain Gracien CABO</span></a>
   <nav class="main" id="nav" aria-label="Menu"></nav>
   <div class="lang" role="group" aria-label="Langue / Language">
     <button type="button" class="chip" data-lang="fr">FR</button>

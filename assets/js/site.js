@@ -7,7 +7,7 @@ let LANG = store.get('lang', null) || ((navigator.language || 'fr').toLowerCase(
 /* ===== Libellés de l'interface. Les textes du site (accueil, services, CV, contact, glossaire) sont dans data/*.json. ===== */
 const T = {
   fr:{ nav:{accueil:"Accueil",cv:"CV",services:"Services",learning:"Learning",outils:"Outils",contact:"Contact"},
-    title:"Georges Alain Cabo · Audit IT et sécurité de l'information",
+    title:"Georges Alain Gracien CABO · Audit IT et sécurité de l'information",
     eyebrow:"AUDIT IT · SÉCURITÉ DE L'INFORMATION · GOUVERNANCE",
     h1:"Rendre la sécurité de l'information mesurable, auditable et utile au métier.",
     lead:"Auditeur des systèmes d'information, je travaille sur la gouvernance IT, les contrôles généraux informatiques et les systèmes de management de la sécurité (ISO/IEC 27001). Ce site réunit mon CV, mes cours de certification et des outils pratiques.",
@@ -35,9 +35,9 @@ const T = {
     contactTitle:"Contact",
     contactLead:"Pour une mission d'audit, un accompagnement à la mise en œuvre d'un SMSI ou une session de formation.",
     contactNote:"Coordonnées à compléter : indique-moi l'adresse électronique et le profil LinkedIn que tu veux afficher publiquement.",
-    foot:"© 2026 Georges Alain Cabo · georgilearning.academy" },
+    foot:"© 2026 Georges Alain Gracien CABO · georgilearning.academy" },
   en:{ nav:{accueil:"Home",cv:"Resume",services:"Services",learning:"Learning",outils:"Tools",contact:"Contact"},
-    title:"Georges Alain Cabo · IT audit and information security",
+    title:"Georges Alain Gracien CABO · IT audit and information security",
     eyebrow:"IT AUDIT · INFORMATION SECURITY · GOVERNANCE",
     h1:"Making information security measurable, auditable and useful to the business.",
     lead:"As an information systems auditor, I work on IT governance, IT general controls and information security management systems (ISO/IEC 27001). This site brings together my resume, my certification courses and practical tools.",
@@ -65,7 +65,7 @@ const T = {
     contactTitle:"Contact",
     contactLead:"For an audit engagement, support implementing an ISMS or a training session.",
     contactNote:"Contact details to be added.",
-    foot:"© 2026 Georges Alain Cabo · georgilearning.academy" }
+    foot:"© 2026 Georges Alain Gracien CABO · georgilearning.academy" }
 };
 
 /* Contenu modifiable : fichiers data/*.json (espace d'administration Pages CMS). Chargés par loadData() puis convertis par applyData(). */
@@ -160,7 +160,7 @@ function pHome(t){
   let h = '<section class="hero"><div class="wrap"><div><p class="eyebrow">' + H.eyebrow + '</p><h1>' + H.h1 + '</h1><p class="lead">' + H.lead + '</p>'
     + '<div class="actions"><a class="btn" href="#contact">' + H.ctaMain + ICON('arrow') + '</a><a class="btn outline-light" href="#services">' + H.ctaSvc + '</a><a class="btn outline-light" href="' + cvPdf() + '" download>' + ICON('download') + H.cv + '</a></div>'
     + '<div class="trust">' + H.trust.map(x => '<span>' + ICON('check') + x + '</span>').join('') + '</div></div>'
-    + '<div class="portrait"><div class="frame"><img src="' + esc(asset(PROFIL.photo)) + '" alt="Georges Alain Cabo" width="900" height="990"></div>'
+    + '<div class="portrait"><div class="frame"><img src="' + esc(asset(PROFIL.photo)) + '" alt="Georges Alain Gracien CABO" width="900" height="990"></div>'
     + (H.f1[0] ? '<div class="float f1"><span class="ic">' + ICON('audit') + '</span><span><b>' + H.f1[0] + '</b>' + H.f1[1] + '</span></div>' : '')
     + (H.f2[0] ? '<div class="float f2"><span class="ic">' + ICON('shield') + '</span><span><b>' + H.f2[0] + '</b>' + H.f2[1] + '</span></div>' : '') + '</div></div></section>';
   h += '<div class="stats"><div class="wrap"><div class="grid4">' + H.stats.map(([b, s]) => '<div class="stat"><b>' + b + '</b><span>' + s + '</span></div>').join('') + '</div></div></div>';
@@ -181,7 +181,7 @@ function pageHead(eyebrow, title, lead, actions){
 }
 function footerHtml(t){
   const H = HOME[LANG];
-  return '<div class="fgrid"><div><p class="brand">Georges Alain Cabo</p><p style="margin:0;max-width:44ch">' + H.foot.about + '</p></div>'
+  return '<div class="fgrid"><div><p class="brand">Georges Alain Gracien CABO</p><p style="margin:0;max-width:44ch">' + H.foot.about + '</p></div>'
     + '<div><h4>' + H.foot.nav + '</h4><ul>' + SECTIONS.map(k => '<li><a href="' + (k === 'learning' ? 'learning/' : '#' + k) + '">' + t.nav[k] + '</a></li>').join('') + '</ul></div>'
     + '<div><h4>' + H.foot.contact + '</h4><ul>' + contactItems().map(c => '<li>' + (c.href ? '<a href="' + c.href + '"' + (c.type === 'in' ? ' target="_blank" rel="noopener"' : '') + '>' + esc(c.label) + '</a>' : esc(c.label)) + '</li>').join('') + '</ul></div></div>'
     + '<div class="legal">' + H.foot.legal + '</div>';

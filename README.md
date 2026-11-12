@@ -1,6 +1,6 @@
 # georgilearning.academy
 
-Site personnel de Georges Cabo, bilingue français / anglais, publié avec GitHub Pages sur https://georgilearning.academy.
+Site personnel de Georges Alain Gracien CABO, bilingue français / anglais, publié avec GitHub Pages sur https://georgilearning.academy.
 
 ## Structure
 
