@@ -129,6 +129,8 @@ window.SIG=function(cat, list){ let c = SIGCATS.find(x => x.title === cat); if(!
   list.forEach(r => { const e = {s:r[0], f:r[1], d:r[2], x:r[3], cat:cat}; c.items.push(e); r[0].split(' / ').concat(r[4] || []).forEach(k => { SIGLES[k.trim()] = e; }); }); };
 /* SIGEN(liste) : version anglaise d'une fiche [clé, full form, definition, example, sigle anglais facultatif]. Le sigle anglais devient aussi une clé reconnue dans le texte. */
 window.SIGEN=function(list){ list.forEach(r => { const e = SIGLES[r[0]] || SIGLES[r[0].split(' / ')[0].trim()]; if(!e){ console.warn('SIGEN: unknown key', r[0]); return; } e.en = {f:r[1], d:r[2], x:r[3]}; if(r[4]){ e.en.s = r[4] + ' (' + e.s + ')'; const m = r[1].match(/^(.+?) \((?:French for )?(.+?)(?:, [A-Z][A-Za-z\/]*)?\)$/); e.en.fa = m ? m[2] + '; in French ' + e.s + ', ' + m[1] : r[1]; e.en.al = []; r[4].split(' / ').forEach(k => { k = k.trim(); if(!SIGLES[k]){ SIGLES[k] = e; e.en.al.push(k); } }); } }); };
+/* SIGK({clé:[fr, en]}) : forme développée propre à un sigle d'une fiche groupée (IaaS / PaaS / SaaS…). */
+window.SIGK=function(map){ Object.keys(map).forEach(k => { const e = SIGLES[k]; if(!e){ console.warn('SIGK: unknown key', k); return; } (e.kf = e.kf || {})[k] = map[k]; }); };
 window.SIGCATEN={"Cybersécurité, réseaux et systèmes":"Cybersecurity, networks and systems","Audit, normes, organismes et certifications":"Audit, standards, bodies and certifications","Comptabilité et finance":"Accounting and finance","Banque et monnaie électronique":"Banking and electronic money","Assurance, télécoms et pétrole":"Insurance, telecoms and oil"};
 /* WHY(id, liste) : pour chaque question (dans l'ordre), explications des mauvaises réponses dans l'ordre des options, sans la bonne. en=true pour la version anglaise. */
 window.WHY=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c) return; const qs = en ? c.enQuestions : c.questions; if(!qs) return;
@@ -153,6 +155,7 @@ window.PAS=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c
 <script src="certs/sigles-audit.en.js"></script>
 <script src="certs/sigles-gestion.en.js"></script>
 <script src="certs/sigles-complement.en.js"></script>
+<script src="certs/sigles-cles.js"></script>
 <script src="certs/iso27001-li.js"></script>
 <script src="certs/iso27001-li-qcm.js"></script>
 <script src="certs/iso27001-li-why.js"></script>
@@ -520,7 +523,7 @@ function runExam(raw, total, minutes){
 const SL = () => LANG === 'en' ? {mod:'Acronyms in this module', page:'Acronyms on this page', d:'What it is', x:'Example', all:'All acronyms', title:'Acronym glossary', lead:'Every acronym used in the courses, with its full form, what it means and an example. Click an underlined acronym in any course to see its card. ', search:'Search an acronym or a word…', none:'No match.'}
   : {mod:'Sigles de ce module', page:'Sigles de cette page', d:'Ce que c\'est', x:'Exemple', all:'Tous les sigles', title:'Glossaire des sigles', lead:'Tous les sigles utilisés dans les cours, avec leur forme développée, leur signification et un exemple. Dans un cours, clique sur un sigle souligné pour voir sa fiche.', search:'Chercher un sigle ou un mot…', none:'Aucun résultat.'};
 const SV = e => LANG === 'en' && e.en ? {s:e.en.s || e.s, f:e.en.f, d:e.en.d, x:e.en.x} : e;
-const SVK = (e, k) => { const v = SV(e); return LANG === 'en' && e.en && e.en.al && e.en.al.includes(k) ? Object.assign({}, v, {f:e.en.fa}) : v; };
+const SVK = (e, k) => { const v = SV(e); if(e.kf && e.kf[k]) return Object.assign({}, v, {f:e.kf[k][LANG === 'en' ? 1 : 0]}); return LANG === 'en' && e.en && e.en.al && e.en.al.includes(k) ? Object.assign({}, v, {f:e.en.fa}) : v; };
 let SIGRE = null;
 function sigRe(){ if(!SIGRE){ const ks = Object.keys(SIGLES).sort((a, b) => b.length - a.length).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); SIGRE = new RegExp('(?<![A-Za-z0-9À-ÿ\\-])(' + ks.join('|') + ')(?![A-Za-z0-9À-ÿ\\-])', 'g'); } SIGRE.lastIndex = 0; return SIGRE; }
 const SIGSKIP = 'SCRIPT,STYLE,ABBR,A,BUTTON,LABEL,INPUT,TEXTAREA,SELECT,CODE,PRE,H1,OPTION'.split(',');
@@ -537,13 +540,14 @@ function sigWrap(root){
 /* Explication intégrée : à la première apparition d'un sigle dans la page, forme développée entre parenthèses
    et encadré d'explication juste après le paragraphe, l'élément de liste ou le tableau qui le contient. */
 function sigInline(){
-  const seen = new Set(), after = new Map();
+  const seen = new Set(), seenK = new Set(), after = new Map();
   $page.querySelectorAll('abbr.sig').forEach(a => {
-    const e0 = SIGLES[a.dataset.k]; if(!e0 || seen.has(e0)) return; seen.add(e0); const e = SVK(e0, a.dataset.k);
+    const k = a.dataset.k, e0 = SIGLES[k]; if(!e0 || seenK.has(k)) return; seenK.add(k); const again = seen.has(e0); if(again && !(e0.kf && e0.kf[k])) return; seen.add(e0); const e = SVK(e0, k);
     const inHead = a.closest('h2,h3,h4,summary,th');
     const prev = a.previousSibling, before = prev && prev.nodeType === 3 ? prev.nodeValue : '';
     const already = /\(\s*$/.test(before);
     if(!inHead && !already){ const sp = document.createElement('span'); sp.className = 'sigexp nosig'; sp.textContent = ' (' + e.f.replace(/\s*\(([^()]*)\)\s*$/, ', $1') + ')'; a.after(sp); }
+    if(again) return;
     const blk = a.closest('summary') || a.closest('.tablewrap') || a.closest('li,dd,dt,p,h2,h3,h4,.box,blockquote') || a.parentElement;
     const box = document.createElement('div'); box.className = 'sigbox nosig';
     box.innerHTML = '<b>' + esc(a.dataset.k) + '</b> <span class="f">(' + esc(e.f.replace(/\s*\(([^()]*)\)\s*$/, ', $1')) + ')</span> : ' + esc(e.d) + ' <span class="x"><b>' + SL().x + ' :</b> ' + esc(e.x) + '</span>';
