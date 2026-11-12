@@ -41,7 +41,6 @@ content:
       list: true
     - name: badge_1
       label: Badge sur la photo (1)
-      description: Laissez le titre vide pour masquer ce badge.
       type: object
       fields:
       - name: titre
@@ -50,9 +49,9 @@ content:
       - name: texte
         label: Texte
         type: string
+      description: Laissez le titre vide pour masquer ce badge.
     - name: badge_2
       label: Badge sur la photo (2)
-      description: Laissez le titre vide pour masquer ce badge.
       type: object
       fields:
       - name: titre
@@ -61,6 +60,7 @@ content:
       - name: texte
         label: Texte
         type: string
+      description: Laissez le titre vide pour masquer ce badge.
     - name: chiffres
       label: Chiffres clés
       type: object
@@ -96,7 +96,7 @@ content:
           label: Icône
           type: select
           options:
-            values: &id001
+            values:
             - audit
             - shield
             - radar
@@ -116,6 +116,7 @@ content:
             - factory
             - building
             - book
+            - anchor
         - name: titre
           label: Titre
           type: string
@@ -165,7 +166,27 @@ content:
           label: Icône
           type: select
           options:
-            values: *id001
+            values:
+            - audit
+            - shield
+            - radar
+            - grad
+            - bank
+            - phone
+            - mail
+            - in
+            - pin
+            - arrow
+            - check
+            - doc
+            - mobile
+            - umbrella
+            - signal
+            - drop
+            - factory
+            - building
+            - book
+            - anchor
         - name: nom
           label: Nom
           type: string
@@ -285,7 +306,6 @@ content:
       list: true
     - name: badge_1
       label: Badge sur la photo (1)
-      description: Laissez le titre vide pour masquer ce badge.
       type: object
       fields:
       - name: titre
@@ -294,9 +314,9 @@ content:
       - name: texte
         label: Texte
         type: string
+      description: Laissez le titre vide pour masquer ce badge.
     - name: badge_2
       label: Badge sur la photo (2)
-      description: Laissez le titre vide pour masquer ce badge.
       type: object
       fields:
       - name: titre
@@ -305,6 +325,7 @@ content:
       - name: texte
         label: Texte
         type: string
+      description: Laissez le titre vide pour masquer ce badge.
     - name: chiffres
       label: Chiffres clés
       type: object
@@ -340,7 +361,27 @@ content:
           label: Icône
           type: select
           options:
-            values: *id001
+            values:
+            - audit
+            - shield
+            - radar
+            - grad
+            - bank
+            - phone
+            - mail
+            - in
+            - pin
+            - arrow
+            - check
+            - doc
+            - mobile
+            - umbrella
+            - signal
+            - drop
+            - factory
+            - building
+            - book
+            - anchor
         - name: titre
           label: Titre
           type: string
@@ -390,7 +431,27 @@ content:
           label: Icône
           type: select
           options:
-            values: *id001
+            values:
+            - audit
+            - shield
+            - radar
+            - grad
+            - bank
+            - phone
+            - mail
+            - in
+            - pin
+            - arrow
+            - check
+            - doc
+            - mobile
+            - umbrella
+            - signal
+            - drop
+            - factory
+            - building
+            - book
+            - anchor
         - name: nom
           label: Nom
           type: string

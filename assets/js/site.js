@@ -95,6 +95,7 @@ const ICON = (() => { const p = {
   signal:'<path d="M12 20v-7M8.5 9.5a5 5 0 017 0M5.5 6.5a9.2 9.2 0 0113 0"/><circle cx="12" cy="12.5" r="1"/>',
   drop:'<path d="M12 3.5s6 6.6 6 11a6 6 0 01-12 0c0-4.4 6-11 6-11z"/>',
   factory:'<path d="M3 20V10l5 3V10l5 3V6h4l1 14z"/><path d="M3 20h18"/>',
+  anchor:'<circle cx="12" cy="5" r="2"/><path d="M12 7v14"/><path d="M8 11h8"/><path d="M4 14a8 7 0 0 0 16 0"/>',
   building:'<path d="M4 20V7l8-4 8 4v13M9 20v-5h6v5M8 10h.01M12 10h.01M16 10h.01"/>',
   book:'<path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 18H20v3H6.5"/>',
   menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',

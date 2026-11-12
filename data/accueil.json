@@ -26,8 +26,8 @@
         "texte": "d'audit IT en cabinet (EY puis Eritedge)"
       },
       {
-        "chiffre": "6 secteurs",
-        "texte": "banque, monnaie électronique, télécoms, pétrole…"
+        "chiffre": "7 secteurs",
+        "texte": "banque, monnaie électronique, télécoms, ports…"
       },
       {
         "chiffre": "105 pages",
@@ -91,7 +91,7 @@
     "secteurs": {
       "surtitre": "Secteurs",
       "titre": "Une expérience des secteurs régulés",
-      "intro": "Des missions menées dans des environnements où le contrôle interne et la conformité sont exigés.",
+      "intro": "Des missions menées au Sénégal, en Guinée, en Côte d'Ivoire et à Djibouti, dans des environnements où le contrôle interne et la conformité sont exigés.",
       "liste": [
         {
           "icone": "bank",
@@ -108,6 +108,10 @@
         {
           "icone": "signal",
           "nom": "Télécommunications"
+        },
+        {
+          "icone": "anchor",
+          "nom": "Ports et logistique"
         },
         {
           "icone": "umbrella",
@@ -161,7 +165,7 @@
       "texte": "Pour une mission d'audit, un accompagnement à la mise en œuvre d'un SMSI ou une session de formation."
     },
     "pied_de_page": {
-      "presentation": "Audit des systèmes d'information, ISO/IEC 27001 et surveillance de sécurité. Basé à Dakar, disponible en Afrique de l'Ouest et à distance.",
+      "presentation": "Audit des systèmes d'information, ISO/IEC 27001 et surveillance de sécurité. Basé à Dakar, missions au Sénégal, en Afrique de l'Ouest et de l'Est, et à distance.",
       "mention": "© 2026 Georges Alain Gracien CABO · georgilearning.academy"
     }
   },
@@ -192,8 +196,8 @@
         "texte": "of IT audit at firms (EY, then Eritedge)"
       },
       {
-        "chiffre": "6 sectors",
-        "texte": "banking, e-money, telecoms, oil…"
+        "chiffre": "7 sectors",
+        "texte": "banking, e-money, telecoms, ports…"
       },
       {
         "chiffre": "105 pages",
@@ -257,7 +261,7 @@
     "secteurs": {
       "surtitre": "Sectors",
       "titre": "Experience in regulated industries",
-      "intro": "Engagements in environments where internal control and compliance are required.",
+      "intro": "Engagements in Senegal, Guinea, Côte d'Ivoire and Djibouti, in environments where internal control and compliance are required.",
       "liste": [
         {
           "icone": "bank",
@@ -274,6 +278,10 @@
         {
           "icone": "signal",
           "nom": "Telecommunications"
+        },
+        {
+          "icone": "anchor",
+          "nom": "Ports and logistics"
         },
         {
           "icone": "umbrella",
@@ -327,7 +335,7 @@
       "texte": "For an audit engagement, support implementing an ISMS or a training session."
     },
     "pied_de_page": {
-      "presentation": "Information systems audit, ISO/IEC 27001 and security monitoring. Based in Dakar, available across West Africa and remotely.",
+      "presentation": "Information systems audit, ISO/IEC 27001 and security monitoring. Based in Dakar, with engagements in Senegal, West and East Africa, and remotely.",
       "mention": "© 2026 Georges Alain Gracien CABO · georgilearning.academy"
     }
   }
