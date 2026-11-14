@@ -15,7 +15,7 @@ const UI = {
   fr:{hub:"← Accueil du site",brand:"Georgi Learning",brandSub:"Cours, certifications et secteurs d'activité",all:"Tous les cours",overview:"Présentation",format:"Format de l'examen",course:"Cours",resources:"Ressources",practice:"Entraînement",quiz:"Questions corrigées",exam:"Examen blanc chronométré",read:"lu",
     homeEyebrow:"Campus",homeTitle:"Apprendre l'audit, la cybersécurité et les secteurs d'activité",homeLead:"Des cours pas à pas, des questions corrigées et un examen blanc pour chaque sujet, regroupés par rubrique. Votre progression reste enregistrée dans ce navigateur.",available:"Disponible",soon:"En préparation",formatLbl:"Format",best:"meilleur examen blanc",howTitle:"Comment travailler",howText:"Lisez un module, faites ses questions juste après, puis passez à la suite. Gardez les examens blancs pour la fin : ils servent à mesurer votre niveau dans les conditions réelles.",
     modulesRead:"modules lus",questions:"questions corrigées",bestExam:"meilleur examen blanc",passMark:"Seuil de réussite",program:"Programme",thModule:"Module",thDay:"Partie",thQ:"Questions",start1:"Commencer le module 1",takeExam:"Passer un examen blanc",
-    check:"Vérifiez vos acquis",doQ:n=>"Faire les "+n+" questions de ce module",toExam:"Passer à l'examen blanc →",
+    check:"Vérifiez vos acquis",doQ:n=>"Faire les "+n+" questions de ce module",qcmTitle:"Espace QCM",qcmLead:"Toutes les questions corrigées du campus, rangées par certification puis par module. Chaque module propose plusieurs séries différentes : faites-les l'une après l'autre, chaque réponse (bonne ou mauvaise) est expliquée.",qcmOpen:"Voir les séries →",qcmSeries:"séries",qcmAllQ:"Toutes les questions de ce cours",qcmBack:"← Espace QCM",series:"Série",allSeries:"Toutes les séries",seriesLead:"Chaque série est un questionnaire différent sur le même module : faites-les l'une après l'autre pour consolider vos acquis.",seriesBtn:(s,n)=>"Série "+s+" · "+n+" questions",toExam:"Passer à l'examen blanc →",
     quizLead:"Choisissez une réponse : la correction et l'explication s'affichent tout de suite.",filterAll:"Tous",right:"justes",left:"restantes",shuffle:"Mélanger",reset:"Recommencer",showAll:"Toutes les questions",reviewWrong:n=>"Revoir mes erreurs ("+n+")",noWrong:"Aucune erreur enregistrée pour ce filtre. Bravo.",noQ:"Aucune question pour ce filtre.",question:"Question",good:"Bonne réponse",expected:"Réponse attendue",
     examLead:(n,m,p)=>n+" questions tirées au hasard, "+m+" minutes, sans correction pendant l'épreuve. Seuil de réussite : "+p+" %.",examText:"Mettez-vous dans les conditions de l'examen. À la fin, vous verrez votre score par module et la correction de chaque question.",examStart:"Commencer l'examen",examPractice:"Plutôt s'entraîner avec correction",examRunning:"Examen blanc en cours",answered:"répondues",finish:"Terminer et corriger",
     result:"Résultat de l'examen blanc",passed:"Réussi",notYet:"Pas encore",goodOf:(g,t)=>g+" bonnes réponses sur "+t,timeUsed:"Temps utilisé",threshold:"Seuil",thScore:"Score",thReview:"À revoir",reread:"Relire le module",again:"Nouvel examen blanc",reviewMine:"Revoir mes erreurs",detail:"Correction détaillée",noAnswer:"Sans réponse",yours:"Votre réponse",exp:"attendue",formatTitle:"Format de l'examen et stratégie",whyTitle:"Pourquoi les autres réponses sont fausses",
@@ -23,7 +23,7 @@ const UI = {
   en:{hub:"← Site home",brand:"Georgi Learning",brandSub:"Courses, certifications and industries",all:"All courses",overview:"Overview",format:"Exam format",course:"Course",resources:"Resources",practice:"Practice",quiz:"Practice questions",exam:"Timed mock exam",read:"read",
     homeEyebrow:"Campus",homeTitle:"Learn audit, cybersecurity and industries",homeLead:"Step-by-step courses, practice questions with explanations and a mock exam for each topic, grouped by section. Your progress is saved in this browser.",available:"Available",soon:"Coming soon",formatLbl:"Format",best:"best mock exam",howTitle:"How to study",howText:"Read a module, do its questions right after, then move on. Keep the mock exams for the end: they measure your level in real exam conditions.",
     modulesRead:"modules read",questions:"practice questions",bestExam:"best mock exam",passMark:"Pass mark",program:"Syllabus",thModule:"Module",thDay:"Part",thQ:"Questions",start1:"Start module 1",takeExam:"Take a mock exam",
-    check:"Check your knowledge",doQ:n=>"Answer the "+n+" questions for this module",toExam:"Go to the mock exam →",
+    check:"Check your knowledge",doQ:n=>"Answer the "+n+" questions for this module",qcmTitle:"Quiz area",qcmLead:"All the campus practice questions, sorted by certification then by module. Each module offers several different sets: take them one after another; every answer, right or wrong, is explained.",qcmOpen:"See the sets →",qcmSeries:"sets",qcmAllQ:"All questions for this course",qcmBack:"← Quiz area",series:"Set",allSeries:"All sets",seriesLead:"Each set is a different quiz on the same module: take them one after another to consolidate what you have learned.",seriesBtn:(s,n)=>"Set "+s+" · "+n+" questions",toExam:"Go to the mock exam →",
     quizLead:"Pick an answer: the correction and explanation appear immediately.",filterAll:"All",right:"correct",left:"remaining",shuffle:"Shuffle",reset:"Start over",showAll:"All questions",reviewWrong:n=>"Review my mistakes ("+n+")",noWrong:"No mistakes recorded for this filter. Well done.",noQ:"No questions for this filter.",question:"Question",good:"Correct",expected:"Expected answer",
     examLead:(n,m,p)=>n+" random questions, "+m+" minutes, no feedback during the exam. Pass mark: "+p+"%.",examText:"Put yourself in real exam conditions. At the end you will see your score per module and the explanation for every question.",examStart:"Start the exam",examPractice:"Practise with feedback instead",examRunning:"Mock exam in progress",answered:"answered",finish:"Finish and mark",
     result:"Mock exam result",passed:"Passed",notYet:"Not yet",goodOf:(g,t)=>g+" correct answers out of "+t,timeUsed:"Time used",threshold:"Pass mark",thScore:"Score",thReview:"Review",reread:"Re-read the module",again:"New mock exam",reviewMine:"Review my mistakes",detail:"Detailed corrections",noAnswer:"No answer",yours:"Your answer",exp:"expected",formatTitle:"Exam format and strategy",whyTitle:"Why the other answers are wrong",
@@ -64,6 +64,8 @@ function parseHash(){
   const h = decodeURIComponent(location.hash.replace(/^#/, ''));
   if(!h || h === 'accueil') return {view:'home'};
   if(h === 'sigles' || h.startsWith('sigles-')) return {view:'sigles', q:h.slice(7)};
+  if(h === 'qcm') return {view:'qcm'};
+  if(h.startsWith('qcm-')){ const qc = certById(h.slice(4)); return qc ? {view:'qcmCert', qc} : {view:'qcm'}; }
   const cert = CERTS.slice().sort((a,b) => b.id.length - a.id.length).find(c => h === c.id || h.startsWith(c.id + '-'));
   if(!cert) return {view:'home'};
   const rest = h === cert.id ? '' : h.slice(cert.id.length + 1);
@@ -71,7 +73,7 @@ function parseHash(){
   if(rest === 'format') return {view:'format', cert};
   if(rest === 'examen-blanc') return {view:'exam', cert};
   if(rest === 'quiz') return {view:'quiz', cert, filter:'all'};
-  if(rest.startsWith('quiz-')) return {view:'quiz', cert, filter:rest.slice(5)};
+  if(rest.startsWith('quiz-')){ const f = rest.slice(5).split('-serie'); return {view:'quiz', cert, filter:f[0], series:f[1] ? +f[1] : null}; }
   const mi = cert.modules.findIndex(m => m.id === rest);
   if(mi >= 0) return {view:'module', cert, mi};
   const pi = (cert.pages || []).findIndex(p => p.id === rest);
@@ -85,6 +87,7 @@ function renderSide(r){
   h += '<div class="filters" role="group" aria-label="' + t('langLabel') + '"><button type="button" class="chip" data-lang="fr" aria-pressed="' + (LANG === 'fr') + '">Français</button><button type="button" class="chip" data-lang="en" aria-pressed="' + (LANG === 'en') + '">English</button></div>';
   h += '<a href="#accueil"' + (r.view === 'home' ? ' class="active"' : '') + '><span class="n">⌂</span>' + t('all') + '</a>';
   h += '<a href="#sigles"' + (r.view === 'sigles' ? ' class="active"' : '') + '><span class="n">Aa</span>' + SL().title + '</a>';
+  h += '<a href="#qcm"' + (r.view === 'qcm' || r.view === 'qcmCert' ? ' class="active"' : '') + '><span class="n">?</span>' + t('qcmTitle') + '</a>';
   if(r.cert){
     const c = V(r.cert), seen = store.get(c.id + ':seen', {});
     const a = (hash, label, n, active, done) => '<a href="#' + hash + '"' + (active ? ' class="active" aria-current="page"' : '') + '><span class="n">' + n + '</span><span>' + label + '</span>' + (done ? '<span class="done" aria-label="' + t('read') + '">✓</span>' : '') + '</a>';
@@ -126,6 +129,7 @@ function home(){
   });
   h += '</div>';
   });
+  h += '<h2>' + t('qcmTitle') + '</h2><p>' + t('qcmLead') + '</p><p><a class="btn" href="#qcm">' + t('qcmTitle') + ' →</a></p>';
   h += '<h2>' + SL().title + '</h2><p>' + SL().lead + '</p><p><a class="btn" href="#sigles">' + SL().title + ' (' + new Set(Object.values(SIGLES)).size + ') →</a></p>';
   return h + '<div class="box"><h4>' + t('howTitle') + '</h4><p>' + t('howText') + '</p></div>';
 }
@@ -152,20 +156,52 @@ function modulePage(raw, i){
   const prev = c.modules[i - 1], next = c.modules[i + 1];
   const nq = c.questions.filter(q => q.m === m.id).length;
   let h = (m.tr ? '' : notice()) + '<p class="eyebrow">Module ' + (i + 1) + (m.day ? ' · ' + esc(m.day) : '') + '</p><h1>' + esc(m.title) + '</h1>' + m.html;
-  if(nq) h += '<div class="box key"><h4>' + t('check') + '</h4><p><a class="btn" href="#' + c.id + '-quiz-' + m.id + '">' + t('doQ')(nq) + '</a></p></div>';
+  const ser = seriesOf(c.questions, m.id);
+  if(ser.length > 1){ const sc = store.get(c.id + ':series', {});
+    h += '<div class="box key"><h4>' + t('check') + '</h4><p>' + t('seriesLead') + '</p><p class="series-btns">' + ser.map(s => { const n = c.questions.filter(q => q.m === m.id && (q.s || 1) === s).length, r = sc[m.id + '-' + s]; return '<a class="btn' + (s > 1 ? ' ghost' : '') + '" href="#' + c.id + '-quiz-' + m.id + '-serie' + s + '">' + t('seriesBtn')(s, n) + (r ? ' · ✓ ' + r : '') + '</a>'; }).join(' ') + '</p></div>'; }
+  else if(nq) h += '<div class="box key"><h4>' + t('check') + '</h4><p><a class="btn" href="#' + c.id + '-quiz-' + m.id + '">' + t('doQ')(nq) + '</a></p></div>';
   h += '<div class="pager">' + (prev ? '<a class="btn ghost" href="#' + c.id + '-' + prev.id + '">← ' + esc(prev.title) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#' + c.id + '-' + next.id + '">' + esc(next.title) + ' →</a>' : '<a class="btn" href="#' + c.id + '-examen-blanc">' + t('toExam') + '</a>') + '</div>';
   return h;
 }
 
+/* ---------- Espace QCM : certifications → modules → séries ---------- */
+function qcmHome(){
+  let h = '<p class="eyebrow">' + t('practice') + '</p><h1>' + t('qcmTitle') + '</h1><p class="lead">' + t('qcmLead') + '</p>';
+  CATEGORIES.forEach(cat => {
+    const items = CATALOG.filter(k => k.cat === cat.id && certById(k.id)); if(!items.length) return;
+    const ce = (LANG === 'en' && cat.en) || {};
+    h += '<h2>' + esc(ce.title || cat.title) + '</h2><div class="grid">';
+    items.forEach(k => { const raw = certById(k.id), c = V(raw), ns = seriesOf(raw.questions, 'all').length, sc = store.get(raw.id + ':series', {}), done = Object.keys(sc).length;
+      let slots = 0; raw.modules.forEach(m => { slots += seriesOf(raw.questions, m.id).length; });
+      h += '<a class="card" href="#qcm-' + raw.id + '"><span class="t">' + esc(c.title) + '</span><span class="d">' + raw.modules.length + ' modules · ' + (ns > 1 ? ns + ' ' + t('qcmSeries') + ' · ' : '') + raw.questions.length + ' questions</span>' + (ns > 1 && done ? '<span class="d">✓ ' + done + ' / ' + slots + '</span>' : '') + '<span class="d">' + t('qcmOpen') + '</span></a>'; });
+    h += '</div>';
+  });
+  return h;
+}
+function qcmCert(raw){
+  const c = V(raw), sc = store.get(raw.id + ':series', {});
+  let h = '<p style="margin:0 0 8px"><a href="#qcm">' + t('qcmBack') + '</a></p><p class="eyebrow">' + t('qcmTitle') + '</p><h1>' + esc(c.title) + '</h1><p class="lead">' + t('seriesLead') + '</p>';
+  h += '<div class="tablewrap"><table><thead><tr><th>#</th><th>' + t('thModule') + '</th><th>' + t('series') + '</th></tr></thead><tbody>';
+  c.modules.forEach((m, i) => { const ser = seriesOf(raw.questions, m.id); if(!raw.questions.some(q => q.m === m.id)) return;
+    h += '<tr><td class="num">' + (i + 1) + '</td><td><a href="#' + c.id + '-' + m.id + '">' + esc(m.title) + '</a></td><td><span class="series-btns">' + ser.map(s => { const n = raw.questions.filter(q => q.m === m.id && (q.s || 1) === s).length, r = sc[m.id + '-' + s];
+      return '<a class="chip" style="text-decoration:none" href="#' + c.id + '-quiz-' + m.id + (ser.length > 1 ? '-serie' + s : '') + '">' + (ser.length > 1 ? t('series') + ' ' + s : 'Questions') + ' (' + n + ')' + (r ? ' ✓ ' + r : '') + '</a>'; }).join('') + '</span></td></tr>'; });
+  h += '</tbody></table></div><div class="pager"><a class="btn" href="#' + c.id + '-quiz">' + t('qcmAllQ') + ' (' + raw.questions.length + ')</a><a class="btn ghost" href="#' + c.id + '-examen-blanc">' + t('takeExam') + '</a></div>';
+  return h;
+}
+
 /* ---------- Questions corrigées ---------- */
-function quizPage(raw, filter){
+/* Numéros de série présents pour un module (ou tous les modules si mid vaut 'all'). */
+function seriesOf(qs, mid){ const s = {}; qs.forEach(q => { if(mid === 'all' || q.m === mid) s[q.s || 1] = 1; }); return Object.keys(s).map(Number).sort((a, b) => a - b); }
+function quizPage(raw, filter, series){
   const c = V(raw), modIndex = {}; c.modules.forEach((m, i) => modIndex[m.id] = i + 1);
   const qTranslated = LANG === 'fr' || !!raw.enQuestions;
-  let state = { filter, onlyWrong:false, order:null, answers:{} };
+  const defSeries = f => (f !== 'all' && seriesOf(c.questions, f).length > 1) ? 1 : 0;
+  let state = { filter, series: series || defSeries(filter), onlyWrong:false, order:null, answers:{} };
   const wrongs = () => store.get(c.id + ':wrong', {});
   function list(){
     let qs = c.questions.map((q, idx) => idx);
     if(state.filter !== 'all') qs = qs.filter(i => c.questions[i].m === state.filter);
+    if(state.series) qs = qs.filter(i => (c.questions[i].s || 1) === state.series);
     if(state.onlyWrong){ const w = wrongs(); qs = qs.filter(i => w[i]); }
     if(state.order) qs.sort((a, b) => state.order[a] - state.order[b]);
     return qs;
@@ -177,14 +213,21 @@ function quizPage(raw, filter){
     let h = (qTranslated ? '' : notice()) + '<p class="eyebrow">' + esc(c.title) + '</p><h1>' + t('quiz') + '</h1><p class="lead">' + t('quizLead') + '</p>';
     h += '<div class="filters" role="group"><button type="button" class="chip" data-f="all" aria-pressed="' + (state.filter === 'all') + '">' + t('filterAll') + ' (' + c.questions.length + ')</button>';
     c.modules.forEach((m, i) => { const n = c.questions.filter(q => q.m === m.id).length; if(n) h += '<button type="button" class="chip" data-f="' + m.id + '" aria-pressed="' + (state.filter === m.id) + '" title="' + esc(m.title) + '">M' + (i + 1) + ' (' + n + ')</button>'; });
-    h += '</div><div class="scorebar"><span class="s">' + good + ' / ' + answered.length + ' ' + t('right') + ' · ' + (ids.length - answered.length) + ' ' + t('left') + '</span>';
+    h += '</div>';
+    const ser = seriesOf(c.questions, state.filter);
+    if(ser.length > 1){ const sc = store.get(c.id + ':series', {});
+      h += '<div class="filters" role="group" aria-label="' + t('series') + '"><button type="button" class="chip" data-s="0" aria-pressed="' + (state.series === 0) + '">' + t('allSeries') + '</button>';
+      ser.forEach(s => { const n = c.questions.filter(q => (state.filter === 'all' || q.m === state.filter) && (q.s || 1) === s).length, r = state.filter !== 'all' && sc[state.filter + '-' + s];
+        h += '<button type="button" class="chip" data-s="' + s + '" aria-pressed="' + (state.series === s) + '">' + t('series') + ' ' + s + ' (' + n + ')' + (r ? ' ✓ ' + r : '') + '</button>'; });
+      h += '</div>'; }
+    h += '<div class="scorebar"><span class="s">' + good + ' / ' + answered.length + ' ' + t('right') + ' · ' + (ids.length - answered.length) + ' ' + t('left') + '</span>';
     h += '<button type="button" class="btn ghost" id="qShuffle">' + t('shuffle') + '</button><button type="button" class="btn ghost" id="qReset">' + t('reset') + '</button>';
     h += '<button type="button" class="btn ghost" id="qWrong" aria-pressed="' + state.onlyWrong + '">' + (state.onlyWrong ? t('showAll') : t('reviewWrong')(Object.keys(wrongs()).length)) + '</button></div>';
     if(state.filter !== 'all'){ const m = c.modules.find(x => x.id === state.filter); if(m) h += '<p>Module ' + modIndex[m.id] + ' : <a href="#' + c.id + '-' + m.id + '">' + esc(m.title) + '</a></p>'; }
     if(!ids.length) h += '<div class="box">' + (state.onlyWrong ? t('noWrong') : t('noQ')) + '</div>';
     ids.forEach((idx, n) => {
       const q = Q(raw, c.questions[idx], idx), ans = state.answers[idx];
-      h += '<div class="q"><div class="meta"><span>' + t('question') + ' ' + (n + 1) + '</span><span>Module ' + modIndex[q.m] + '</span></div><p class="stem">' + esc(q.q) + '</p>';
+      h += '<div class="q"><div class="meta"><span>' + t('question') + ' ' + (n + 1) + '</span><span>Module ' + modIndex[q.m] + (ser.length > 1 ? ' · ' + t('series') + ' ' + (c.questions[idx].s || 1) : '') + '</span></div><p class="stem">' + esc(q.q) + '</p>';
       q.o.forEach((o, j) => {
         let cls = 'opt';
         if(ans !== undefined){ if(j === q.a) cls += ' right'; else if(j === ans) cls += ' wrong'; }
@@ -197,7 +240,8 @@ function quizPage(raw, filter){
   }
   $page.onclick = ev => {
     const b = ev.target.closest('button'); if(!b) return;
-    if(b.dataset.f){ state.filter = b.dataset.f; state.answers = {}; draw(); return; }
+    if(b.dataset.f){ state.filter = b.dataset.f; state.series = defSeries(state.filter); state.answers = {}; draw(); return; }
+    if(b.dataset.s !== undefined){ state.series = +b.dataset.s; state.answers = {}; state.order = null; draw(); return; }
     if(b.id === 'qShuffle'){ state.order = {}; c.questions.forEach((q, i) => state.order[i] = Math.random()); state.answers = {}; draw(); return; }
     if(b.id === 'qReset'){ state.answers = {}; state.order = null; draw(); return; }
     if(b.id === 'qWrong'){ state.onlyWrong = !state.onlyWrong; state.answers = {}; draw(); return; }
@@ -205,6 +249,8 @@ function quizPage(raw, filter){
       const qi = +b.dataset.q, oi = +b.dataset.o, q = Q(raw, c.questions[qi], qi);
       state.answers[qi] = oi;
       const w = wrongs(); if(oi === q.a) delete w[qi]; else w[qi] = 1; store.set(c.id + ':wrong', w);
+      if(state.filter !== 'all' && state.series && !state.onlyWrong){ const ids = list(); if(ids.every(i => state.answers[i] !== undefined)){
+        const sc = store.get(c.id + ':series', {}); sc[state.filter + '-' + state.series] = ids.filter(i => state.answers[i] === Q(raw, c.questions[i], i).a).length + '/' + ids.length; store.set(c.id + ':series', sc); } }
       const y = window.scrollY; draw(); window.scrollTo(0, y);
     }
   };
@@ -355,9 +401,11 @@ function route(){
   else if(r.view === 'format'){ const c = V(r.cert); $page.innerHTML = (c.translated ? '' : notice()) + '<p class="eyebrow">' + esc(c.title) + '</p><h1>' + t('formatTitle') + '</h1>' + c.exam; }
   else if(r.view === 'module') $page.innerHTML = modulePage(r.cert, r.mi);
   else if(r.view === 'page'){ const c = V(r.cert), p = c.pages[r.pi]; $page.innerHTML = (c.translated ? '' : notice()) + '<p class="eyebrow">' + esc(c.title) + '</p><h1>' + esc(p.title) + '</h1>' + p.html; }
-  else if(r.view === 'quiz') quizPage(r.cert, r.filter);
+  else if(r.view === 'quiz') quizPage(r.cert, r.filter, r.series);
   else if(r.view === 'exam') examPage(r.cert);
   else if(r.view === 'sigles') siglesPage(r.q);
+  else if(r.view === 'qcm') $page.innerHTML = qcmHome();
+  else if(r.view === 'qcmCert') $page.innerHTML = qcmCert(r.qc);
   sigClose();
   /* Sigles : soulignés seulement ; la définition et l'exemple s'ouvrent au clic (sigInline n'est plus appelé). */
   if(r.view !== 'sigles') sigWrap($page);

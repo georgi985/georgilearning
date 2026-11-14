@@ -22,3 +22,11 @@ window.PAS=function(id, list, en){ const c = CERTS.find(x => x.id === id); if(!c
     if(b.exo) h += '<h3>' + L[4] + '</h3>' + b.exo.map(x => '<details><summary>' + L[5] + x[0] + '</summary>' + x[1] + '</details>').join('');
     if(b.piege) h += '<div class="box tip"><h4>' + L[6] + '</h4><ul>' + b.piege.map(p => '<li>' + p + '</li>').join('') + '</ul></div>';
     if(en) m.pasEn = h + '</section>'; else m.pas = h + '</section>'; }); };
+/* SERIES(id, liste) : séries supplémentaires de questions corrigées par module, français et anglais ensemble.
+   Chaque élément : {m:"module", s:numéro de série (2, 3…), a:index de la bonne réponse,
+   fr:[question, [options], explication, [pourquoi chaque mauvaise réponse est fausse, dans l'ordre, sans la bonne]], en:[idem]}.
+   Les questions s'ajoutent à la fin de la banque : les questions existantes forment la série 1. */
+window.SERIES=function(id, list){ const c = CERTS.find(x => x.id === id); if(!c){ console.warn('SERIES: unknown cert', id); return; }
+  const mk = (r, a, m, s) => { const w = r[3] ? r[3].slice() : null; if(w){ w.splice(a, 0, ''); if(w.length !== r[1].length) console.error('SERIES', id, m, s, r[0]); } return {m:m, s:s, q:r[0], o:r[1], a:a, e:r[2], w:w}; };
+  list.forEach(x => { if(x.fr[1].length !== x.en[1].length) console.error('SERIES options', id, x.m, x.fr[0]);
+    c.questions.push(mk(x.fr, x.a, x.m, x.s)); if(c.enQuestions) c.enQuestions.push(mk(x.en, x.a, x.m, x.s)); }); };
