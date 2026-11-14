@@ -129,7 +129,7 @@ function applyData(d){
     T[l].title = A.titre_onglet; T[l].contactTitle = A.contact.titre; T[l].contactLead = A.contact.texte;
     T[l].svc = { eyebrow:V.surtitre, title:V.titre, lead:V.intro, offersTitle:V.offres_titre, offers:(V.offres || []).map(x => [x.titre, x.texte, x.points || []]),
       skillsTitle:V.competences_titre, skills:(V.competences || []).map(x => [x.titre, x.texte]), demoTitle:V.labo_titre, demoLead:V.labo_intro,
-      labs:(V.labs || []).map(x => [x.titre, x.texte]), demoNote:V.labo_note || '', ctaTitle:V.appel_titre, ctaText:V.appel_texte, cta:V.bouton_contact };
+      labs:(V.labs || []).map(x => [x.titre, x.texte]), cat:V.catalogue || null, demoNote:V.labo_note || '', ctaTitle:V.appel_titre, ctaText:V.appel_texte, cta:V.bouton_contact };
     const contact = ['<a href="tel:' + String(PROFIL.telephone || '').replace(/[^+\d]/g, '') + '">' + esc(PROFIL.telephone || '') + '</a>']
       .concat(mails.map(m => '<a href="mailto:' + m + '">' + m + '</a>'))
       .concat(PROFIL.linkedin ? ['<a href="' + esc(PROFIL.linkedin) + '" rel="noopener" target="_blank">LinkedIn</a>'] : [])
@@ -237,9 +237,15 @@ function calcAle(){
   document.getElementById('aleOut').innerHTML = h;
 }
 function pSvc(t){
-  const v = t.svc, H = HOME[LANG], icons = ['audit','shield','radar','building','bank'], oic = ['audit','shield','radar','doc','grad'];
+  const v = t.svc, H = HOME[LANG], icons = ['audit','shield','radar','building','bank'], oic = ['audit','check','shield','radar','doc','grad'];
   let h = pageHead(v.eyebrow, v.title, v.lead, '<a class="btn light" href="' + mailHref() + '">' + ICON('mail') + v.cta + '</a><a class="btn outline-light" href="#cv">' + t.seeCv + '</a>') + '<div class="page">';
-  h += '<h2 style="margin-top:0">' + v.offersTitle + '</h2><div class="grid g3">' + v.offers.map(([n, d, items], i) => '<div class="card offer lift rv"><span class="ic">' + ICON(oic[i] || 'check') + '</span><span class="n">0' + (i + 1) + '</span><h3>' + n + '</h3><span class="d">' + d + '</span><ul class="svc">' + items.map(x => '<li>' + x + '</li>').join('') + '</ul></div>').join('') + '</div>';
+  const c = v.cat;
+  if(c && c.fichier_pptx){
+    h += '<section class="catalog rv"><div class="cathead"><div><h2 style="margin:0 0 6px">' + esc(c.titre) + '</h2><p class="lead">' + esc(c.texte) + '</p></div><div class="actions"><a class="btn" href="' + esc(asset(c.fichier_pptx)) + '" download>' + ICON('download') + esc(c.bouton_pptx) + '</a>'
+      + (c.fichier_pdf ? '<a class="btn ghost" href="' + esc(asset(c.fichier_pdf)) + '" download>' + ICON('download') + esc(c.bouton_pdf) + '</a>' : '') + '</div></div>'
+      + '<div class="deck" role="list">' + (c.apercus || []).map((u, i) => '<a role="listitem" href="' + esc(asset(u)) + '" target="_blank" rel="noopener"><img src="' + esc(asset(u)) + '" alt="' + esc(c.titre) + ' · ' + (i + 1) + '" loading="lazy" width="960" height="540"></a>').join('') + '</div></section>';
+  }
+  h += '<h2>' + v.offersTitle + '</h2><div class="grid g3">' + v.offers.map(([n, d, items], i) => '<div class="card offer lift rv"><span class="ic">' + ICON(oic[i] || 'check') + '</span><span class="n">0' + (i + 1) + '</span><h3>' + n + '</h3><span class="d">' + d + '</span><ul class="svc">' + items.map(x => '<li>' + x + '</li>').join('') + '</ul></div>').join('') + '</div>';
   h += '<h2>' + v.skillsTitle + '</h2><div class="grid">' + v.skills.map(([n, d], i) => '<div class="card rv"><span class="ic">' + ICON(icons[i] || 'check') + '</span><h3>' + n + '</h3><span class="d">' + d + '</span></div>').join('') + '</div>';
   h += '<h2>' + v.demoTitle + '</h2><p class="lead">' + v.demoLead + '</p><div class="grid g3">' + v.labs.map(([n, d]) => '<div class="card lift rv"><span class="tag">Wazuh</span><h3>' + n + '</h3><span class="d">' + d + '</span></div>').join('') + '</div><p style="color:var(--muted);font-size:.9rem">' + v.demoNote + '</p>';
   h += '<div class="cta rv" style="margin-top:56px"><div><h2>' + v.ctaTitle + '</h2><p>' + v.ctaText + '</p></div><div class="actions"><a class="btn light" href="' + mailHref() + '">' + ICON('mail') + H.ctaMail + '</a><a class="btn outline-light" href="' + telHref() + '">' + ICON('phone') + H.ctaCall + '</a></div></div>';

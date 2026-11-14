@@ -3,6 +3,28 @@
     "surtitre": "COMPÉTENCES · OFFRES DE SERVICE",
     "titre": "Compétences et services",
     "intro": "J'aide les organisations à prouver que leurs systèmes sont maîtrisés : audit des contrôles informatiques, mise en place d'un système de management de la sécurité, et surveillance de sécurité avec des outils open source comme Wazuh.",
+    "catalogue": {
+      "titre": "Catalogue des offres à télécharger",
+      "texte": "Les six offres en détail : pour qui, ce que je fais, ce que vous recevez et la durée indicative. Cliquez sur une page pour l'agrandir.",
+      "bouton_pptx": "Télécharger (PowerPoint)",
+      "bouton_pdf": "Télécharger (PDF)",
+      "fichier_pptx": "/assets/catalogue/Georges-Alain-Gracien-CABO-Catalogue-FR.pptx",
+      "fichier_pdf": "/assets/catalogue/Georges-Alain-Gracien-CABO-Catalogue-FR.pdf",
+      "apercus": [
+        "/assets/catalogue/fr-01.jpg",
+        "/assets/catalogue/fr-02.jpg",
+        "/assets/catalogue/fr-03.jpg",
+        "/assets/catalogue/fr-04.jpg",
+        "/assets/catalogue/fr-05.jpg",
+        "/assets/catalogue/fr-06.jpg",
+        "/assets/catalogue/fr-07.jpg",
+        "/assets/catalogue/fr-08.jpg",
+        "/assets/catalogue/fr-09.jpg",
+        "/assets/catalogue/fr-10.jpg",
+        "/assets/catalogue/fr-11.jpg",
+        "/assets/catalogue/fr-12.jpg"
+      ]
+    },
     "offres_titre": "Offres de service",
     "offres": [
       {
@@ -13,6 +35,16 @@
           "Tests des accès, des changements et de l'exploitation",
           "Tests des contrôles automatiques et des rapports",
           "Rapport de constats classés par risque, avec recommandations"
+        ]
+      },
+      {
+        "titre": "Diagnostic de conformité sécurité",
+        "texte": "Pour les banques, IMF, émetteurs de monnaie électronique, télécoms et ports face aux nouvelles obligations (BCEAO, loi sur la sécurité numérique, données personnelles).",
+        "points": [
+          "Revue de la gouvernance : RSSI, politique de sécurité, PCA et PRA",
+          "Comparaison avec les exigences applicables",
+          "Revue des accès privilégiés et de la séparation des tâches",
+          "Feuille de route de mise en conformité sur 12 mois"
         ]
       },
       {
@@ -127,6 +159,28 @@
     "surtitre": "SKILLS · SERVICES",
     "titre": "Skills and services",
     "intro": "I help organizations prove that their systems are under control: IT controls audit, information security management systems, and security monitoring with open source tools such as Wazuh.",
+    "catalogue": {
+      "titre": "Download the service catalogue",
+      "texte": "The six offers in detail: for whom, what I do, what you receive and the typical duration. Click a page to enlarge it.",
+      "bouton_pptx": "Download (PowerPoint)",
+      "bouton_pdf": "Download (PDF)",
+      "fichier_pptx": "/assets/catalogue/Georges-Alain-Gracien-CABO-Catalogue-EN.pptx",
+      "fichier_pdf": "/assets/catalogue/Georges-Alain-Gracien-CABO-Catalogue-EN.pdf",
+      "apercus": [
+        "/assets/catalogue/en-01.jpg",
+        "/assets/catalogue/en-02.jpg",
+        "/assets/catalogue/en-03.jpg",
+        "/assets/catalogue/en-04.jpg",
+        "/assets/catalogue/en-05.jpg",
+        "/assets/catalogue/en-06.jpg",
+        "/assets/catalogue/en-07.jpg",
+        "/assets/catalogue/en-08.jpg",
+        "/assets/catalogue/en-09.jpg",
+        "/assets/catalogue/en-10.jpg",
+        "/assets/catalogue/en-11.jpg",
+        "/assets/catalogue/en-12.jpg"
+      ]
+    },
     "offres_titre": "Services",
     "offres": [
       {
@@ -137,6 +191,16 @@
           "Test access, change and operations controls",
           "Test automated controls and system reports",
           "Findings report ranked by risk, with recommendations"
+        ]
+      },
+      {
+        "titre": "Security compliance assessment",
+        "texte": "For banks, microfinance, e-money issuers, telecoms and ports facing new obligations (BCEAO, digital security law, personal data).",
+        "points": [
+          "Governance review: CISO, security policy, BCP and DRP",
+          "Gap analysis against applicable requirements",
+          "Review of privileged access and segregation of duties",
+          "12-month compliance roadmap"
         ]
       },
       {

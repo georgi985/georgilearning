@@ -66,6 +66,15 @@ p,li{max-width:68ch}
 .btn.ghost{background:transparent;color:var(--accent)}
 .btn.light{background:#fff;border-color:#fff;color:var(--navy)}
 .btn.outline-light{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
+/* Catalogue téléchargeable */
+.catalog{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow);margin:0 0 48px}
+.cathead{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;margin-bottom:20px}
+.cathead .lead{margin:0;max-width:60ch}
+.cathead .actions{display:flex;flex-wrap:wrap;gap:10px}
+.deck{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px}
+.deck a{flex:0 0 min(78%,380px);scroll-snap-align:start;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .15s ease}
+.deck a:hover{transform:translateY(-2px)}
+.deck img{display:block;width:100%;height:auto}
 .btn.sm{padding:8px 14px;font-size:.88rem}
 .btn svg{width:18px;height:18px}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}

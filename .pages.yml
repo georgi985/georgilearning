@@ -558,6 +558,34 @@ content:
     - name: intro
       label: Introduction
       type: text
+    - name: catalogue
+      label: Catalogue à télécharger
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      - name: bouton_pptx
+        label: Bouton PowerPoint
+        type: string
+      - name: bouton_pdf
+        label: Bouton PDF
+        type: string
+      - name: fichier_pptx
+        label: Fichier PowerPoint
+        type: file
+        description: Remplacez le fichier pour mettre à jour le catalogue.
+      - name: fichier_pdf
+        label: Fichier PDF
+        type: file
+      - name: apercus
+        label: Images d'aperçu des pages (dans l'ordre)
+        type: image
+        list: true
+      description: Laissez le fichier PowerPoint vide pour masquer ce bloc.
     - name: offres_titre
       label: Titre « Offres »
       type: string
@@ -632,6 +660,34 @@ content:
     - name: intro
       label: Introduction
       type: text
+    - name: catalogue
+      label: Catalogue à télécharger
+      type: object
+      fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Texte
+        type: text
+      - name: bouton_pptx
+        label: Bouton PowerPoint
+        type: string
+      - name: bouton_pdf
+        label: Bouton PDF
+        type: string
+      - name: fichier_pptx
+        label: Fichier PowerPoint
+        type: file
+        description: Remplacez le fichier pour mettre à jour le catalogue.
+      - name: fichier_pdf
+        label: Fichier PDF
+        type: file
+      - name: apercus
+        label: Images d'aperçu des pages (dans l'ordre)
+        type: image
+        list: true
+      description: Laissez le fichier PowerPoint vide pour masquer ce bloc.
     - name: offres_titre
       label: Titre « Offres »
       type: string
